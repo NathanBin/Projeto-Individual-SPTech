@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINSTATION</title>
+    <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/gridDesenho.css">
+    <link rel="stylesheet" href="css/teste.css">
+    <script src="script.js"></script>
+    <script src="grid.js"></script>
+    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('li').on('click', function(){
+                $(this).siblings().removeClass('active');
+                $(this).addClass('active');
+            })
+        })
+    </script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
+    />
+</head>
+
+<style>
+
+    .swiper {
+        width: 100%;
+        height: 280px;
+      }
+
+    .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        margin-left: -15px;
+    }
+
+   
+</style>
+
+<body>
+
+    <div class="main" >
+        <div class="header" >
+            <div class="logo">
+                <div><img src="assets/BinLogo2.png" alt=""></div>
+                <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
+            </div>
+            <div class="pesquisa">
+                <a href="#"><img src="assets/lupaCinza.png" alt="" width="25px"></a>
+                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <div class="barraPesquisa">
+                    <ul>
+                        <li><a href="#">Pesquise por Artes</a></li>
+                        <li><a href="#">Pesquise por Artistas</a></li>
+                        <li><a href="#">Pesquise por Estúdios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ulHeader">
+                <ul>
+                    <li><a href=""><img src="assets/icons/in.png" alt="" width="30px">Login</a></li>
+                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" alt="" width="25px">Cadastre-se</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="subHeader">
+            <div class="container" >
+                <ul >
+                    <li class="l1" onmouseenter="trocarL()" onmouseleave="destrocar()" ><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li class="l2" onmouseenter="trocarP()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/pincel.png" id="PincelB" class="imgIconSub imgPincelB" onmouseover="trocarP()" width="30px">Artes</a></li>
+                    <li class="l3" onmouseenter="trocarA()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/artista.png" id="ArtistaB" class="imgIconSub imgArtistaB" onmouseover="trocarA()" width="30px"> Artistas</a></li>
+                    <li class="l4" onmouseenter="trocarG()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/grafico.png" id="GraficoB" class="imgIconSub imgGraficoB" onmouseover="trocarG()" width="25px"> Trending</a></li>
+                    <li class="l5" onmouseenter="trocarC()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/contato.png" id="ContatoB" class="imgIconSub imgContatoB" onmouseover="trocarC()" width="20px"> Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+   <div  class="estrutura">
+
+
+
+       <!-- <li><img src="assets/destaque/sennaHigh250.jpg"></li>
+       <li><img src="assets/destaque/2mage250.jpg"></li>
+       <li><img src="assets/destaque/mage250.jpg"></li>
+       <li><img src="assets/destaque/tkHigh250.jpg"></li> -->
+          
+        
+        
+
+
+
+
+        <div class="destaques swiper mySwiper">
+
+            <div class="swiper-wrapper">
+                <div class="emDestaque swiper-slide">
+                    <img src="assets/destaque/mage250.jpg" alt="" class="imgDestaque">
+                    <div class="destaqueHover">
+                        <b>Mage Concept</b><br>
+                        <p>Deiv Calviz</p>
+                    </div>
+                </div>
+                <div class="emDestaque swiper-slide">
+                    <img src="assets/destaque/sennaHigh250.jpg" alt="" class="imgDestaque">
+                    <div class="destaqueHover">
+                        <b>Senna</b><br>
+                        <p>Binho do Santa</p>
+                    </div>
+                </div>
+                <div class="emDestaque swiper-slide">
+                    <img src="assets/destaque/pistol250.jpg" alt="" class="imgDestaque">
+                    <div class="destaqueHover">
+                        <b>Agent 505</b><br>
+                        <p>Chen Pink</p>
+                    </div>
+                </div>
+                <div class="emDestaque swiper-slide">
+                    <img src="assets/destaque/tkHigh250.jpg" alt="" class="imgDestaque">
+                    <div class="destaqueHover">
+                        <b>Tahm Kench</b><br>
+                        <p>Deiv Calviz</p>
+                    </div>
+                </div>
+                <div class="emDestaque swiper-slide">
+                    <img src="assets/destaque/2mage250.jpg" alt="" class="imgDestaque">
+                    <div class="destaqueHover">
+                        <b>Necromance</b><br>
+                        <p>LostElf</p>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+        
+        <div class="artes">
+            <ul>
+                <li class="active"><button class="bArtes" onclick="embaralhar()">Recentes</button></li>
+                <li ><button class="bArtes">Trending</button></li>
+                <li ><button class="bArtes">Comunidade</button></li>
+                <li class="liSlide"></li>
+            </ul>
+            <!-- <script type="text/javascript">
+                $(document).ready(function(){
+                    $('li').on('click', function(){
+                        $(this).siblings().removeClass('active');
+                        $(this).addClass('active');
+                    })
+                })
+            </script> -->
+
+            <script>
+                
+            </script>
+
+
+<!-- <button onclick="embaralhar()">embaralhar</button> -->
+            
+            
+        
+                
+
+            <div id="minhaLista" class="desenhos">
+                
+                
+            </div>
+        </div>
+        <div class="divulgacao">
+            <div class="texto">
+                <h3>Titulo</h3>
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!</p>
+            </div>
+            <div class="divul">
+                <img src="assets/destaque/nun.jpg" alt="" class="imgDivulgacao">
+                <div class="divulHover">
+                    <b>Senna</b><br>
+                    <p>Binho do Santa</p>
+                </div>
+            </div>
+            <div class="divul">
+                <img src="assets/destaque/warrior400.jpg" alt="" class="imgDivulgacao">
+                <div class="divulHover">
+                    <b>Concept Warrior</b><br><br>
+                    <p>Preparado para guerra!<br>
+                    O artista tenta transmitir através da obra um conceito
+                    de guerreiro arcano em um mundo de fantasia/medieval</p>
+                </div>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="carrossel">
+                <img src="assets/destaque/vila500.jpg" alt="" class="imgCarrossel">
+            </div>
+            <div class="carrossel">
+                <img src="assets/destaque/dice500.jpg" alt="" class="imgCarrossel">
+            </div>
+            <div class="carrossel">
+                <img src="assets/destaque/sera500.jpg" alt="" class="imgCarrossel">
+            </div>
+        </div>
+        <div class="banner">
+            <div class="mensagem">
+                <p>Novo no BinStation?<br>
+                Receba semanalmente notificações<br>
+                e atualizações em seu e-mail!</p>
+            </div>
+            <div class="campo">
+                <input type="email" id="idEmail" class="inEmail" placeholder="EMAIL">
+                <button onclick="rodarVideo()">Registre-se</button>
+                <div id="idResposta" class="resposta">
+                    <!-- <img src="assets/gif/GifBin.gif" alt=""> -->
+                    <video src="assets/gif/gif2.mp4" class="videoC" id="videoCheck" width="40px"></video>
+                    <p>Email cadastrado com sucesso!</p>
+                </div>
+                <div id="idErro" class="resposta">
+                    <!-- <img src="assets/gif/GifBin.gif" alt=""> -->
+                    <video src="assets/gif/GifRed.mp4" class="videoC" id="videoCheckR" width="40px"></video>
+                    <p>Insira o email corretamente!</p>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <span></span>
+            <div class="foot">
+                <img src="assets/icons/lgo3.png" alt="" class="imgL">
+                <h3><b class="tBin">BIN</b><b class="tStation">STATION</b></h3>
+                <img class="imgIcon" src="assets/icons/instagram.png" alt="">
+                <img class="imgIcon" src="assets/icons/github.png" alt="">
+                <img class="imgIcon" src="assets/icons/link1.png" alt="">
+                <img class="imgIcon" src="assets/icons/email.png" alt="">
+                <div class="contato">
+                    <b class="pContato">Contato</b>
+                    <img src="assets/icons/whats.png" alt="" class="imgW">
+                    <b class="pNumero">+55 11 98321-5789</b>
+                </div>
+            </div>
+            <div class="roda">
+                <p>Rua Haddock Lobo, 595 - 01414-001</p>
+                <p>Desenvolvido por Nathan "Bin" Lopes - &copy; Copyright</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+</body>
+</html>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 5,
+      spaceBetween: 30,
+      slidesPerGroup: 1,
+      loop: true,
+      loopFillGroupWithBlank: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+</script>
+<script>
+    function rodarVideo(){
+        var cadEmail = idEmail.value
+
+        if(cadEmail != ''){
+            idResposta.style.top = "65px";
+            videoCheck.play()
+            idErro.style.top = "0px"
+        }else{
+            idErro.style.top = "65px";
+            videoCheckR.play()
+            idResposta.style.top = "0px"
+        }
+      
+    }
+</script>

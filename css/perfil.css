@@ -1,0 +1,294 @@
+body{
+    background-color: rgb(34, 34, 34);
+}
+.banner{
+    margin-top: 100px;
+    background-image: url(img/mingchen-shen-citywallfinal2.jpg);
+    background-size: 100%;
+    height: 400px;
+    background-repeat: no-repeat;
+    
+}
+.gradienteBanner{
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #111111, rgba(32, 32, 32, 0.034));
+}
+.icon{
+    width: 150px;
+    border-radius: 50%;
+}
+.info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    margin-top: 110px;
+}
+.info h3{
+    font-size: 24px;
+
+}
+.info span{
+    font-size: 20px;
+}
+.navbar{
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(21,21,21);
+}
+.navbar ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+.navbar li{
+    margin: 0 25px;
+    list-style: none;
+}
+.slide::after{
+    content: '';
+    height: 45px;
+    width: 0px;
+    background-color: rgba(75, 75, 75, 0.2);
+    position: absolute;
+    display: block;
+    transition: all 0.3s ease;
+    z-index: 1;
+    /* right: 400px; */
+}
+.navbar a{
+    text-decoration: none;
+    color: white;
+    cursor: pointer;
+}
+.bLi{
+    background-color: transparent;
+    border: none;
+    color: white;
+    width: 55px;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.follow{
+    background-color: #0053af;
+    width: 80px;
+    height: 30px;
+    margin: 0 10px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+.msg{
+    background-color: rgb(83, 196, 83);
+    width: 80px;
+    height: 30px;
+    margin: 0 5px;
+    color: white;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+}
+.estrutura{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+.portifolio{
+    position: relative;
+    flex-basis: 20%;
+    display: none;
+    /* flex-grow: 1; */
+}
+.artePortifolio{
+    width: 100%;
+}
+.portifolio .destaqueHover{
+    transition: 0.5s ease;
+    position: absolute;
+    opacity: 0;
+    height: 80px;   
+    left: 0;
+    top: 190px;
+    width: 100%;
+   text-align: center;
+    color: white;
+    border-radius: 0 0 5px 5px;
+    background-image: linear-gradient(to top, #000000, rgba(32, 32, 32, 0.034));
+
+}
+.portifolio:hover .destaqueHover{
+    opacity: 1;
+}
+.sobre{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.sumario{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    color: white;
+    margin-top: 30px;
+}
+.sumario h3{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.sumario p{
+    font-size: 20px;
+    color: rgb(201, 201, 201);
+}
+.contatos{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    color: white;
+    margin-top: 40px;
+}
+.contatos h3{
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+.contatos p{
+    font-size: 20px;
+    color: rgb(201, 201, 201);
+}
+.likes{
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.imgCurtida{
+    flex-basis: 20%;
+    position: relative;
+}
+.imgCurtida .destaqueHover{
+    transition: 0.5s ease;
+    position: absolute;
+    opacity: 0;
+    height: 80px;   
+    left: 0;
+    top: 190px;
+    width: 100%;
+   text-align: center;
+    color: white;
+    background-image: linear-gradient(to top, #000000, rgba(32, 32, 32, 0.034));
+
+}
+.imgCurtida:hover .destaqueHover{
+    opacity: 1;
+}
+
+.seguindo{
+    display: none;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px;
+    justify-content: space-around;
+}
+.artista{
+    flex-basis: 23%;
+    color: white;
+    position: relative;
+    background-color: rgb(21,21,21);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 440px;
+    margin-top: 10px;
+}
+.capa img{
+    width: 92%;
+    margin: 9px;
+}
+.capa{
+    display: flex;
+    justify-content: center;
+}
+.icone{
+    width: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: 100px;
+    left: 100px;
+}
+.artista h4{
+    font-size: 27px;
+    margin-top: 50px;
+}
+.artista button{
+    width: 80px;
+    height: 30px;
+    margin: 0 5px;
+    color: white;
+    border-radius: 3px;
+    border: none;
+    font-size: 14px;
+    background-color: #0053af;
+    margin-top: 10px;
+}
+.imgA1{
+    width: 88px;
+    height: 88px;
+    
+    
+}
+.imgA1 img{
+    width: 100%;
+}
+.artes{
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+}
+
+.seguidores{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+ul li:nth-child(1).active ~ .slide::after
+{
+    left: 5px;
+    width: 103px;
+}
+ul li:nth-child(2).active ~ .slide::after
+{
+    left: 108px;
+    width: 103px;
+}
+ul li:nth-child(3).active ~ .slide::after
+{
+    left: 211px;
+    width: 100px;
+}
+ul li:nth-child(4).active ~ .slide::after
+{
+    left: 311px;
+    width: 120px;
+}
+ul li:nth-child(5).active ~ .slide::after
+{
+    left: 431px;
+    width: 103px;
+}
+
