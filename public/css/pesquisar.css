@@ -1,0 +1,140 @@
+body{
+    background-color: rgb(34,34,34);
+}
+.conteudo{
+    margin-top: 100px;
+}
+.cPesquisa{
+    display: flex;
+    
+    align-items: center;
+    flex-direction: column;
+    height: 250px;
+    background-color: rgb(21,21,21);
+    
+}
+
+.areaPesquisa{
+    width: 60%;
+    height: 80px;
+    border-radius: 10px;
+    border: 1px solid #757575;
+    background-color: rgb(34,34,34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 75px;
+}
+
+.imgLupaM{
+    width: 80px;
+    margin-right: 10px
+}
+.areaPesquisa input{
+    width: 88%;
+    border: none;
+    padding: 5px;
+    height: 75px;
+    background-color: rgb(34,34,34);
+    font-size: 33px;
+    color: white;
+    outline: none;
+}
+
+.cPesquisa ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    position: relative;
+
+}
+.cPesquisa li{
+    list-style: none;
+    margin: 0 20px;
+    font-size: 22px;
+}
+.slide{
+    height: 0px;
+}
+.slide::after{
+    content: '';
+    width: 0px;
+    top: 40px;
+    height: 6px;
+    background-color: #0053af;
+    position: absolute;
+    transition: 0.3s ease;
+}
+ul li:nth-child(1).active ~ .slide::after
+{
+    left: 17px;
+    width: 64px;
+}
+ul li:nth-child(2).active ~ .slide::after
+{
+    left: 115px;
+    width: 90px;
+}
+ul li:nth-child(3).active ~ .slide::after
+{
+    left: 240px;
+    width: 94px;
+}
+li button{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 26px;
+}
+.filtro{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 50px;
+}
+.show{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 40%;
+    color: white;
+}
+.checkB{
+    margin: 0 5px;
+}
+#selOrdenar{
+    margin: 10px 20px;
+    width: 210px;
+    height: 40px;
+    font-size: 16px;
+    background-color: rgb(34,34,34);
+    color: white;
+}
+
+#selTipo{
+    margin: 10px 20px;
+    width: 210px;
+    height: 40px;
+    font-size: 16px;
+    background-color: rgb(34,34,34);
+    color: white;
+}
+.resultado{
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    min-height: 440px;
+}
+.resultado img{
+    width: 200px;
+}
+.resultado p{
+    font-size: 22px;
+    color: white;
+}
+
+

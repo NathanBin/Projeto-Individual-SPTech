@@ -1,0 +1,50 @@
+.estruturaC{
+    margin-top: 100px;
+    background-color: rgb(34,34,34);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.tDesenho{
+    margin-bottom: 100px;
+    width: 900px;
+    height: 500px;
+    border: 25px solid rgb(21,21,21);
+    border-radius: 0 15px 15px 0;
+    background-color: white;
+    display: flex;
+    
+    
+}
+.mainC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    padding-top: 30px;
+}
+.optionsC{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 80px;
+    background-color: rgb(21,21,21);
+    margin-top: -100px;
+    border-radius: 15px 0 0 15px;
+}
+.coluna{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bTela{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 15px 0 15px 25px;
+    background-color: rgb(34,34,34);
+    color: white;
+    
+}

@@ -1,0 +1,151 @@
+body{
+    background-color: rgb(21,21,21);
+}
+
+.formulario{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(34, 34, 34);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 550px;
+    height: 600px;
+    border-radius: 10px;
+}
+.fContainer{
+    margin: 20px;
+}
+.fHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.fLogo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imgfLogo{
+    width: 70px;
+}
+.entrar p{
+    font-size: 18px;
+    color: white;
+}
+.entrar a{
+    text-decoration: none;
+    color: #0053af;
+    cursor: pointer;
+}
+.entrar a:hover{
+    color: #006ae2;
+}
+.titulo{
+    margin: 15px 0;
+    /* display: flex;
+    align-items: center;
+    flex-direction: column; */
+}
+.titulo h2{
+    font-size: 30px;
+    color: white;
+
+}
+.titulo p{
+    color: #757575;
+    font-size: 20px;
+}
+.fCampo{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+label{
+    margin: 3px 0;
+    color: white;
+}
+.fCampo input{
+    height: 35px;
+    background-color: rgb(21,21,21);
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 18px;
+    padding: 0 7px;
+}
+
+.verificacao{
+    display: flex;
+    margin-top: 45px;
+}
+.verificacao p{
+    color: white;
+    font-size: 17px;
+}
+.verificacao a{
+    text-decoration: none;
+    color: #0053af;
+}
+.verificacao a:hover{
+    color: #006ae2;
+}
+.verificacao input{
+    color: #0053af;
+
+    margin-right: 5px;
+}
+.pValidacao{
+    margin-left: 3px;
+    margin-top: 3px;
+}
+.botao{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+button{
+    background-color: #0053af;
+    color: white;
+    width: 150px;
+    height: 50px;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+.validacao{
+    display: grid;
+    color: #757575;
+    grid-template-areas:
+    'd1 d3'
+    'd2 d4'
+}
+.pValidacao{
+    display: flex;
+}
+.imgTraco{
+    width: 17px;
+    
+    margin-right: 2px;
+}
+.validacao:nth-child(1).pValidacao{
+    grid-area: d1;
+}
+.validacao:nth-child(2).pValidacao{
+    grid-area: d2;
+}
+.validacao:nth-child(3).pValidacao{
+    grid-area: d3;
+}
+.validacao:nth-child(4).pValidacao{
+    grid-area: d4;
+    
+}
+/* #fEmail:focus{
+    border: 1px solid #0053af;
+} */
