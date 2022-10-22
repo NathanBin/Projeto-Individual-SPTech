@@ -65,3 +65,4 @@ function apagar(){
 
     contexto.clearRect(0, 0, tela.width, tela.height);
 }
+

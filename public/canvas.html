@@ -50,15 +50,24 @@
         </div>
     </div>
 
+        <div id="modalT">
+            <div class="tools">
+                
+            </div>
+        </div>
+
     <div class="estruturaC">
         <div class="mainC">
+            <div class="colors">
+
+            </div>
             <div class="optionsC">
                 <div class="coluna">
-                    <button class="bTela"></button>
-                    <button class="bTela"></button>
-                    <button class="bTela" onclick="apagar()">apagar</button>
-                    <button class="bTela"></button>
-                    <button class="bTela"></button>
+                    <button class="bTela bTool">Tools</button>
+                    <button class="bTela">Cores</button>
+                    <button class="bTela" onclick="apagar()">Apagar</button>
+                    <button class="bTela">Formas</button>
+                    <button class="bTela">Zoom</button>
                 </div>
                 
             </div>
@@ -66,6 +75,37 @@
         </div>
     </div>
 
+    <script>
+        function iniciarModal(id){
+            const modal = document.getElementById(id);
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if(e.target.id == id){
+                    modal.classList.remove('mostrar')
+                }
+            })
+            /* console.log(modal) */
+        }
+
+        //não abrir modal dnv (colocar o comando dps do classList.remove)
+        //localStorage.fechaModal = id //esse id é aquele nome anonimo
+        //no inicio da função
+        //if(localStorage.fechaModal !== id){executa a função}
+        
+        //executar a função com scroll
+        //document.addEventListener('scroll', () => {
+        //    if(window.pageYOffset > 800){
+        //    iniciarModal('modalT')
+        //})
+
+        const logo = document.querySelector('.bTool');
+        logo.addEventListener('click', function() {
+            iniciarModal('modalT');
+        });
+        console.log(logo);
+        
+
+    </script>
 
     
 </body>
