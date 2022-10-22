@@ -55,18 +55,28 @@
                 
             </div>
         </div>
+        <div id="modalC">
+            <div class="colors">
+                
+            </div>
+        </div>
+        <div id="modalF">
+            <div class="formas">
+                
+            </div>
+        </div>
 
     <div class="estruturaC">
         <div class="mainC">
-            <div class="colors">
+           <!--  <div class="colors">
 
-            </div>
+            </div> -->
             <div class="optionsC">
                 <div class="coluna">
                     <button class="bTela bTool">Tools</button>
-                    <button class="bTela">Cores</button>
+                    <button class="bTela bColors">Cores</button>
                     <button class="bTela" onclick="apagar()">Apagar</button>
-                    <button class="bTela">Formas</button>
+                    <button class="bTela bFormas">Formas</button>
                     <button class="bTela">Zoom</button>
                 </div>
                 
@@ -97,13 +107,23 @@
         //    if(window.pageYOffset > 800){
         //    iniciarModal('modalT')
         //})
-
-        const logo = document.querySelector('.bTool');
-        logo.addEventListener('click', function() {
+            
+        const botaoTools = document.querySelector('.bTool');
+        botaoTools.addEventListener('click', function() {
             iniciarModal('modalT');
         });
-        console.log(logo);
+        console.log(botaoTools);
+
+        const botaoColors = document.querySelector('.bColors');
+        botaoColors.addEventListener('click', function() {
+            iniciarModal('modalC');
+        });
+        console.log(botaoColors)
         
+        const botaoFormas = document.querySelector('.bFormas');
+        botaoFormas.addEventListener('click', function() {
+            iniciarModal('modalF');
+        })
 
     </script>
 
