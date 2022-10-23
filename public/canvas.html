@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/canvas.css">
     <script src="script.js"></script>
     <script src="canvas.js"></script>
+    <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -52,16 +53,114 @@
 
         <div id="modalT">
             <div class="tools">
-                
+                <div class="iconsT">
+                    <i class="fa-solid fa-pen"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-eraser"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-paint-roller"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-paintbrush"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-minus"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-plus"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-magnifying-glass-minus"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-magnifying-glass-plus"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-lasso-sparkles"></i>
+                </div>
+                <div class="iconsT"></div>
+                <div class="iconsT"></div>
+                <div class="iconsT"></div>
             </div>
         </div>
         <div id="modalC">
             <div class="colors">
-                
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT">
+                   
+                </div>
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT">
+                    
+                </div>
+                <div class="iconsT"></div>
+                <div class="iconsT"></div>
+                <div class="iconsT"></div>
             </div>
         </div>
         <div id="modalF">
             <div class="formas">
+                <div class="iconsT">
+                    <i class="fa-regular fa-square"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-regular fa-sun"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-regular fa-moon"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-regular fa-circle"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-regular fa-star"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-regular fa-heart"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-diamond"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-music"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-snowflake"></i>
+                </div>
+                <div class="iconsT">
+                    <i class="fa-solid fa-hotel"></i>
+                </div>
+            </div>
+        </div>
+        <div id="modalZ">
+            <div class="zoom">
                 
             </div>
         </div>
@@ -73,11 +172,11 @@
             </div> -->
             <div class="optionsC">
                 <div class="coluna">
-                    <button class="bTela bTool">Tools</button>
-                    <button class="bTela bColors">Cores</button>
-                    <button class="bTela" onclick="apagar()">Apagar</button>
-                    <button class="bTela bFormas">Formas</button>
-                    <button class="bTela">Zoom</button>
+                    <button class="bTela bTool"><i class="fa-solid fa-screwdriver-wrench"></i></button>
+                    <button class="bTela bColors"><i class="fa-solid fa-palette"></i></button>
+                    <button class="bTela bApagar" onclick="apagar()"><i class="fa-solid fa-circle-xmark"></i></button>
+                    <button class="bTela bFormas"><i class="fa-solid fa-shapes"></i></i></button>
+                    <button class="bTela bZoom"><i class="fa-solid fa-layer-group"></i></button>
                 </div>
                 
             </div>
@@ -125,6 +224,10 @@
             iniciarModal('modalF');
         })
 
+        const botaoZoom = document.querySelector('.bZoom');
+        botaoZoom.addEventListener('click', function() {
+            iniciarModal('modalZ')
+        })
     </script>
 
     
