@@ -185,6 +185,24 @@ ul a{
 .divul img{
     border-radius: 10px;
 }
+
+[data-anime]{
+    opacity: 0;
+    transition: .3s;
+}
+[data-anime="left"]{
+    transform: translate3d(-50px,0,0);
+}
+[data-anime="right"]{
+    transform: translate3d(20px,0,0);
+}
+[data-anime="bottom"]{
+    transform: translate3d(0,10px,0);
+}
+[data-anime].show{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+}
 .texto{
     width: 400px;
     display: flex;

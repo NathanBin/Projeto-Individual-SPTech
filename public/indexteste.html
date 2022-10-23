@@ -112,18 +112,6 @@
    <div  class="estrutura">
 
 
-
-       <!-- <li><img src="assets/destaque/sennaHigh250.jpg"></li>
-       <li><img src="assets/destaque/2mage250.jpg"></li>
-       <li><img src="assets/destaque/mage250.jpg"></li>
-       <li><img src="assets/destaque/tkHigh250.jpg"></li> -->
-          
-        
-        
-
-
-
-
         <div class="destaques swiper mySwiper">
 
             <div class="swiper-wrapper">
@@ -185,14 +173,14 @@
                 <h3>Titulo</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!</p>
             </div>
-            <div class="divul">
+            <div class="divul" data-anime="left">
                 <img src="assets/destaque/nun.jpg" alt="" class="imgDivulgacao">
                 <div class="divulHover">
                     <b>Senna</b><br>
                     <p>Binho do Santa</p>
                 </div>
             </div>
-            <div class="divul">
+            <div class="divul" data-anime="right">
                 <img src="assets/destaque/warrior400.jpg" alt="" class="imgDivulgacao">
                 <div class="divulHover">
                     <b>Concept Warrior</b><br><br>
@@ -214,12 +202,12 @@
             </div>
         </div>
         <div class="banner">
-            <div class="mensagem">
+            <div class="mensagem" data-anime="left">
                 <p>Novo no BinStation?<br>
                 Receba semanalmente notificações<br>
                 e atualizações em seu e-mail!</p>
             </div>
-            <div class="campo">
+            <div class="campo" data-anime="right">
                 <input type="email" id="idEmail" class="inEmail" placeholder="EMAIL">
                 <button onclick="rodarVideo()">Registre-se</button>
                 <div id="idResposta" class="resposta">
@@ -236,7 +224,7 @@
         </div>
         <div class="footer">
             <span></span>
-            <div class="foot">
+            <div class="foot" data-anime="bottom">
                 <img src="assets/icons/lgo3.png" alt="" class="imgL">
                 <h3><b class="tBin">BIN</b><b class="tStation">STATION</b></h3>
                 <img class="imgIcon" src="assets/icons/instagram.png" alt="">
@@ -306,10 +294,41 @@
             })
         }
     }
-  
+    //Ativar função quando rolar o scroll
     document.addEventListener('scroll', () => {
         if(window.pageYOffset > 600){
             iniciarModal('modalL')
         }
     })
+/*          Tentar removar o localStorage para voltar a aparecer a modal!
+    function removerStorage(id){
+        if(localStorage.fecharModal == id){
+            getItem()
+        }
+    } */
+  
+</script>
+<script>
+    const target = document.querySelectorAll('[data-anime]');
+    const animationClass = 'show';
+    console.log(target)
+    function animeScroll(){
+        const windowTop = window.pageYOffset + /* ((window.innerHeight * 3) / 4) */500
+        target.forEach(function(e) {
+            if((windowTop) > e.offsetTop){
+                e.classList.add(animationClass)
+            }else{
+                e.classList.remove(animationClass)
+            }
+            
+        })
+    }
+
+    animeScroll()
+
+    if(target.length){
+        window.addEventListener('scroll', function(){
+            animeScroll()
+        })
+    }
 </script>
