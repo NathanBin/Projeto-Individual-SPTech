@@ -50,7 +50,7 @@
             </div>
         </div>
     </div>
-
+        
         <div id="modalT">
             <div class="tools">
                 <div class="iconsT">
@@ -87,36 +87,18 @@
         </div>
         <div id="modalC">
             <div class="colors">
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT">
-                   
-                </div>
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT">
-                    
-                </div>
-                <div class="iconsT"></div>
-                <div class="iconsT"></div>
-                <div class="iconsT"></div>
+                <div onclick="mudarCor(this)" id="white" class="iconsT" style="background-color: white;"></div>
+                <div onclick="mudarCor(this)" id="black" class="iconsT" style="background-color: black;"></div>
+                <div onclick="mudarCor(this)" id="#0053af" class="iconsT" style="background-color: #0053af;"></div>
+                <div onclick="mudarCor(this)" id="orangered" class="iconsT" style="background-color: orangered;"></div>
+                <div onclick="mudarCor(this)" id="red" class="iconsT" style="background-color: red;"></div>
+                <div onclick="mudarCor(this)" id="green" class="iconsT" style="background-color: green;"></div>
+                <div onclick="mudarCor(this)" id="yellow" class="iconsT" style="background-color: yellow;"></div>
+                <div onclick="mudarCor(this)" id="purple" class="iconsT" style="background-color: purple;"></div>
+                <div onclick="mudarCor(this)" id="aquamarine" class="iconsT" style="background-color: aquamarine;"></div>
+                <div onclick="mudarCor(this)" id="pink" class="iconsT" style="background-color: pink;"></div>
+                <div onclick="mudarCor(this)" id="grey" class="iconsT" style="background-color: grey;"></div>
+                <div onclick="mudarCor(this)" id="crimson" class="iconsT" style="background-color: crimson;"></div>
             </div>
         </div>
         <div id="modalF">
@@ -161,7 +143,8 @@
         </div>
         <div id="modalZ">
             <div class="zoom">
-                
+                <button onclick="voltar()">voltar</button>
+                <input type="range" min="1" max="10" oninput="mudarTamanho(this)">
             </div>
         </div>
 
@@ -191,21 +174,11 @@
             modal.addEventListener('click', (e) => {
                 if(e.target.id == id){
                     modal.classList.remove('mostrar')
-                }
+                }      
             })
-            /* console.log(modal) */
         }
-
-        //não abrir modal dnv (colocar o comando dps do classList.remove)
-        //localStorage.fechaModal = id //esse id é aquele nome anonimo
-        //no inicio da função
-        //if(localStorage.fechaModal !== id){executa a função}
         
-        //executar a função com scroll
-        //document.addEventListener('scroll', () => {
-        //    if(window.pageYOffset > 800){
-        //    iniciarModal('modalT')
-        //})
+        
             
         const botaoTools = document.querySelector('.bTool');
         botaoTools.addEventListener('click', function() {
@@ -228,6 +201,8 @@
         botaoZoom.addEventListener('click', function() {
             iniciarModal('modalZ')
         })
+
+        
     </script>
 
     

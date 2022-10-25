@@ -70,6 +70,20 @@
     align-items: center;
     flex-direction: row;
 }
+.ulHeader button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.ulHeader li button{
+    background-color: transparent;
+    font-size: 18px;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
 .header ul{
     display: flex;
     width: 200px;

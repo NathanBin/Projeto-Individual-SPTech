@@ -1,3 +1,27 @@
+let draw_color = "black";
+let draw_width = "5"
+function mudarCor(element){
+    const tela = document.querySelector('#tela');
+    const contexto = tela.getContext('2d');
+
+    draw_color = element.id;
+    contexto.strokeStyle = draw_color;
+    
+}
+
+function mudarTamanho(element){
+    const tela = document.querySelector('#tela');
+    const contexto = tela.getContext('2d');
+
+    draw_width = element.value;
+    contexto.lineWidth = draw_width;
+}
+let restore = []
+let indexV = -1
+/* function voltar(){
+    incluir aqui a função de Ctrol Z
+} */
+
 document.addEventListener('DOMContentLoaded',() =>{
 
 const pincel ={
@@ -7,6 +31,7 @@ const pincel ={
     posAnterior: null
 }
 
+
 const tela = document.querySelector('#tela');
 const contexto = tela.getContext('2d')
 
@@ -14,7 +39,9 @@ const contexto = tela.getContext('2d')
 tela.width = 900;
 tela.height = 500;
 
-contexto.lineWidth = 5;
+contexto.strokeStyle = draw_color;
+
+contexto.lineWidth = draw_width;
 
 //desenho na tela
 const desenharLinha = (linha)=>{
@@ -46,12 +73,26 @@ const ciclo = () => {
 
 ciclo()
 
-/* function apagar(){
-    contexto.clearRect(0, 0, tela.width, tela.height);
-} */
 
 
 })
+//Usar essa função para salvar a linha num historico, para dps seguir com a proxima função
+/* function parar(event){
+    const tela = document.querySelector('#tela');
+    const contexto = tela.getContext('2d')
+
+    if(pincel.ativo){
+        contexto.stroke();
+        contexto.closePath();
+        pincel.ativo = false;
+
+    }
+    event.preventDefault();
+
+    restore.push(contexto.getImageData(0, 0, tela.width, tela.height))
+    indexV += 1
+    console.log(restore)
+} */
 
 function apagar(){
 
@@ -61,8 +102,12 @@ function apagar(){
     tela.width = 900;
     tela.height = 500;
 
-    contexto.lineWidth = 5;
+    contexto.lineWidth = draw_width;
+    contexto.strokeStyle = draw_color;
 
     contexto.clearRect(0, 0, tela.width, tela.height);
+
+    /* restore.push(contexto.getImageData()) */
 }
+
 

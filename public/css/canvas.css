@@ -240,10 +240,10 @@
     justify-content: center;
     align-items: center;
     margin-top: 12px;
-    
+    cursor: pointer;
 }
 
-.colors .iconsT:nth-child(1){
+/* .colors .iconsT:nth-child(1){
     background-color: white;
 }
 .colors .iconsT:nth-child(2){
@@ -279,3 +279,4 @@
 .colors .iconsT:nth-child(12){
     background-color: crimson;
 }
+ */

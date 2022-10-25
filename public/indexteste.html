@@ -68,8 +68,8 @@
                 </div>
             </div>
             <div class="ulHeader">
-                <ul>
-                    <li class="liLogin"><a href=""><img src="assets/icons/in.png" alt="" width="30px">Login</a></li>
+                <ul><!-- onclick="iniciarModal('modalL')" -->
+                    <li class="liLogin" ><button><img src="assets/icons/in.png" alt="" width="30px">Login</button></li>
                     <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" alt="" width="25px">Cadastre-se</a></li>
                 </ul>
             </div>
@@ -282,30 +282,33 @@
     }
 </script>
 <script>
+    sessionStorage.clear()
     function iniciarModal(id){
-        if(localStorage.fecharModal !== id){
+        if(sessionStorage.fecharModal !== id){
             const modal = document.getElementById(id);
             modal.classList.add('mostrar');
             modal.addEventListener('click', (e) => {
                 if(e.target.id == id){
                     modal.classList.remove('mostrar')
-                    localStorage.fecharModal = id
+                    sessionStorage.fecharModal = id
                 }
             })
         }
     }
+
+    const botaoLogin = document.querySelector('.liLogin')
+    botaoLogin.addEventListener('click', function() {
+        sessionStorage.clear()
+        iniciarModal('modalL')
+    })
+
     //Ativar função quando rolar o scroll
     document.addEventListener('scroll', () => {
         if(window.pageYOffset > 600){
             iniciarModal('modalL')
         }
     })
-/*          Tentar removar o localStorage para voltar a aparecer a modal!
-    function removerStorage(id){
-        if(localStorage.fecharModal == id){
-            getItem()
-        }
-    } */
+
   
 </script>
 <script>
