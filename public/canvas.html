@@ -143,8 +143,10 @@
         </div>
         <div id="modalZ">
             <div class="zoom">
-                <button onclick="voltar()">voltar</button>
+                <button onclick="base64()">Pegar base64</button>
+                <p>Tamanho da linha</p>
                 <input type="range" min="1" max="10" oninput="mudarTamanho(this)">
+                
             </div>
         </div>
 
@@ -166,6 +168,8 @@
             <canvas id="tela" class="tDesenho"></canvas>
         </div>
     </div>
+    
+    <img src="" id="imgA" alt="" width="200px">
 
     <script>
         function iniciarModal(id){
@@ -178,7 +182,11 @@
             })
         }
         
-        
+        function fecharM(id){
+            const modal = document.getElementById(id);
+
+            modal.classList.remove('mostrar')
+        }
             
         const botaoTools = document.querySelector('.bTool');
         botaoTools.addEventListener('click', function() {

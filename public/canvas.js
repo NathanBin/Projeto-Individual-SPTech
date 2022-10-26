@@ -3,10 +3,12 @@ let draw_width = "5"
 function mudarCor(element){
     const tela = document.querySelector('#tela');
     const contexto = tela.getContext('2d');
+    const modal = document.getElementById('modalC');
 
     draw_color = element.id;
     contexto.strokeStyle = draw_color;
     
+    modal.classList.remove('mostrar')
 }
 
 function mudarTamanho(element){
@@ -15,9 +17,11 @@ function mudarTamanho(element){
 
     draw_width = element.value;
     contexto.lineWidth = draw_width;
+
+   
 }
-let restore = []
-let indexV = -1
+/* let restore = []
+let indexV = -1 */
 /* function voltar(){
     incluir aqui a função de Ctrol Z
 } */
@@ -42,6 +46,9 @@ tela.height = 500;
 contexto.strokeStyle = draw_color;
 
 contexto.lineWidth = draw_width;
+contexto.rect(0,0,900,500)
+contexto.fillStyle = "white";
+contexto.fill()
 
 //desenho na tela
 const desenharLinha = (linha)=>{
@@ -102,12 +109,27 @@ function apagar(){
     tela.width = 900;
     tela.height = 500;
 
+
     contexto.lineWidth = draw_width;
     contexto.strokeStyle = draw_color;
 
     contexto.clearRect(0, 0, tela.width, tela.height);
+    contexto.rect(0,0,900,500)
+    contexto.fillStyle = "white";
+    contexto.fill()
 
     /* restore.push(contexto.getImageData()) */
 }
+
+let imgemCanvas = ''
+
+function base64(){
+    const tela = document.querySelector('#tela');
+    let imagemConvertida = document.querySelector('#imgA');
+
+    imagemConvertida.src = tela.toDataURL();
+}
+
+
 
 
