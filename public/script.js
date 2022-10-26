@@ -2,24 +2,8 @@
 function trocarL(){
     LogoB.src = "assets/icons/bazul.png"
 }
-function trocarP(){
-    PincelB.src = "assets/icons/pincelaazul.png"
-}
-function trocarA(){
-    ArtistaB.src = "assets/icons/artista-azul.png"
-}
-function trocarG(){
-    GraficoB.src = "assets/icons/graficoazul.png"
-}
-function trocarC(){
-    ContatoB.src = "assets/icons/emailazul.png"
-}
 function destrocar(){
     LogoB.src = "assets/icons/lgo1branco.png"
-    PincelB.src = "assets/icons/pincel.png"
-    ArtistaB.src = "assets/icons/artista.png"
-    GraficoB.src = "assets/icons/grafico.png"
-    ContatoB.src = "assets/icons/contato.png"
 }
 // Cadastro
 function verify(){

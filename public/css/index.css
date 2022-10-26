@@ -98,6 +98,9 @@ li{
     color: white;
     font-weight: bold;
 }
+button i{
+    margin-right: 5px;
+}
 
 .liCadastro{
     padding: 10px;  
@@ -138,6 +141,9 @@ ul a{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+li i{
+    margin-right: 8px;
 }
 .imgIconSub{
     margin-right: 7px;
