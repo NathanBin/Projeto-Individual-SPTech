@@ -49,10 +49,87 @@
                 <input type="checkbox" id="inCheck"><p>Você concorda com os <a href="#">termos de serviço</a> e <a href="#">política de privacidade</a>.</p> 
             </div>
             <div class="botao">
-                <button onclick="">Criar Conta</button>
+                <button onclick="cadastrar()">Criar Conta</button>
+            </div>
+        </div>
+        <div class="alerta_erro">
+            <div class="card_erro" id="cardErro">
+                <span id="mensagem_erro"></span>
             </div>
         </div>
     </div>
     
 </body>
 </html>
+<script>
+    function cadastrar() {
+        /* aguardar(); */
+
+        var nomeVar = inNome.value;
+        var emailVar = fEmail.value;
+        var senhaVar = inSenha.value;
+        var verifyEmail = emailVar.toLowerCase().indexOf('@sptech.school') >= 0
+        var verifySenha = (senhaVar.match(/[0-9]/)) && (senhaVar.match(/[A-Z]/)) && (senhaVar.match(/[!\@\#\$\%\&\*]/)) && (senhaVar.length >= 6)
+
+        mensagem_erro.innerHTML = ''
+        if (nomeVar == "" || !(verifyEmail) || !(verifySenha)) {
+            cardErro.style.display = "block"
+            if(nomeVar == ""){
+                mensagem_erro.innerHTML += `-Campo do Nome não preenchido<br>`;
+            }
+            if(!verifyEmail){
+                mensagem_erro.innerHTML += `-Campo do Email está incorreto<br>`;
+            }
+            if(!verifySenha){
+                mensagem_erro.innerHTML += `-A senha não é forte o suficiente<br>`;
+            }
+            /* finalizarAguardar(); */
+            return false;
+        }
+        else {
+            sumirMensagem()
+        }
+
+        // Enviando o valor da nova input
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                cardErro.style.display = "block";
+
+                mensagem_erro.innerHTML = "Cadastro realizado com sucesso! Redirecionando para tela de Login...";
+
+                setTimeout(() => {
+                    window.location = "login.html";
+                }, "2000")
+                
+                limparFormulario();
+                finalizarAguardar();
+            } else {
+                throw ("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            finalizarAguardar();
+        });
+
+        return false;
+    }
+
+    function sumirMensagem() {
+        cardErro.style.display = "none"
+    }
+</script>
