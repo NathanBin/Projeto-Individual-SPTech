@@ -53,6 +53,9 @@
     transition: 0.3s;
     font-size: 19px;
 }
+.bTela i{
+    margin-left: 4px;
+}
 .bTela:hover{
     /* opacity: 0.8; */
     background-color: rgb(45,45,45);

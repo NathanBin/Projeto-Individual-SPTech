@@ -1,25 +1,6 @@
-let draw_color = "black";
-let draw_width = "5"
-function mudarCor(element){
-    const tela = document.querySelector('#tela');
-    const contexto = tela.getContext('2d');
-    const modal = document.getElementById('modalC');
+let pincelColor = "black";
+let pincelWidth = "5"
 
-    draw_color = element.id;
-    contexto.strokeStyle = draw_color;
-    
-    modal.classList.remove('mostrar')
-}
-
-function mudarTamanho(element){
-    const tela = document.querySelector('#tela');
-    const contexto = tela.getContext('2d');
-
-    draw_width = element.value;
-    contexto.lineWidth = draw_width;
-
-   
-}
 /* let restore = []
 let indexV = -1 */
 /* function voltar(){
@@ -35,7 +16,6 @@ const pincel ={
     posAnterior: null
 }
 
-
 const tela = document.querySelector('#tela');
 const contexto = tela.getContext('2d')
 
@@ -43,16 +23,15 @@ const contexto = tela.getContext('2d')
 tela.width = 900;
 tela.height = 500;
 
-contexto.strokeStyle = draw_color;
+contexto.strokeStyle = pincelColor;
 
-contexto.lineWidth = draw_width;
+contexto.lineWidth = pincelWidth;
 contexto.rect(0,0,900,500)
 contexto.fillStyle = "white";
 contexto.fill()
 
 //desenho na tela
 const desenharLinha = (linha)=>{
-
 
 contexto.beginPath();
 contexto.moveTo(linha.posAnterior.x, linha.posAnterior.y);
@@ -80,49 +59,45 @@ const ciclo = () => {
 
 ciclo()
 
-
-
 })
-//Usar essa função para salvar a linha num historico, para dps seguir com a proxima função
-/* function parar(event){
-    const tela = document.querySelector('#tela');
-    const contexto = tela.getContext('2d')
 
-    if(pincel.ativo){
-        contexto.stroke();
-        contexto.closePath();
-        pincel.ativo = false;
-
-    }
-    event.preventDefault();
-
-    restore.push(contexto.getImageData(0, 0, tela.width, tela.height))
-    indexV += 1
-    console.log(restore)
-} */
 
 function apagar(){
-
     const tela = document.querySelector('#tela');
     const contexto = tela.getContext('2d')
 
     tela.width = 900;
     tela.height = 500;
 
-
-    contexto.lineWidth = draw_width;
-    contexto.strokeStyle = draw_color;
+    contexto.lineWidth = pincelWidth;
+    contexto.strokeStyle = pincelColor;
 
     contexto.clearRect(0, 0, tela.width, tela.height);
     contexto.rect(0,0,900,500)
     contexto.fillStyle = "white";
     contexto.fill()
-
-    /* restore.push(contexto.getImageData()) */
 }
 
 let imgemCanvas = ''
 
+function mudarCor(element){
+    const tela = document.querySelector('#tela');
+    const contexto = tela.getContext('2d');
+    const modal = document.getElementById('modalC');
+
+    pincelColor = element.id;
+    contexto.strokeStyle = pincelColor;
+    
+    modal.classList.remove('mostrar')
+}
+
+function mudarTamanho(element){
+    const tela = document.querySelector('#tela');
+    const contexto = tela.getContext('2d');
+
+    pincelWidth = element.value;
+    contexto.lineWidth = pincelWidth;
+}
 function base64(){
     const tela = document.querySelector('#tela');
     let imagemConvertida = document.querySelector('#imgA');
