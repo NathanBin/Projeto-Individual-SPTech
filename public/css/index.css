@@ -226,17 +226,96 @@ li i{
 .texto p{
     font-size: 1.5rem;
 }
+
+
+
 .slide{
     display: flex;
     justify-content: space-around;
     background-color: rgb(34, 34, 34);
-    height: 350px;
+    height: 400px;
     align-items: center;
-    
+    position: relative;
+
+}
+.logoRuneterra{
+    position: absolute;
+    top: 10px;
+    height: 70px;
+}
+.barraInferior{
+    position: absolute;
+    height: 70px;
+    top: 350px;
+}
+.barraLateralLeft{
+    position: absolute;
+    top: 30px;
+    left: 260px;
+    width: 300px;
+}
+.barraLateralRight{
+    position: absolute;
+    top: 30px;
+    left: 790px;
+    width: 300px;
 }
 .carrossel img{
     border-radius: 5px;
 }
+.carrossel{
+    position: absolute;
+    /* position: relative; */
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+.hoverCarrossel{
+    position: absolute;
+    /* top: 220px; */
+    font-size: 25px;
+    color: white;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.hoverCarrossel b{
+    margin-top: 220px;
+}
+.hoverCarrossel:hover{
+    opacity: 1;
+    border-radius: 0 0 5px 5px;
+    background-image: linear-gradient(to top, #00000088, rgba(255, 255, 255, 0));
+}
+.c1{
+    left: 905px;
+    opacity: 0;
+    /* display: none; */
+    transition: all 0.6s ease;
+}
+.c2{
+    left: 905px;
+    transition: all 0.6s ease;
+}
+.c3{
+    left: 463px;
+    transition: all 0.3s ease;
+}
+.c4{
+    left: 20px;
+    transition: all 0.3s ease;
+}
+.c5{
+    left: -430px;
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+
+
 .banner{
     display: flex;
     justify-content: space-around;
