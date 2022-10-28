@@ -5,6 +5,7 @@ function trocarL(){
 function destrocar(){
     LogoB.src = "assets/icons/lgo1branco.png"
 }
+
 // Cadastro
 function verify(){
     var senha = document.getElementById('inSenha');

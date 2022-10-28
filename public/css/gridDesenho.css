@@ -11,6 +11,10 @@
     'd31 d31 d32 d8 d13 d22 d23 d17 d18 d18'
     'd41 d42 d43 d44 d45 d46 d47 d48 d18 d18'
 }
+@keyframes animacao {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
 .d1{
     grid-area: d1;
     animation-name: animacao;

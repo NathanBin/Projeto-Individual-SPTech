@@ -151,20 +151,63 @@ li i{
 .estrutura{
     margin-top: 100px;
 }
-.imgArtes{
-    height: 135px;
-}
+
 .destaques{
     background-color: rgb(34, 34, 34);
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     height: 280px;
-    
+    position: relative;
+}
+.emDestaque{
+    position: absolute;
+    transition: all 0.6s ease-in-out;
 }
 .imgDestaque{
     border-radius: 10px;
 }
+.e1{
+    opacity: 0;
+}
+.e2{
+    opacity: 0;
+}
+.e3{
+    left: 1080px;
+}
+.e4{
+    left: 815px;
+}
+.e5{
+    left: 550px;
+    transform: scale(110%);
+}
+.e5 .destaqueHover{
+    opacity: 1;
+    bottom: 0px;
+}
+.e6{
+    left: 285px;
+}
+.e7{
+    left: 20px;
+}
+.e8{
+    left: -270px;
+    opacity: 0;
+}
+.e9{
+    opacity: 0;
+}
+.e10{
+    opacity: 0;
+}
+
+.imgArtes{
+    height: 135px;
+}
+
 .artes ul{
     display: flex;
     padding-top: 6px;
@@ -226,8 +269,6 @@ li i{
 .texto p{
     font-size: 1.5rem;
 }
-
-
 
 .slide{
     display: flex;
@@ -302,16 +343,16 @@ li i{
 }
 .c3{
     left: 463px;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 .c4{
     left: 20px;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 .c5{
     left: -430px;
     opacity: 0;
-    transition: all 0.3s ease;
+    transition: all 0.6s ease;
 }
 
 

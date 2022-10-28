@@ -11,32 +11,8 @@
     <script src="js/script.js"></script>
     <script src="js/grid.js"></script>
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
-    />
 </head>
 
-<style>
-
-    .swiper {
-        width: 100%;
-        height: 280px;
-      }
-
-    .swiper-slide {
-        text-align: center;
-        font-size: 18px;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        margin-left: -15px;
-    }
-
-   
-</style>
 
 <body>
 
@@ -103,47 +79,77 @@
    <div  class="estrutura">
 
 
-        <div class="destaques swiper mySwiper">
-
-            <div class="swiper-wrapper">
-                <div class="emDestaque swiper-slide">
-                    <img src="assets/destaque/mage250.jpg" alt="" class="imgDestaque">
-                    <div class="destaqueHover">
-                        <b>Mage Concept</b><br>
-                        <p>Deiv Calviz</p>
-                    </div>
-                </div>
-                <div class="emDestaque swiper-slide">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" class="imgDestaque">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>Binho do Santa</p>
-                    </div>
-                </div>
-                <div class="emDestaque swiper-slide">
-                    <img src="assets/destaque/pistol250.jpg" alt="" class="imgDestaque">
-                    <div class="destaqueHover">
-                        <b>Agent 505</b><br>
-                        <p>Chen Pink</p>
-                    </div>
-                </div>
-                <div class="emDestaque swiper-slide">
-                    <img src="assets/destaque/tkHigh250.jpg" alt="" class="imgDestaque">
-                    <div class="destaqueHover">
-                        <b>Tahm Kench</b><br>
-                        <p>Deiv Calviz</p>
-                    </div>
-                </div>
-                <div class="emDestaque swiper-slide">
-                    <img src="assets/destaque/2mage250.jpg" alt="" class="imgDestaque">
-                    <div class="destaqueHover">
-                        <b>Necromance</b><br>
-                        <p>LostElf</p>
-                    </div>
+        <div class="destaques">
+            <div class="emDestaque e1">
+                <img src="assets/destaque/mage250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Mage Concept</b><br>
+                    <p>Deiv Calviz</p>
                 </div>
             </div>
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
+            <div class="emDestaque e2">
+                <img src="assets/destaque/sennaHigh250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Senna</b><br>
+                    <p>Binho do Santa</p>
+                </div>
+            </div>
+            <div class="emDestaque e3">
+                <img src="assets/destaque/pistol250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Agent 505</b><br>
+                    <p>Chen Pink</p>
+                </div>
+            </div>
+            <div class="emDestaque e4">
+                <img src="assets/destaque/tkHigh250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Tahm Kench</b><br>
+                    <p>Deiv Calviz</p>
+                </div>
+            </div>
+            <div class="emDestaque e5">
+                <img src="assets/destaque/2mage250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Necromance</b><br>
+                    <p>LostElf</p>
+                </div>
+            </div>
+            <div class="emDestaque e6">
+                <img src="assets/destaque/zed250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Necromance</b><br>
+                    <p>LostElf</p>
+                </div>
+            </div>
+            <div class="emDestaque e7">
+                <img src="assets/destaque/pant250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Pantheon</b><br>
+                    <p>LostElf</p>
+                </div>
+            </div>
+            <div class="emDestaque e8">
+                <img src="assets/destaque/kayn250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Kayn</b><br>
+                    <p>LostElf</p>
+                </div>
+            </div>
+            <div class="emDestaque e9">
+                <img src="assets/destaque/jade250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Jade</b><br>
+                    <p>LostElf</p>
+                </div>
+            </div>
+            <div class="emDestaque e10">
+                <img src="assets/destaque/2kayn250.jpg" alt="" class="imgDestaque">
+                <div class="destaqueHover">
+                    <b>Kayn</b><br>
+                    <p>LostElf</p>
+                </div>
+            </div>
         </div>
         
         <div class="artes">
@@ -216,12 +222,10 @@
                 <input type="email" id="idEmail" class="inEmail" placeholder="EMAIL">
                 <button onclick="rodarVideo()">Registre-se</button>
                 <div id="idResposta" class="resposta">
-                    <!-- <img src="assets/gif/GifBin.gif" alt=""> -->
                     <video src="assets/gif/gif2.mp4" class="videoC" id="videoCheck" width="40px"></video>
                     <p>Email cadastrado com sucesso!</p>
                 </div>
                 <div id="idErro" class="resposta">
-                    <!-- <img src="assets/gif/GifBin.gif" alt=""> -->
                     <video src="assets/gif/GifRed.mp4" class="videoC" id="videoCheckR" width="40px"></video>
                     <p>Insira o email corretamente!</p>
                 </div>
@@ -249,32 +253,15 @@
         </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 </body>
 </html>
-
-<script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 5,
-      spaceBetween: 30,
-      slidesPerGroup: 1,
-      loop: true,
-      loopFillGroupWithBlank: true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-</script>
 <script>//Video de confirmação de email
     function rodarVideo(){
         var cadEmail = idEmail.value
+        var sptech = cadEmail.toLowerCase().indexOf('@sptech.school') >= 0;
 
-        if(cadEmail != ''){
+
+        if(sptech){
             idResposta.style.top = "65px";
             videoCheck.play()
             idErro.style.top = "0px"
@@ -399,4 +386,82 @@
     }
 
     setInterval(trocarClasses, 3000);
+</script>
+<script>//Carrossel Destaques
+    const destaques = document.querySelectorAll('.emDestaque');
+    var cont1 = 0
+    var cont2 = 1
+    var cont3 = 2
+    var cont4 = 3
+    var cont5 = 4
+    var cont6 = 5
+    var cont7 = 6
+    var cont8 = 7
+    var cont9 = 8
+    var cont10 = 9
+
+    function carrosselDestaque(){
+        destaques[cont1].classList.remove('e1');
+        destaques[cont1].classList.add('e2');
+        cont1--
+        destaques[cont2].classList.remove('e2');
+        destaques[cont2].classList.add('e3');
+        cont2--
+        destaques[cont3].classList.remove('e3');
+        destaques[cont3].classList.add('e4');
+        cont3--
+        destaques[cont4].classList.remove('e4');
+        destaques[cont4].classList.add('e5');
+        cont4--
+        destaques[cont5].classList.remove('e5');
+        destaques[cont5].classList.add('e6');
+        cont5--   
+        destaques[cont6].classList.remove('e6');
+        destaques[cont6].classList.add('e7');
+        cont6-- 
+        destaques[cont7].classList.remove('e7');
+        destaques[cont7].classList.add('e8');
+        cont7-- 
+        destaques[cont8].classList.remove('e8');
+        destaques[cont8].classList.add('e9');
+        cont8-- 
+        destaques[cont9].classList.remove('e9');
+        destaques[cont9].classList.add('e10');
+        cont9-- 
+        destaques[cont10].classList.remove('e10');
+        destaques[cont10].classList.add('e1');
+        cont10--   
+
+        if(cont1 < 0){
+            cont1 = 9
+        }
+        if(cont2 < 0){
+            cont2 = 9
+        }
+        if(cont3 < 0){
+            cont3 = 9
+        }
+        if(cont4 < 0){
+            cont4 = 9
+        }
+        if(cont5 < 0){
+            cont5 = 9
+        }
+        if(cont6 < 0){
+            cont6 = 9
+        }
+        if(cont7 < 0){
+            cont7 = 9
+        }
+        if(cont8 < 0){
+            cont8 = 9
+        }
+        if(cont9 < 0){
+            cont9 = 9
+        }
+        if(cont10 < 0){
+            cont10 = 9
+        }
+    }
+    setInterval(carrosselDestaque, 5000)
 </script>
