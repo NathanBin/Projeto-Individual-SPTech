@@ -48,6 +48,7 @@ body{
     justify-content: center;
     margin-top: 50px;
     position: relative;
+    max-height: 30px;
 
 }
 .cPesquisa li{
@@ -55,33 +56,62 @@ body{
     margin: 0 20px;
     font-size: 22px;
 }
-.slide{
-    height: 0px;
-}
-.slide::after{
+
+.active11::after{
     content: '';
-    width: 0px;
+    width: 64px;
+    left: 17px;
     top: 40px;
     height: 6px;
     background-color: #0053af;
     position: absolute;
-    transition: 0.3s ease;
+    animation: active11 0.4s ease-in-out;
 }
-ul li:nth-child(1).active ~ .slide::after
-{
-    left: 17px;
-    width: 64px;
-}
-ul li:nth-child(2).active ~ .slide::after
-{
-    left: 115px;
+.active12::after{
+    content: '';
     width: 90px;
+    left: 115px;
+    top: 40px;
+    height: 6px;
+    background-color: #0053af;
+    position: absolute;
+    animation: active12 0.4s ease-in-out;
 }
-ul li:nth-child(3).active ~ .slide::after
-{
-    left: 240px;
+.active13::after{
+    content: '';
     width: 94px;
+    left: 240px;
+    top: 40px;
+    height: 6px;
+    background-color: #0053af;
+    position: absolute;
+    animation: active13 0.4s ease-in-out;
 }
+@keyframes active11 {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 64px;
+    }
+}
+@keyframes active12 {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 90px;
+    }
+}
+@keyframes active13 {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 94px;
+    }
+}
+
 li button{
     background-color: transparent;
     border: none;

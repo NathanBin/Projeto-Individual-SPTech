@@ -55,18 +55,7 @@ body{
     margin: 0 25px;
     list-style: none;
 }
-.slide::after{
-    content: '';
-    height: 45px;
-    width: 0px;
-    background-color: rgba(75, 75, 75, 0.2);
-    position: absolute;
-    display: block;
-    transition: all 0.3s ease;
-    z-index: 1;
-    cursor: pointer;
-    /* right: 400px; */
-}
+
 .pNavbar a{
     text-decoration: none;
     color: white;
@@ -276,29 +265,88 @@ body{
     padding: 10px;
 }
 
-ul li:nth-child(1).active ~ .slide::after
-{
+.active11::after{
+    content: '';
+    top: 152px;
+    height: 45px;
+    width: 103px;
+    background-color: rgba(75, 75, 75, 0.2);
+    position: absolute;
+    display: block;
+    z-index: 1;
     left: 5px;
-    width: 103px;
+    cursor: pointer;
+    animation: animacaoActive 0.3s ease-in-out;
 }
-ul li:nth-child(2).active ~ .slide::after
-{
+.active12::after{
+    content: '';
+    top: 152px;
+    height: 45px;
+    width: 103px;
+    background-color: rgba(75, 75, 75, 0.2);
+    position: absolute;
+    display: block;
+    animation: animacaoActive 0.3s ease-in-out;
+    z-index: 1;
     left: 108px;
-    width: 103px;
+    cursor: pointer;
 }
-ul li:nth-child(3).active ~ .slide::after
-{
+.active13::after{
+    content: '';
+    top: 152px;
+    height: 45px;
+    width: 107px;
+    background-color: rgba(75, 75, 75, 0.2);
+    position: absolute;
+    display: block;
+    animation: animacaoActive 0.3s ease-in-out;
+    z-index: 1;
     left: 211px;
-    width: 100px;
+    cursor: pointer;
 }
-ul li:nth-child(4).active ~ .slide::after
-{
-    left: 311px;
-    width: 120px;
+.active14::after{
+    content: '';
+    top: 152px;
+    height: 45px;
+    width: 140px;
+    background-color: rgba(75, 75, 75, 0.2);
+    position: absolute;
+    display: block;
+    animation: animacaoActive 0.3s ease-in-out;
+    z-index: 1;
+    left: 318px;
+    cursor: pointer;
 }
-ul li:nth-child(5).active ~ .slide::after
-{
-    left: 431px;
+.active15::after{
+    content: '';
+    top: 152px;
+    height: 45px;
+    width: 153px;
+    background-color: rgba(75, 75, 75, 0.2);
+    position: absolute;
+    display: block;
+    animation: animacaoActive 0.3s ease-in-out;
+    z-index: 1;
+    left: 458px;
+    cursor: pointer;
+}
+@keyframes animacaoActive {
+    from{
+        height: 0px;
+    }
+    to{
+        height: 45px;
+    }
+}
+.b13{
+    width: 60px;
+}
+.b14{
+    width: 89px;
+}
+.b15{
     width: 103px;
 }
-
+button:hover{
+    opacity: 0.8;
+}

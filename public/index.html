@@ -8,18 +8,9 @@
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/gridDesenho.css">
-    <link rel="stylesheet" href="css/teste.css">
-    <script src="script.js"></script>
-    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('li').on('click', function(){
-                $(this).siblings().removeClass('active');
-                $(this).addClass('active');
-            })
-        })
-    </script>
-
+    <script src="js/script.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"
@@ -56,7 +47,7 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div>
             <div class="pesquisa">
-                <a href="#"><img src="assets/lupaCinza.png" alt="" width="25px"></a>
+                <img src="assets/lupaCinza.png" width="25px">
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
@@ -68,24 +59,49 @@
             </div>
             <div class="ulHeader">
                 <ul>
-                    <li><a href=""><img src="assets/icons/in.png" alt="" width="30px">Login</a></li>
-                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" alt="" width="25px">Cadastre-se</a></li>
+                    <li class="liLogin" ><button><img src="assets/icons/in.png" alt="" width="30px">Login</button></li>
+                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li>
                 </ul>
             </div>
         </div>
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li class="l1" onmouseenter="trocarL()" onmouseleave="destrocar()" ><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
-                    <li class="l2" onmouseenter="trocarP()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/pincel.png" id="PincelB" class="imgIconSub imgPincelB" onmouseover="trocarP()" width="30px">Artes</a></li>
-                    <li class="l3" onmouseenter="trocarA()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/artista.png" id="ArtistaB" class="imgIconSub imgArtistaB" onmouseover="trocarA()" width="30px"> Artistas</a></li>
-                    <li class="l4" onmouseenter="trocarG()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/grafico.png" id="GraficoB" class="imgIconSub imgGraficoB" onmouseover="trocarG()" width="25px"> Trending</a></li>
-                    <li class="l5" onmouseenter="trocarC()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/contato.png" id="ContatoB" class="imgIconSub imgContatoB" onmouseover="trocarC()" width="20px"> Contato</a></li>
+                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i>Trending</a></li>
+                    <li><a href="#"><i class="fa-solid fa-envelope"></i>Contato</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <div id="modalL" class="modalLogin">
+        <div class="lFormulario">
+            <div class="lHeader">
+                <img src="assets/icons/lgo3.png" width="100px" alt="">
+                <h1><b class="tBin">BIN</b><b class="tStation">STATION</b></h1>
+            </div>
+            <div class="lCampo">
+                <label for="inEmail">Seu E-mail</label>
+                <input type="email" id="inEmail" placeholder="N.l.Bin@sptech.school">
+            </div>
+            <div class="lCampo">
+                <label for="inSenha">Sua senha</label>
+                <input type="password" id="inSenha" placeholder="********">
+            </div>
+            <button onclick="">Entrar</button>
+            <div class="lFooter">
+                <div><b><a href="">Esqueceu a senha?</a></b></div>
+                <div><b><a href="">Cadastre-se</a></b></div>
+            </div>
+        </div>
+    </div>
+
    <div  class="estrutura">
+
 
         <div class="destaques swiper mySwiper">
 
@@ -132,349 +148,14 @@
         
         <div class="artes">
             <ul>
-                <li class="active"><a href="#">Recentes</a></li>
-                <li ><a href="#">Trending</a></li>
-                <li ><a href="#">Comunidade</a></li>
-                <li class="liSlide"></li>
-            </ul>
-            <div class="desenhos">
-                <div class="imgArtes d1">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Necromance</b><br>
-                        <p>LostElf</p>
-                    </div>
-                </div>
-                <div class="imgArtes d2">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d3">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d4">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d5">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d6">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d7">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d8">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d9">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d10">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d11">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d12">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d13">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d14">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d15">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d16">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d17">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d18">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d19">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d20">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d21">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d22">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d23">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d24">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d25">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d26">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d27">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d28">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d29">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d30">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d31">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d32">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d33">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d34">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d35">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d36">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d37">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d38">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d39">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d40">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d41">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d42">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d43">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d44">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="">
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d45">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d46">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d47">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
-                <div class="imgArtes d48">
-                    <img src="assets/destaque/sennaHigh250.jpg" alt="" >
-                    <div class="destaqueHover">
-                        <b>Senna</b><br>
-                        <p>BINHO DEL SANTA</p>
-                    </div>
-                </div>
+                <li><button class="bArtes b1 active1" onclick="embaralhar()">Recentes</button></li>
+                <li><button class="bArtes b2">Trending</button></li>
+                <li><button class="bArtes b3">Comunidade</button></li>
+            </ul>            
+
+            <div id="minhaLista" class="desenhos">
+                
+                
             </div>
         </div>
         <div class="divulgacao">
@@ -482,14 +163,14 @@
                 <h3>Titulo</h3>
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!</p>
             </div>
-            <div class="divul">
+            <div class="divul" data-anime="left">
                 <img src="assets/destaque/nun.jpg" alt="" class="imgDivulgacao">
                 <div class="divulHover">
                     <b>Senna</b><br>
                     <p>Binho do Santa</p>
                 </div>
             </div>
-            <div class="divul">
+            <div class="divul" data-anime="right">
                 <img src="assets/destaque/warrior400.jpg" alt="" class="imgDivulgacao">
                 <div class="divulHover">
                     <b>Concept Warrior</b><br><br>
@@ -511,12 +192,12 @@
             </div>
         </div>
         <div class="banner">
-            <div class="mensagem">
+            <div class="mensagem" data-anime="left">
                 <p>Novo no BinStation?<br>
                 Receba semanalmente notificações<br>
                 e atualizações em seu e-mail!</p>
             </div>
-            <div class="campo">
+            <div class="campo" data-anime="right">
                 <input type="email" id="idEmail" class="inEmail" placeholder="EMAIL">
                 <button onclick="rodarVideo()">Registre-se</button>
                 <div id="idResposta" class="resposta">
@@ -533,7 +214,7 @@
         </div>
         <div class="footer">
             <span></span>
-            <div class="foot">
+            <div class="foot" data-anime="bottom">
                 <img src="assets/icons/lgo3.png" alt="" class="imgL">
                 <h3><b class="tBin">BIN</b><b class="tStation">STATION</b></h3>
                 <img class="imgIcon" src="assets/icons/instagram.png" alt="">
@@ -574,7 +255,7 @@
       },
     });
 </script>
-<script>
+<script>//Video de confirmação de email
     function rodarVideo(){
         var cadEmail = idEmail.value
 
@@ -586,7 +267,77 @@
             idErro.style.top = "65px";
             videoCheckR.play()
             idResposta.style.top = "0px"
-        }
-      
+        }  
     }
+</script>
+<script>//Aparecer Modal Login
+    sessionStorage.clear()
+    function iniciarModal(id){
+        if(sessionStorage.fecharModal !== id){
+            const modal = document.getElementById(id);
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if(e.target.id == id){
+                    modal.classList.remove('mostrar')
+                    sessionStorage.fecharModal = id
+                }
+            })
+        }
+    }
+
+    const botaoLogin = document.querySelector('.liLogin')
+    botaoLogin.addEventListener('click', function() {
+        sessionStorage.clear()
+        iniciarModal('modalL')
+    })
+
+    document.addEventListener('scroll', () => {
+        if(window.pageYOffset > 600){
+            iniciarModal('modalL')
+        }
+    })
+
+</script>
+<script>//Animação nas divs
+    const target = document.querySelectorAll('[data-anime]');
+    const animationClass = 'show';
+    function animacaoScroll(){
+        const windowTop = window.pageYOffset + 500
+        target.forEach(function(e) {
+            if((windowTop) > e.offsetTop){
+                e.classList.add(animationClass)
+            }else{
+                e.classList.remove(animationClass)
+            }         
+        })
+    }
+    if(target.length){
+        window.addEventListener('scroll', function(){
+            animacaoScroll()
+        })
+    }
+
+</script>
+<script>//Animação na navbar
+    const liB1 = document.querySelector('.b1');
+    const liB2 = document.querySelector('.b2');
+    const liB3 = document.querySelector('.b3');
+    function tirarClass(){
+        liB1.classList.remove('active1');
+        liB2.classList.remove('active2');
+        liB3.classList.remove('active3');
+    }
+    liB1.addEventListener('click', function(){
+        tirarClass();
+        liB1.classList.add('active1')
+    })
+    liB2.addEventListener('click', function(){
+        tirarClass();
+        liB2.classList.add('active2')     
+    })
+    liB3.addEventListener('click', function(){
+        tirarClass();
+        liB3.classList.add('active3')
+    })
+
 </script>

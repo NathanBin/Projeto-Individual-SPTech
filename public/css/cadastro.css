@@ -15,6 +15,15 @@ body{
     width: 550px;
     height: 600px;
     border-radius: 10px;
+    animation: animFormulario 2s ease;
+}
+@keyframes animFormulario {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
 }
 .fContainer{
     margin: 20px;
@@ -29,6 +38,12 @@ body{
     justify-content: center;
     align-items: center;
 }
+.fLogo a{
+    transition: 0.5s ease;
+}
+.fLogo a:hover{
+    opacity: 0.8;
+}
 .imgfLogo{
     width: 70px;
 }
@@ -40,6 +55,7 @@ body{
     text-decoration: none;
     color: #0053af;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 .entrar a:hover{
     color: #006ae2;
@@ -89,6 +105,7 @@ label{
 .verificacao a{
     text-decoration: none;
     color: #0053af;
+    transition: all 0.3s ease;
 }
 .verificacao a:hover{
     color: #006ae2;
@@ -116,8 +133,11 @@ button{
     outline: none;
     border-radius: 7px;
     font-size: 20px;
+    transition: all 0.3s ease;
 }
-
+button:hover{
+    opacity: 0.8;
+}
 .validacao{
     display: grid;
     color: #757575;
@@ -146,6 +166,3 @@ button{
     grid-area: d4;
     
 }
-/* #fEmail:focus{
-    border: 1px solid #0053af;
-} */

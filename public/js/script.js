@@ -38,7 +38,5 @@ function verify(){
         tamanho.src = "assets/icons/check.png"
     }
 
-
 }
-
-
+  

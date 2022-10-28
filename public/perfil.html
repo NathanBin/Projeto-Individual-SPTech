@@ -4,23 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>BINSTATION</title>
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/perfil.css">
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-    <script src="perfil.js"></script>
-    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
-
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('li').on('click', function(){
-                $(this).siblings().removeClass('active');
-                $(this).addClass('active');
-            })
-        })
-    </script>
+    <script src="js/script.js"></script>
+    <script src="js/perfil.js"></script>
 </head>
 <body>
 
@@ -73,11 +63,11 @@
     </div>
     <div class="pNavbar">
         <ul>
-            <li class="active"><button onclick="exibirPortifolio(1)" class="bLi">Portifolio</button> </li>
-            <li><button onclick="exibirPortifolio(2)" class="bLi">Sobre</button></li>
-            <li><button onclick="exibirPortifolio(3)" class="bLi">Likes</button></li>
-            <li><button onclick="exibirPortifolio(4)" class="bLi">Seguindo</button></li>
-            <li><button onclick="exibirPortifolio(5)" class="bLi">Seguidores</button></li>
+            <li class="active"><button onclick="exibirPortifolio(1)" class="bLi b11 active11">Portifolio</button> </li>
+            <li><button onclick="exibirPortifolio(2)" class="bLi b12">Sobre</button></li>
+            <li><button onclick="exibirPortifolio(3)" class="bLi b13">Likes (<b id="qtdLikes">0</b>)</button></li>
+            <li><button onclick="exibirPortifolio(4)" class="bLi b14">Seguindo (<b id="qtdSeguindo">0</b>)</button></li>
+            <li><button onclick="exibirPortifolio(5)" class="bLi b15">Seguidores (<b id="qtdSeguidores">0</b>)</button></li>
             <button class="follow" onclick=""><i class="fa-solid fa-user-plus"></i>Seguir</button>
             <button class="msg" onclick=""><i class="fa-solid fa-paper-plane"></i>Mensagem</button>
             <span class="slide"></span>
@@ -317,3 +307,39 @@
 
 </body>
 </html>
+<script>
+    const liB11 = document.querySelector('.b11');
+    const liB12 = document.querySelector('.b12');
+    const liB13 = document.querySelector('.b13');
+    const liB14 = document.querySelector('.b14');
+    const liB15 = document.querySelector('.b15');
+
+    function tirarClass(){
+        liB11.classList.remove('active11');
+        liB12.classList.remove('active12');
+        liB13.classList.remove('active13');
+        liB14.classList.remove('active14');
+        liB15.classList.remove('active15');
+    }
+    liB11.addEventListener('click', function(){
+        tirarClass();
+        liB11.classList.add('active11')
+    })
+    liB12.addEventListener('click', function(){
+        tirarClass();
+        liB12.classList.add('active12')
+    })
+    liB13.addEventListener('click', function(){
+        tirarClass();
+        liB13.classList.add('active13')
+    })
+    liB14.addEventListener('click', function(){
+        tirarClass();
+        liB14.classList.add('active14')
+    })
+    liB15.addEventListener('click', function(){
+        tirarClass();
+        liB15.classList.add('active15')
+    })
+
+</script>

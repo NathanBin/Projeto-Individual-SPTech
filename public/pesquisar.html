@@ -8,17 +8,8 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/pesquisar.css">
-    <script src="http://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $('li').on('click', function(){
-                $(this).siblings().removeClass('active');
-                $(this).addClass('active');
-            })
-        })
-    </script>
 </head>
 <body>
     
@@ -65,9 +56,9 @@
                 <input type="text" placeholder="Pesquisa">
             </div>
             <ul>
-                <li class="active"><button>Artes</button></li>
-                <li ><button>Artistas</button></li>
-                <li ><button>Estúdios</button></li>
+                <li><button class="b11 active11">Artes</button></li>
+                <li><button class="b12">Artistas</button></li>
+                <li><button class="b13">Estúdios</button></li>
                 <span class="slide"></span>
             </ul>
         </div>
@@ -97,3 +88,25 @@
 
 </body>
 </html>
+<script>
+    const liB11 = document.querySelector('.b11');
+    const liB12 = document.querySelector('.b12');
+    const liB13 = document.querySelector('.b13');
+    function tirarClass(){
+        liB11.classList.remove('active11');
+        liB12.classList.remove('active12');
+        liB13.classList.remove('active13');
+    }
+    liB11.addEventListener('click', function(){
+        tirarClass();
+        liB11.classList.add('active11')
+    })
+    liB12.addEventListener('click', function(){
+        tirarClass();
+        liB12.classList.add('active12')
+    })
+    liB13.addEventListener('click', function(){
+        tirarClass();
+        liB13.classList.add('active13')
+    })
+</script>

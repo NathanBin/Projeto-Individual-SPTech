@@ -7,9 +7,6 @@
 .imgArtes:hover .destaqueHover{
     opacity: 1;
 }
-/* .d1:hover{
-    background-image: linear-gradient(to top, #757575, rgba(255,0,0,0.2));
-} */
 
 .emDestaque{
     position: relative;
@@ -200,33 +197,66 @@
 .divulHover p{
     font-size: 20px;
 }
-.liSlide::after{
+
+.active1::after{
     content: '';
-    width: 0;
+    width: 73px;
     height: 4px;
     background-color: #0053af;
     display: block;
     margin-top: 4px;
-    transition: all 0.3s ease;
+    animation: active1 0.6s ease;
     position: absolute;
     top: 27px;
-    left: 180px;
-}
-
-ul li:nth-child(1).active ~ .liSlide::after
-{
     left: 0px;
-    width: 73px;
 }
-ul li:nth-child(2).active ~ .liSlide::after
-{
-    left: 91px;
+.active2::after{
+    content: '';
     width: 71px;
+    height: 4px;
+    background-color: #0053af;
+    display: block;
+    margin-top: 4px;
+    animation: active2 0.6s ease;
+    position: absolute;
+    top: 27px;
+    left: 91px;
 }
-ul li:nth-child(3).active ~ .liSlide::after
-{
-    left: 180px;
-    width: 101px;
+.active3::after{
+    content: '';
+    width: 104px;
+    height: 4px;
+    background-color: #0053af;
+    display: block;
+    margin-top: 4px;
+    position: absolute;
+    top: 27px;
+    left: 177px;
+    animation: active3 0.6s ease-in-out;
+}
+@keyframes active1 {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 73px;
+    }
+}
+@keyframes active2 {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 71px;
+    }
+}
+@keyframes active3 {
+    from{
+        width: 0px;
+    }
+    to{
+        width: 101px;
+    }
 }
 
 .pesquisa:focus-within .barraPesquisa{
