@@ -11,6 +11,10 @@
     z-index: 99;
 }
 
+.main2{
+    margin-top: 100px;
+}
+
 .header {
     background-color: rgb(34, 34, 34);
     display: flex;
@@ -73,7 +77,7 @@
     align-items: center;
     flex-direction: row;
 }
-.ulHeader li button{
+.liLogin button{
     background-color: transparent;
     font-size: 18px;
     color: white;
@@ -94,9 +98,7 @@ li{
     color: white;
     font-weight: bold;
 }
-button i{
-    margin-right: 5px;
-}
+
 
 .liCadastro{
     padding: 10px;  
@@ -119,6 +121,132 @@ ul a{
     text-decoration: none;
 
 }
+.userButton{
+    background-color: rgb(75,75,75);
+    border-radius: 50%;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    font-size: 28px;
+    padding-top: 6px;
+    overflow: hidden;
+}
+.userOption{
+    background-color: transparent;
+    font-size: 19px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: rgb(188, 188, 188);
+    transition: 0.3s;
+}
+.userOption:hover{
+    color: white;
+}
+.divLi{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    cursor: pointer;
+}
+.userSeta{
+    color: white;
+    font-size: 18px;
+    margin-left: 5px;
+}
+.userModal{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    opacity: 1;
+    top: 70px;
+    right: 15px;
+    width: 300px;
+    height: 300px;
+    background-color: rgb(34,34,34);
+    border-radius: 10px;
+    border: 1px solid #757575;
+
+}
+.userModal.mostrarModal1{
+    display: flex;
+}
+.modalHeader{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    height: 70px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+.modalHeader .userButton{
+    width: 50px;
+    height: 50px;
+    font-size: 45px;
+}
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.userInfo p{
+    font-size: 19px;
+    color: white;
+    margin-left: 10px;
+}
+.userPerfil{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 190px;
+}
+.userProfile{
+    background-color: transparent;
+    color: rgb(105,105,105);
+    font-size: 19px;
+    border: none;
+    outline: none;
+    margin-left: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.userProfile:hover{
+    color: rgb(200,200,200);
+}
+.userModal span{
+    content: '';
+    background-color: #757575;
+    width: 85%;
+    height: 3px;
+    align-self: center;
+}
+.userModalOption{
+    width: 270px;
+    margin: 5px 0 0 15px;
+    height: 35px;
+    text-align: start;
+    padding-left: 10px;
+    font-size: 19px;
+    color: rgb(225,225,225);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-radius: 7px;
+    transition: 0.2s;
+}
+.userModalOption i{
+    margin-right: 10px;
+}
+.userModalOption:hover{
+    background-color: #525252;
+}
+
+
 .subHeader{
     background-color: rgb(21,21,21);
     border-bottom: 1px solid #757575;
@@ -135,7 +263,7 @@ ul a{
     justify-content: center;
     align-items: center;
 }
-li i{
+.container ul li i{
     margin-right: 8px;
 }
 .imgIconSub{
@@ -150,37 +278,50 @@ li i{
 }
 .estrutura{
     margin-top: 100px;
+    overflow: hidden;
 }
 
 .destaques{
     background-color: rgb(34, 34, 34);
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     height: 280px;
     position: relative;
+    overflow: hidden;
+
+    width: 1500px;
 }
 .emDestaque{
     position: absolute;
-    transition: all 0.6s ease-in-out;
+    /* transition: all 0.6s ease-out; */
+    
 }
 .imgDestaque{
     border-radius: 10px;
 }
 .e1{
     opacity: 0;
+    transition: all 0.6s ease;
 }
 .e2{
     opacity: 0;
+    transition: all 0.6s ease;
+    left: 1350px;
+    height: 250px;
+    width: 250px;
 }
 .e3{
     left: 1080px;
+    transition: 0.6s;
 }
 .e4{
     left: 815px;
+    transition: all 0.6s ease;
 }
 .e5{
     left: 550px;
+    transition: all 0.6s ease;
     transform: scale(110%);
 }
 .e5 .destaqueHover{
@@ -189,12 +330,15 @@ li i{
 }
 .e6{
     left: 285px;
+    transition: all 0.6s ease;
 }
 .e7{
     left: 20px;
+    transition: all 0.6s ease;
 }
 .e8{
     left: -270px;
+    transition: all 0.6s ease;
     opacity: 0;
 }
 .e9{
@@ -277,6 +421,7 @@ li i{
     height: 400px;
     align-items: center;
     position: relative;
+    overflow: hidden;
 
 }
 .logoRuneterra{
@@ -332,9 +477,8 @@ li i{
     background-image: linear-gradient(to top, #00000088, rgba(255, 255, 255, 0));
 }
 .c1{
-    left: 905px;
+    left: 1355px;
     opacity: 0;
-    /* display: none; */
     transition: all 0.6s ease;
 }
 .c2{
@@ -629,4 +773,8 @@ li i{
     color: white;
     cursor: pointer;
     margin: 27px;
+}
+
+.esconder{
+    display: none;
 }

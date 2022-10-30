@@ -16,7 +16,7 @@
 
 <body>
 
-    <div class="main" >
+    <div class="main " >
         <div class="header" >
             <div class="logo">
                 <div><img src="assets/BinLogo2.png" alt=""></div>
@@ -38,6 +38,71 @@
                     <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
                     <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li>
                 </ul>
+            </div>
+        </div>
+        
+        <div class="subHeader">
+            <div class="container" >
+                <ul >
+                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-trend-up"></i>Trending</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main esconder" >
+        <div class="header" >
+            <div class="logo">
+                <div><img src="assets/BinLogo2.png" alt=""></div>
+                <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
+            </div>
+            <div class="pesquisa">
+                <img src="assets/lupaCinza.png" width="25px">
+                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <div class="barraPesquisa">
+                    <ul>
+                        <li><a href="#">Pesquise por Artes</a></li>
+                        <li><a href="#">Pesquise por Artistas</a></li>
+                        <li><a href="#">Pesquise por Estúdios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ulHeader">
+                <ul>
+                    <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                    <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
+                    <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
+                    <div class="divLi" onclick="modalLogin()">
+                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
+                    </div>
+                    <!-- <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
+                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li> -->
+                </ul>
+            </div>
+            <div class="userModal">
+                <div class="modalHeader">
+                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <div class="userInfo">
+                        <p id="userName">Nathan Rodrigo</p>
+                        <div class="userPerfil">
+                            <button class="userProfile">Ver Perfil</button>
+                            <button class="userProfile">Editar Perfil</button>
+                        </div>
+                    </div>
+                </div>
+                <span></span>
+                <button class="userModalOption"><i class="fa-solid fa-palette"></i>Meus Desenhos</button>
+                <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
+                <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
+                <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
+                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
@@ -299,6 +364,11 @@
         }
     })
 
+
+    function modalLogin(){
+        var login1 = document.querySelector('.userModal')
+        login1.classList.toggle('mostrarModal1')
+    }
 </script>
 <script>//Animação nas divs
     const target = document.querySelectorAll('[data-anime]');
@@ -344,6 +414,9 @@
 
 </script>
 <script>//Carrossel debaixo
+
+    
+
     const cArray = document.querySelectorAll('.carrossel')
     var contador1 = 0
     var contador2 = 1

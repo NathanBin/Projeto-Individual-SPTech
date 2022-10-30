@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/cadastro.css">
     <script src="js/script.js"></script>
+    
 </head>
 <body>
 
@@ -71,7 +72,7 @@
         var verifyEmail = emailVar.toLowerCase().indexOf('@sptech.school') >= 0
         var verifySenha = (senhaVar.match(/[0-9]/)) && (senhaVar.match(/[A-Z]/)) && (senhaVar.match(/[!\@\#\$\%\&\*]/)) && (senhaVar.length >= 6)
 
-        mensagem_erro.innerHTML = ''
+        /* mensagem_erro.innerHTML = ''
         if (nomeVar == "" || !(verifyEmail) || !(verifySenha)) {
             cardErro.style.display = "block"
             if(nomeVar == ""){
@@ -83,12 +84,12 @@
             if(!verifySenha){
                 mensagem_erro.innerHTML += `-A senha não é forte o suficiente<br>`;
             }
-            /* finalizarAguardar(); */
+           // finalizarAguardar();
             return false;
         }
         else {
             sumirMensagem()
-        }
+        } */
 
         // Enviando o valor da nova input
         fetch("/usuarios/cadastrar", {
@@ -116,14 +117,14 @@
                     window.location = "login.html";
                 }, "2000")
                 
-                limparFormulario();
-                finalizarAguardar();
+                /* limparFormulario(); */
+                /* finalizarAguardar(); */
             } else {
                 throw ("Houve um erro ao tentar realizar o cadastro!");
             }
         }).catch(function (resposta) {
             console.log(`#ERRO: ${resposta}`);
-            finalizarAguardar();
+            /* finalizarAguardar(); */
         });
 
         return false;

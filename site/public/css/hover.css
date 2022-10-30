@@ -31,6 +31,10 @@
     color: white;
     background-image: linear-gradient(to top, #000000, rgba(32, 32, 32, 0.034));
 }
+.emDestaque .destaqueHover{
+    bottom: 0px;
+}
+
 .imgArtes .destaqueHover{   
     transition: 0.5s ease;
     position: absolute;
@@ -49,14 +53,15 @@
     opacity: 1;
     display: block;
     width: 100%;
-    height: auto;
-    transition: .5s ease;
-    backface-visibility: hidden;
+    height: 100%;
+    /* transition: .5s ease;
+    backface-visibility: hidden; */
   }
 
 .destaqueHover b{
     font-size: 30px;
 }
+
 .imgArtes .destaqueHover b{
     font-size: 20px;
 }
