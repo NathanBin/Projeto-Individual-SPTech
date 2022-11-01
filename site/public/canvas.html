@@ -50,7 +50,20 @@
             </div>
         </div>
     </div>
-        
+        <div class="modalUpload">
+            <div class="modalContainer">
+                <div class="uploadTitulo">
+                    <input type="text" class="tituloDesenho" placeholder="Titulo">
+                </div>
+                <div class="uploadImagem">
+                    <img id="imgDesenho" src="">
+                </div>
+                <div class="botaoModal">
+                    <button onclick="voltar()">Voltar</button>
+                    <button>Publicar Imagem</button>
+                </div>
+            </div>
+        </div>
         <div id="modalT">
             <div class="tools">
                 <div class="iconsT">
@@ -146,7 +159,8 @@
                 <button onclick="base64()">Pegar base64</button>
                 <p>Tamanho da linha</p>
                 <input type="range" min="1" max="10" oninput="mudarTamanho(this)">
-                
+                <button onclick="canvasBase64()">Mandar para BD</button>
+                <button onclick="pegarBase64()">Pegar b64 do BD</button>
             </div>
         </div>
 
@@ -216,3 +230,69 @@
     
 </body>
 </html>
+<script>
+
+    function canvasBase64(){
+        const tela = document.querySelector('#tela');
+        var b64 = tela.toDataURL();
+        var idUsu = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        
+
+        fetch("/canvas/guardarCanvas", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                canvasServer: b64,
+                idServer: idUsu
+            })
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+            /* setTimeout(() => {
+                    window.location = "login.html";
+                },2000) */
+            if (resposta.ok) {
+console.log("entrou")
+                
+            } else {
+                throw ("Houve um erro ao tentar guardar o canvas no banco!");
+            }
+            }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+            });
+
+            return false;
+    }
+
+    function pegarBase64(){
+        let imgA = document.querySelector('#imgA');
+        let modalU = document.querySelector('.modalUpload')
+        
+        fetch(`/canvas/pegarCanvas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.parse((JSON.stringify(resposta)))[0].base64}`);
+                    modalU.classList.add('show');
+                    imgDesenho.src = JSON.parse((JSON.stringify(resposta)))[0].base64;
+                    resposta.reverse();
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
+    function voltar(){
+        let modalU = document.querySelector('.modalUpload');
+
+        modalU.classList.remove('show')
+    }
+</script>

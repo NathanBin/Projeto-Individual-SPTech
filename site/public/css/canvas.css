@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    max-height: 600px;
 }
 .tDesenho{
     margin-bottom: 100px;
@@ -15,14 +15,81 @@
     background-color: white;
     display: flex; 
 }
-
+.modalUpload{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 500;
+    position: absolute;
+    display: none;
+}
+.modalUpload.show{
+    display: block;
+}
+.modalContainer{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: rgb(34,34,34);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+.uploadTitulo{
+    margin-top: 30px;
+    width: 600px;
+    height: 50px;
+    background-color: rgb(50,50,50);
+}
+.uploadImagem{
+    width: 600px;
+    height: 333px;
+    background-color: #757575;
+}
+.botaoModal{
+    margin-top: 5px;
+    display: flex;
+    width: 600px;
+    justify-content: space-between;
+}
+.botaoModal button{
+    width: 150px;
+    height: 40px;
+    font-size: 19px;
+    background-color: #0053af;
+    border: none;
+    outline: none;
+    color: white;
+    border-radius: 5px;
+}
+.tituloDesenho{
+    width: 600px;
+    height: 50px;
+    border: none;
+    outline: none;
+    background-color: rgb(21,21,21);
+    color: white;
+    font-size: 19px;
+    padding-left: 10px;
+}
+#imgDesenho{
+    width: 600px;
+    height: 333px;
+}
 .mainC{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     position: relative;
+    margin-top: 70px;
+    /* height: 500px; */
 }
 .optionsC{
     display: flex;
@@ -102,7 +169,7 @@
 }
 #modalT{
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
@@ -132,7 +199,7 @@
 
 #modalC{
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
@@ -147,7 +214,7 @@
 }
 #modalF{
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
@@ -177,7 +244,7 @@
 }
 #modalZ{
     position: absolute;
-    height: 100vh;
+    height: 100%;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
