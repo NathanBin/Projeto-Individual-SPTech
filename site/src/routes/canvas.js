@@ -11,4 +11,12 @@ router.get("/pegarCanvas", function (req, res) {
     canvasController.pegarUltimoB64(req, res);
 });
 
+router.get("/pegarIdCanvas", function (req, res) {
+    canvasController.pegarUltimoIDB64(req, res);
+});
+
+router.put("/atualizarTitulo", function (req, res) {
+    canvasController.attTitulo(req, res);
+});
+
 module.exports = router;

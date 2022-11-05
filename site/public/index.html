@@ -16,7 +16,7 @@
 
 <body>
 
-    <div class="main " >
+    <div class="main deslogado" >
         <div class="header" >
             <div class="logo">
                 <div><img src="assets/BinLogo2.png" alt=""></div>
@@ -56,7 +56,7 @@
     </div>
 
 
-    <div class="main esconder" >
+    <div class="main logado esconder" >
         <div class="header" >
             <div class="logo">
                 <div><img src="assets/BinLogo2.png" alt=""></div>
@@ -230,24 +230,41 @@
             </div>
         </div>
         <div class="divulgacao">
-            <div class="texto">
-                <h3>Titulo</h3>
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia quis beatae laboriosam eaque dolor quasr!</p>
-            </div>
             <div class="divul" data-anime="left">
-                <img src="assets/destaque/nun.jpg" alt="" class="imgDivulgacao">
+                <img src="assets/destaque/mountain.jpg" alt="" class="imgDivulgacao">
+                <img src="assets/icons/mvv1.jpg" class="mvv">
                 <div class="divulHover">
-                    <b>Senna</b><br>
-                    <p>Binho do Santa</p>
+                    <b>Missão</b><br>
+                    <p>Proporcionar uma comunidade para que nossos usuarios
+                        possam interagir entre si compartilhando seus trabalhos
+                        e conhecimentos.
+                    </p>
+                </div>
+            </div>
+            <div class="divul" data-anime="middle">
+                <img src="assets/destaque/vision.jpg" alt="" class="imgDivulgacao">
+                <img src="assets/icons/mvv2.jpg" class="mvv">
+                <div class="divulHover">
+                    <b>Visão</b><br>
+                    <p>Planejamos nos tornar uma rede social que reune os 
+                        melhores artistas e estudios pelo mundo mostrando 
+                        seus estilos únicos e criativos para que assim possamos
+                        evoluir juntos!
+                    </p>
                 </div>
             </div>
             <div class="divul" data-anime="right">
-                <img src="assets/destaque/warrior400.jpg" alt="" class="imgDivulgacao">
+                <img src="assets/destaque/worth.jpg" alt="" class="imgDivulgacao">
+                <img src="assets/icons/mvv3.jpg" class="mvv">
                 <div class="divulHover">
-                    <b>Concept Warrior</b><br><br>
-                    <p>Preparado para guerra!<br>
-                    O artista tenta transmitir através da obra um conceito
-                    de guerreiro arcano em um mundo de fantasia/medieval</p>
+                    <b>Valores</b><br><br>
+                    <p>1- Criatividade, acreditamos que esse é o pilar essêncial que 
+                        cada artista deve possuir! <br>
+                        2- Honestidade, aqui a cola e plágio não tem vez! Respeite os
+                        outros artistas e mantenha sempre o seu estilo. <br>
+                        3- Respeito, devemos sempre prezar pelo bem estar do próximo
+                        pra que nosso ambiente seja sempre saudável e agradável
+                    </p>
                 </div>
             </div>
         </div>
@@ -320,6 +337,25 @@
 
 </body>
 </html>
+<script>//Aparição do Header
+
+    // A função executa ao carregar a pagina
+    // Está sendo executada em grid.js Linha:249
+
+    function verificarLogin(){
+        var verSession = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        var logado = document.querySelector('.logado');
+        var deslogado = document.querySelector('.deslogado');
+
+        if(verSession != null){
+            deslogado.classList.add('esconder');
+            logado.classList.remove('esconder');
+        }else{
+            deslogado.classList.remove('esconder');
+            logado.classList.add('esconder');
+        }
+    }
+</script>
 <script>//Video de confirmação de email
     function rodarVideo(){
         var cadEmail = idEmail.value
@@ -338,7 +374,7 @@
     }
 </script>
 <script>//Aparecer Modal Login
-    sessionStorage.clear()
+    sessionStorage.removeItem('fecharModal')
     function iniciarModal(id){
         if(sessionStorage.fecharModal !== id){
             const modal = document.getElementById(id);
@@ -440,6 +476,7 @@
         cArray[contador5].classList.remove('c5');
         cArray[contador5].classList.add('c1');
         contador5--
+
 
         if(contador1 < 0){
             contador1 = 4

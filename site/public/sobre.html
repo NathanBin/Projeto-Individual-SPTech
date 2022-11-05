@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINSTATION</title>
+    <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/sobre.css">
+    <script src="js/script.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="main deslogado" >
+        <div class="header" >
+            <div class="logo">
+                <div><img src="assets/BinLogo2.png" alt=""></div>
+                <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
+            </div>
+            <div class="pesquisa">
+                <img src="assets/lupaCinza.png" width="25px">
+                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <div class="barraPesquisa">
+                    <ul>
+                        <li><a href="#">Pesquise por Artes</a></li>
+                        <li><a href="#">Pesquise por Artistas</a></li>
+                        <li><a href="#">Pesquise por Estúdios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ulHeader">
+                <ul>
+                    <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
+                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="subHeader">
+            <div class="container" >
+                <ul >
+                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-trend-up"></i>Trending</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main logado esconder" >
+        <div class="header" >
+            <div class="logo">
+                <div><img src="assets/BinLogo2.png" alt=""></div>
+                <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
+            </div>
+            <div class="pesquisa">
+                <img src="assets/lupaCinza.png" width="25px">
+                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <div class="barraPesquisa">
+                    <ul>
+                        <li><a href="#">Pesquise por Artes</a></li>
+                        <li><a href="#">Pesquise por Artistas</a></li>
+                        <li><a href="#">Pesquise por Estúdios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ulHeader">
+                <ul>
+                    <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                    <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
+                    <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
+                    <div class="divLi" onclick="modalLogin()">
+                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
+                    </div>
+                    <!-- <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
+                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li> -->
+                </ul>
+            </div>
+            <div class="userModal">
+                <div class="modalHeader">
+                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <div class="userInfo">
+                        <p id="userName">Nathan Rodrigo</p>
+                        <div class="userPerfil">
+                            <button class="userProfile">Ver Perfil</button>
+                            <button class="userProfile">Editar Perfil</button>
+                        </div>
+                    </div>
+                </div>
+                <span></span>
+                <button class="userModalOption"><i class="fa-solid fa-palette"></i>Meus Desenhos</button>
+                <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
+                <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
+                <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
+                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+            </div>
+        </div>
+        <div class="subHeader">
+            <div class="container" >
+                <ul >
+                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-trend-up"></i>Trending</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="modalL" class="modalLogin">
+        <div class="lFormulario">
+            <div class="lHeader">
+                <img src="assets/icons/lgo3.png" width="100px" alt="">
+                <h1><b class="tBin">BIN</b><b class="tStation">STATION</b></h1>
+            </div>
+            <div class="lCampo">
+                <label for="inEmail">Seu E-mail</label>
+                <input type="email" id="inEmail" placeholder="N.l.Bin@sptech.school">
+            </div>
+            <div class="lCampo">
+                <label for="inSenha">Sua senha</label>
+                <input type="password" id="inSenha" placeholder="********">
+            </div>
+            <button onclick="">Entrar</button>
+            <div class="lFooter">
+                <div><b><a href="">Esqueceu a senha?</a></b></div>
+                <div><b><a href="">Cadastre-se</a></b></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="background">
+        <div class="gradiente">
+            <div class="tituloSobre">
+                <b>"O seu portifólio precisa estar no BinStation."</b>
+                <p>-Nathan Rodrigo</p>
+            </div>
+        </div>
+    </div>
+    <div class="sobreAutor">
+        <div class="contexto">
+            <b>Quem é Nathan?</b>
+            <p>Nathan Rodrigo atualmente tem 21 anos e mora em São Paulo,
+                em meio a pandemia atravessando um momento difícil acabou
+                encontrando a arte como uma forma de escapar dos problemas
+                e acabou se apaixonando pelo assunto, e com uma vontade enorme
+                de aprender coisas novas e se expressar de forma criativa 
+                através delas investiu muito do seu tempo nisso, assim como
+                está sendo essa nova jornada na SPTech! O desejo de desenvolver
+                coisas novas e criativas é algo que o motiva muito a seguir em frente.
+            </p>
+            <div class="mensagemNathan">
+                <img src="assets/capa/kayle.jpg" class="iconeNathan">
+                <img src="assets/icons/mensagem.png" class="caixaMsg">
+                <p>A experiência de estudar na SPTech é realmente unica,
+                    incrivel como posso aprender a parte tecnica da melhor 
+                    maneira e ainda interagir com um grupo igualmente motivado
+                    e com ambições parecidas.
+                </p>
+            </div>
+            <span class="nome">Nathan Rodrigo</span>
+            <span class="desc">Programador e Artista Digital</span>
+        </div>
+        <div class="carrosselAutor">
+            <img src="assets/destaque/arte1.png" class="imagem i1">
+            <img src="assets/destaque/arte2.png" class="imagem i2">
+            <img src="assets/destaque/arte3.png" class="imagem i3">
+            <img src="assets/destaque/arte4.png" class="imagem i4">
+            <img src="assets/destaque/arte5.png" class="imagem i5">
+            <img src="assets/destaque/arte6.png" class="imagem i6">
+        </div>
+    </div>
+    <div class="oqueGosto">
+        <div class="opcao">
+            <div class="nav">
+                <img src="assets/icons/logol.png">
+                <img src="assets/icons/logoli.png">
+                <img src="assets/icons/logom.png">
+                <img src="assets/icons/logos.png">
+            </div>
+            <div class="contextoNav">
+
+            </div>
+        </div>
+        <div class="imagemOqg">
+           <!--  <div class="imagemOqg"></div> -->
+            <div class="tamanho"></div>
+            <div class="deg">
+                <span class="span1 degrau"></span>
+                <span class="span2 degrau"></span>
+                <span class="span3 degrau"></span>
+                <span class="span4 degrau"></span>
+                <span class="span5 degrau"></span>
+                <div class="caixa1 degrau"></div>
+                <div class="caixa2 degrau"></div>
+                <div class="caixa3 degrau"></div>
+                <div class="caixa4 degrau"></div>
+                <div class="caixa5 degrau"></div>
+                <div class="mostrando dd1"></div>
+                <div class="mostrando dd2"></div>
+                <div class="mostrando dd3"></div>
+                <div class="mostrando dd4"></div>
+                <div class="mostrando dd5"></div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+<script>
+    const imagens = document.querySelectorAll('.imagem');
+    var cont1 = 0
+    var cont2 = 1
+    var cont3 = 2
+    var cont4 = 3
+    var cont5 = 4
+    var cont6 = 5
+
+    function carrosselAutor(){
+        imagens[cont1].classList.remove('i1')
+        imagens[cont1].classList.add('i2')
+        cont1--
+        imagens[cont2].classList.remove('i2')
+        imagens[cont2].classList.add('i3')
+        cont2--
+        imagens[cont3].classList.remove('i3')
+        imagens[cont3].classList.add('i4')
+        cont3--
+        imagens[cont4].classList.remove('i4')
+        imagens[cont4].classList.add('i5')
+        cont4--
+        imagens[cont5].classList.remove('i5')
+        imagens[cont5].classList.add('i6')
+        cont5--
+        imagens[cont6].classList.remove('i6')
+        imagens[cont6].classList.add('i1')
+        cont6--
+
+        if(cont1 < 0){
+            cont1 = 5
+        }
+        if(cont2 < 0){
+            cont2 = 5
+        }
+        if(cont3 < 0){
+            cont3 = 5
+        }
+        if(cont4 < 0){
+            cont4 = 5
+        }
+        if(cont5 < 0){
+            cont5 = 5
+        }
+        if(cont6 < 0){
+            cont6 = 5
+        }
+    }
+    setInterval(carrosselAutor, 3000)
+</script>

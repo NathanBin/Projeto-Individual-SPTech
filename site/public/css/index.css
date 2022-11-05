@@ -389,9 +389,15 @@ ul a{
 [data-anime="bottom"]{
     transform: translate3d(0,10px,0);
 }
+[data-anime="middle"]{
+    transform: translate3d(0,20px,0);
+}
 [data-anime].show{
     opacity: 1;
     transform: translate3d(0,0,0);
+}
+[data-anime="right"] .divulHover{
+    padding-top: 190px;
 }
 .texto{
     width: 400px;
@@ -413,6 +419,14 @@ ul a{
 .texto p{
     font-size: 1.5rem;
 }
+.mvv{
+    border-radius: 50px;
+    width: 70px;
+    position: absolute;
+    top: 20px;
+    left: 150px;
+}
+
 
 .slide{
     display: flex;

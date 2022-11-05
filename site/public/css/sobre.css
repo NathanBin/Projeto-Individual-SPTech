@@ -1,0 +1,596 @@
+body{
+    background-color: rgb(34,34,34  );
+}
+
+.background{
+    margin-top: 100px;
+    width: 100%;
+    height: 84vh;
+    background-image: url(../assets/destaque/backg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.gradiente{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to top, #000000, rgba(0, 0, 0, 0.377));
+}
+.tituloSobre{
+    display: flex;
+    flex-direction: column;
+}
+.tituloSobre b{
+    margin-top: 150px;
+    font-size: 40px;
+    color: white;
+}
+.tituloSobre p{
+    align-self: flex-end;
+    font-size: 25px;
+    margin-top: 10px;
+    color: rgb(196, 196, 196);
+}
+.sobreAutor{
+    display: flex;
+    flex-direction: row;
+
+}
+.contexto{
+    display: flex;
+    flex-direction: column;
+    width: 700px;
+    padding: 0 70px;
+    height: 650px;
+    margin-top: 50px;
+}
+.contexto b{
+    margin-top: 15px;
+    font-size: 45px;
+    color: white;
+}
+.contexto p{
+    margin-top: 15px;
+    font-size: 25px;
+    color: rgb(196, 196, 196);
+    /* text-align: justify; */
+}
+.mensagemNathan{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+}
+.iconeNathan{
+    border-radius: 50%;
+    width: 67px;
+    height: 67px;
+    margin-right: 40px;
+}
+.mensagemNathan p{
+    font-size: 18px;
+    color: white;
+    z-index: 5;
+}
+.caixaMsg{
+    position: absolute;
+    left: 70px;
+    top: 8px;
+}
+.nome{
+    color: white;
+    margin-top: 10px;
+    font-size: 20px;
+}
+.desc{
+    color: rgb(196, 196, 196);
+    font-size: 16px;
+}
+.carrosselAutor{
+    width: 600px;
+    align-items: center;
+    display: flex;
+}
+.carrosselAutor img{
+    position: absolute;
+    width: 600px;
+}
+
+.imagem{
+    transition: 1s ease;
+}
+.i1{
+    opacity: 1;
+}
+.i2{
+    opacity: 0;
+}
+.i3{
+    opacity: 0;
+}
+.i4{
+    opacity: 0;
+}
+.i5{
+    opacity: 0;
+}
+.i6{
+    opacity: 0;
+}
+
+.oqueGosto{
+    display: flex;
+    flex-direction: row;
+
+}
+.nav{
+    width: 550px;
+    height: 100px;
+    background-color: #757575;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.nav img{
+    width: 80px;
+}
+.contextoNav{
+    width: 550px;
+    height: 300px;
+    background-color: rgb(22, 22, 22);
+}
+/* .imagemOqg{
+    width: 360px;
+    height: 460px;
+    transition: 0.8s ease-in-out;
+    background-image: url(../assets/destaque/garen.jpg);
+}
+.imagemOqg:hover{
+    background-image: url(../assets/destaque/garenGelo.jpg);
+} */
+
+.tamanho{
+    
+}
+.deg{
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    width: 700px;
+    height: 350px;
+    /* background-color: white; */
+    background-image: url(../assets/destaque/backgroundlol.jpg);
+}
+.degrau{
+    transform: skewY(-12deg);
+    width: 140px;
+    height: 200px;   
+    position: absolute;
+    /* transition: 1.5s ease-in-out; */
+}
+.span1{
+    background-color: rgba(255, 255, 255, 0.001);
+    bottom: 15px;
+    left: 0;
+    transition: 1s ease-in-out;
+    z-index: 20;
+}
+.span2{
+    background-color: rgba(255, 255, 255, 0.001);
+    left: 140px;
+    bottom: 45px;
+    transition: 1s ease-in-out;
+    z-index: 20;
+}
+.span3{
+    background-color: rgba(255, 255, 255, 0.001);
+    left: 280px;
+    bottom: 75px;
+    transition: 1s ease-in-out;
+    z-index: 20;
+}
+.span4{
+    background-color: rgba(255, 255, 255, 0.001);
+    left: 420px;
+    bottom: 105px;
+    transition: 1s ease-in-out;
+    z-index: 20;
+}
+.span5{
+    background-color: rgba(255, 255, 255, 0.001);
+    left: 560px;
+    bottom: 135px;
+    transition: 1s ease-in-out;
+    z-index: 20;
+}
+.caixa1{
+    /* background-color: rgb(124, 154, 180); */
+    bottom: 15px;
+    left: 0;
+    transition: 1s ease-in-out;
+    background-image: url(../assets/destaque/garenteste2.jpg);
+    background-size: cover;
+}
+
+.caixa2{
+    background-color: rgb(54, 96, 133);
+    left: 140px;
+    bottom: 45px;
+    transition: 1s ease-in-out;
+    background-size: cover;
+    background-image: url(../assets/destaque/kayleteste2.jpg);
+}
+
+.caixa3{
+    background-color: rgb(124, 154, 180);
+    left: 280px;
+    bottom: 75px;
+    transition: 1s ease-in-out;
+    background-size: cover;
+    background-image: url(../assets/destaque/viktor12deg.jpg);
+}
+
+.caixa4{
+    background-color: rgb(54, 96, 133);
+    left: 420px;
+    bottom: 105px;
+    transition: 1s ease-in-out;
+    background-size: cover;
+    background-image: url(../assets/destaque/sivir12deg.jpg);
+}
+
+.caixa5{
+    background-color: rgb(124, 154, 180);
+    left: 560px;
+    bottom: 135px;
+    transition: 1s ease-in-out;
+    background-size: cover;
+    background-image: url(../assets/destaque/kaisa12deg.jpg);
+}
+
+.span1:hover{
+    width: 280px;
+    height: 350px;
+    transform: skew(0,0);
+    bottom: 0;
+    left: 0;
+    z-index: 20;
+}
+.span1:hover~.caixa1{
+    background-image: url(../assets/destaque/garen280.jpg);
+    width: 280px;
+    height: 350px;
+    transform: skew(0,0);
+    top: 0;
+    left: 0;
+    z-index: 15;
+    animation: garenGelo 8s ease-in-out;
+    animation-delay: 1s;
+}
+@keyframes garenGelo {
+    0% {background-image: url(../assets/destaque/garen280.jpg);}
+    25%{background-image: url(../assets/destaque/garen280Gelo.jpg);}
+}
+.span1:hover~.caixa2{
+    background-image: url(../assets/destaque/kayle105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 280px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span1:hover~.caixa3{
+    background-image: url(../assets/destaque/viktor105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 385px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span1:hover~.caixa4{
+    background-image: url(../assets/destaque/sivir105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 490px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span1:hover~.caixa5{
+    background-image: url(../assets/destaque/kaisa105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span1:hover~.span2{
+    width: 105px;
+    height: 350px;
+    left: 280px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span1:hover~.span3{
+    width: 105px;
+    height: 350px;
+    left: 385px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span1:hover~.span4{
+    width: 105px;
+    height: 350px;
+    left: 490px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span1:hover~.span5{
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+
+.span2:hover{
+    width: 280px;
+    height: 350px;
+    transform: skew(0,0);
+    top: 0;
+    left: 105px;
+    z-index: 20;
+}
+.span2:hover ~ .caixa1{
+    background-image: url(../assets/destaque/garen105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 0px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span2:hover ~ .caixa2{
+    background-image: url(../assets/destaque/kayle280.jpg);
+    width: 280px;
+    height: 350px;
+    left: 105px;
+    top: 0;
+    animation: kayleFogo 8s ease-in-out;
+    animation-delay: 1s;
+    transform: skew(0,0);
+}
+@keyframes kayleFogo {
+    0% {background-image: url(../assets/destaque/kayle280.jpg);}
+    25%{background-image: url(../assets/destaque/kayle280fogo.jpg);}
+}
+.span2:hover~.caixa3{
+    background-image: url(../assets/destaque/viktor105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 385px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span2:hover~.caixa4{
+    background-image: url(../assets/destaque/sivir105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 490px;
+    top: 0;
+    transform: skew(0,0);
+}.span2:hover~.caixa5{
+    background-image: url(../assets/destaque/kaisa105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span2:hover~.span3{
+    width: 105px;
+    height: 350px;
+    left: 385px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span2:hover~.span4{
+    width: 105px;
+    height: 350px;
+    left: 490px;
+    top: 0;
+    transform: skew(0,0);
+}.span2:hover~.span5{
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span3:hover{
+    width: 280px;
+    height: 350px;
+    transform: skew(0,0);
+    top: 0;
+    left: 210px;
+    z-index: 20;
+}
+.span3:hover ~ .caixa1{
+    background-image: url(../assets/destaque/garen105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 0px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span3:hover ~ .caixa2{
+    background-image: url(../assets/destaque/kayle105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 105px;
+    top: 0;
+    transform: skew(0,0);
+}
+
+.span3:hover~.caixa3{
+    width: 280px;
+    height: 350px;
+    left: 210px;
+    top: 0;
+    transform: skew(0,0);
+    animation: viktorMagma 8s ease-in-out;
+    animation-delay: 1s;
+    background-image: url(../assets/destaque/viktor280.jpg);
+}
+@keyframes viktorMagma {
+    0% {background-image: url(../assets/destaque/viktor280.jpg);}
+    25%{background-image: url(../assets/destaque/viktor280magma.jpg);}
+}
+.span3:hover~.caixa4{
+    background-image: url(../assets/destaque/sivir105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 490px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span3:hover~.caixa5{
+    background-image: url(../assets/destaque/kaisa105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span3:hover~.span4{
+    width: 105px;
+    height: 350px;
+    left: 490px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span3:hover~.span5{
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span4:hover{
+    width: 280px;
+    height: 350px;
+    transform: skew(0,0);
+    top: 0;
+    left: 315px;
+    z-index: 20;
+}
+.span4:hover ~ .caixa1{
+    background-image: url(../assets/destaque/garen105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 0px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span4:hover ~ .caixa2{
+    background-image: url(../assets/destaque/kayle105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 105px;
+    top: 0;
+    transform: skew(0,0);
+}
+
+.span4:hover~.caixa3{
+    background-image: url(../assets/destaque/viktor105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 210px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span4:hover~.caixa4{
+    background-image: url(../assets/destaque/sivir280.jpg);
+    width: 280px;
+    height: 350px;
+    left: 315px;
+    top: 0;
+    transform: skew(0,0);
+    animation: sivirAreia 8s ease-in-out;
+    animation-delay: 1s;
+}
+@keyframes sivirAreia {
+    0% {background-image: url(../assets/destaque/sivir280.jpg);}
+    25%{background-image: url(../assets/destaque/sivir280areia.jpg);}
+}
+.span4:hover~.caixa5{
+    background-image: url(../assets/destaque/kaisa105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span4:hover~.span5{
+    width: 105px;
+    height: 350px;
+    left: 595px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span5:hover{
+    width: 280px;
+    height: 350px;
+    transform: skew(0,0);
+    top: 0;
+    left: 420px;
+    z-index: 20;
+}
+.span5:hover ~ .caixa1{
+    background-image: url(../assets/destaque/garen105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 0px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span5:hover ~ .caixa2{
+    background-image: url(../assets/destaque/kayle105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 105px;
+    top: 0;
+    transform: skew(0,0);
+}
+
+.span5:hover~.caixa3{
+    background-image: url(../assets/destaque/viktor105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 210px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span5:hover~.caixa4{
+    background-image: url(../assets/destaque/sivir105.jpg);
+    width: 105px;
+    height: 350px;
+    left: 315px;
+    top: 0;
+    transform: skew(0,0);
+}
+.span5:hover~.caixa5{
+    background-image: url(../assets/destaque/kaisa280.jpg);
+    width: 280px;
+    height: 350px;
+    left: 420px;
+    top: 0;
+    transform: skew(0,0);
+    animation: kaisaCloud 8s ease-in-out;
+    animation-delay: 1s;
+}
+@keyframes kaisaCloud {
+    0% {background-image: url(../assets/destaque/kaisa280.jpg);}
+    25%{background-image: url(../assets/destaque/kaisa280cloud.jpg);}
+}

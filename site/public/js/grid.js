@@ -246,6 +246,7 @@ var classesUsadas = []
 
 window.onload = function() {
     embaralhar();
+    verificarLogin();
   }; 
 
 function validacaoClass(){

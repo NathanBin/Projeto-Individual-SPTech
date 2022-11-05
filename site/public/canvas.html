@@ -53,14 +53,15 @@
         <div class="modalUpload">
             <div class="modalContainer">
                 <div class="uploadTitulo">
-                    <input type="text" class="tituloDesenho" placeholder="Titulo">
+                    <input id="tituloF" type="text" class="tituloDesenho" placeholder="Titulo">
                 </div>
                 <div class="uploadImagem">
                     <img id="imgDesenho" src="">
                 </div>
                 <div class="botaoModal">
                     <button onclick="voltar()">Voltar</button>
-                    <button>Publicar Imagem</button>
+                    <button onclick="alterarTitulo()">Publicar Imagem</button>
+                    
                 </div>
             </div>
         </div>
@@ -161,6 +162,7 @@
                 <input type="range" min="1" max="10" oninput="mudarTamanho(this)">
                 <button onclick="canvasBase64()">Mandar para BD</button>
                 <button onclick="pegarBase64()">Pegar b64 do BD</button>
+                <button onclick="chamarTodas()">Caminho direto</button>
             </div>
         </div>
 
@@ -185,7 +187,7 @@
     
     <img src="" id="imgA" alt="" width="200px">
 
-    <script>
+    <script>//Modais das opções
         function iniciarModal(id){
             const modal = document.getElementById(id);
             modal.classList.add('mostrar');
@@ -252,11 +254,13 @@
         }).then(function (resposta) {
 
             console.log("resposta: ", resposta);
-            /* setTimeout(() => {
-                    window.location = "login.html";
-                },2000) */
+            setTimeout(() => {
+                    /* window.location = "login.html"; */
+                   alert('aqui ok')
+                   pegarBase64()
+                },2000)
             if (resposta.ok) {
-console.log("entrou")
+                console.log("entrou")
                 
             } else {
                 throw ("Houve um erro ao tentar guardar o canvas no banco!");
@@ -279,6 +283,7 @@ console.log("entrou")
                     modalU.classList.add('show');
                     imgDesenho.src = JSON.parse((JSON.stringify(resposta)))[0].base64;
                     resposta.reverse();
+                    pegarValor();
                 });
             } else {
                 console.error('Nenhum dado encontrado ou erro na API');
@@ -294,5 +299,57 @@ console.log("entrou")
         let modalU = document.querySelector('.modalUpload');
 
         modalU.classList.remove('show')
+    }
+
+    var ultimoId = 0
+
+    function pegarValor(){
+        fetch(`/canvas/pegarIdCanvas`, { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.parse((JSON.stringify(resposta)))[0].idDesenho}`);
+                    ultimoId = JSON.parse((JSON.stringify(resposta)))[0].idDesenho
+                    return resposta;
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção da base64: ${error.message}`);
+            });
+    }
+
+
+    function alterarTitulo(){
+        var titulo = tituloF.value
+        var b64 = ultimoId
+
+
+        console.log(titulo)
+        console.log(b64)
+
+        fetch(`/canvas/atualizarTitulo`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                tituloServer: titulo,
+                b64Server: b64
+            })
+        }).then(function (resposta) {
+
+            if (resposta.ok) {
+                window.alert("Desenho publicado com sucesso!");
+                window.location = "canvas.html"
+            } else if (resposta.status == 404) {
+                window.alert("Deu 404!");
+            } else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+        });
     }
 </script>
