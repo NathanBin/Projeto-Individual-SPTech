@@ -100,8 +100,10 @@ function mudarTamanho(element){
 }
 function base64(){
     const tela = document.querySelector('#tela');
-    let imagemConvertida = document.querySelector('#imgA');
+    let imagemConvertida = document.querySelector('#imgDesenho');
+    let modalU = document.querySelector('.modalUpload')
 
+    modalU.classList.add('show');
     imagemConvertida.src = tela.toDataURL();
 }
 

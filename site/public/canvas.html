@@ -60,7 +60,7 @@
                 </div>
                 <div class="botaoModal">
                     <button onclick="voltar()">Voltar</button>
-                    <button onclick="alterarTitulo()">Publicar Imagem</button>
+                    <button onclick="canvasBase64()">Publicar Imagem</button>
                     
                 </div>
             </div>
@@ -162,7 +162,7 @@
                 <input type="range" min="1" max="10" oninput="mudarTamanho(this)">
                 <button onclick="canvasBase64()">Mandar para BD</button>
                 <button onclick="pegarBase64()">Pegar b64 do BD</button>
-                <button onclick="chamarTodas()">Caminho direto</button>
+                <button onclick="testando()">Caminho direto</button>
             </div>
         </div>
 
@@ -185,7 +185,10 @@
         </div>
     </div>
     
-    <img src="" id="imgA" alt="" width="200px">
+    <div id="divResposta" class="imgPublicada">
+        <video id="confirmacao" src="assets/gif/gif2.mp4"></video>
+        <p>BIN<span>STATION</span></p>
+    </div>
 
     <script>//Modais das opções
         function iniciarModal(id){
@@ -233,11 +236,17 @@
 </body>
 </html>
 <script>
+    function testando(){
+        divResposta.style.display = "flex"
+        confirmacao.play()
+    }
 
     function canvasBase64(){
         const tela = document.querySelector('#tela');
         var b64 = tela.toDataURL();
-        var idUsu = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var idUsu = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        var titulo = tituloF.value
+        var msgResposta = document.querySelector('.imgPublicada')
         
 
         fetch("/canvas/guardarCanvas", {
@@ -249,15 +258,17 @@
                 // crie um atributo que recebe o valor recuperado aqui
                 // Agora vá para o arquivo routes/usuario.js
                 canvasServer: b64,
-                idServer: idUsu
+                idServer: idUsu,
+                tituloServer: titulo
             })
         }).then(function (resposta) {
-
             console.log("resposta: ", resposta);
+
+            divResposta.style.display = "flex"
+            confirmacao.play()
             setTimeout(() => {
-                    /* window.location = "login.html"; */
-                   alert('aqui ok')
-                   pegarBase64()
+                alert('Publicado com sucesso!')
+                window.location = "canvas.html";
                 },2000)
             if (resposta.ok) {
                 console.log("entrou")
@@ -272,7 +283,15 @@
             return false;
     }
 
-    function pegarBase64(){
+    
+    function voltar(){
+        let modalU = document.querySelector('.modalUpload');
+
+        modalU.classList.remove('show')
+    }
+
+
+    /* function pegarBase64(){
         let imgA = document.querySelector('#imgA');
         let modalU = document.querySelector('.modalUpload')
         
@@ -292,18 +311,12 @@
             .catch(function (error) {
                 console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
             });
-    }
+    } */
 
 
-    function voltar(){
-        let modalU = document.querySelector('.modalUpload');
+    /* var ultimoId = 0 */
 
-        modalU.classList.remove('show')
-    }
-
-    var ultimoId = 0
-
-    function pegarValor(){
+    /* function pegarValor(){
         fetch(`/canvas/pegarIdCanvas`, { cache: 'no-store' }).then(function (response) {
             if (response.ok) {
                 response.json().then(function (resposta) {
@@ -319,9 +332,9 @@
                 console.error(`Erro na obtenção da base64: ${error.message}`);
             });
     }
+ */
 
-
-    function alterarTitulo(){
+    /* function alterarTitulo(){
         var titulo = tituloF.value
         var b64 = ultimoId
 
@@ -351,5 +364,5 @@
         }).catch(function (resposta) {
         console.log(`#ERRO: ${resposta}`);
         });
-    }
+    } */
 </script>

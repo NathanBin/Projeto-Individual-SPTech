@@ -1,10 +1,10 @@
 var database = require("../database/config");
 
-function canvasBase64(base64, id) { 
+function canvasBase64(base64, id, titulo) { 
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function canvasBase64():", base64);
 
     var instrucao = `
-    INSERT INTO desenho (base64, fkUsuario) VALUES ('${base64}', ${id});
+    INSERT INTO desenho (titulo, base64, fkUsuario) VALUES ('${titulo}', '${base64}', ${id});
 `;
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);

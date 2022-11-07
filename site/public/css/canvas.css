@@ -1,10 +1,14 @@
+body{
+    max-height: 80vh;
+    background-color: rgb(34,34,34);
+}
 .estruturaC{
     margin-top: 100px;
     background-color: rgb(34,34,34);
     display: flex;
     justify-content: center;
     align-items: center;
-    max-height: 600px;
+    height: 84vh;
 }
 .tDesenho{
     margin-bottom: 100px;
@@ -89,7 +93,7 @@
     /* padding-top: 30px; */
     position: relative;
     margin-top: 70px;
-    /* height: 500px; */
+    height: 400px;
 }
 .optionsC{
     display: flex;
@@ -318,3 +322,38 @@
     cursor: pointer;
 }
 
+.imgPublicada{
+    width: 400px;
+    height: 100px;
+    background-color: rgb(21,21,21);
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 250px;
+    left: 483px;
+    animation: publicado 1s ease-in-out;
+    border-radius: 10px;
+    z-index: 500;
+}
+.imgPublicada p{
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
+}
+.imgPublicada span{
+    color: #757575;
+}
+@keyframes publicado {
+    0%{
+        transform: translate(-50px,0);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(0,0);
+        opacity: 1;
+    }
+}
+.imgPublicada video{
+    border-radius: 10px 10px 10px 10px;
+}

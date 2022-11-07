@@ -5,8 +5,9 @@ var sessoes = [];
 function canvasBase64(req, res) {
     var base64 = req.body.canvasServer;
     var idDesenho = req.body.idServer;
+    var titulo = req.body.tituloServer;
 
-    canvasModel.canvasBase64(base64, idDesenho)
+    canvasModel.canvasBase64(base64, idDesenho, titulo)
         .then(
             function (resultado) {
                 console.log(`\nResultados encontrados: ${resultado.length}`);
