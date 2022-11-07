@@ -126,39 +126,56 @@ body{
     flex-direction: row;
 
 }
+.eu{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    width: 650px;
+    height: 650px;
+}
+.eu h2{
+    color: white;
+    font-size: 45px;
+}
+.eu p{
+    align-self: center;
+    font-size: 25px;
+    margin-top: 10px;
+    color: rgb(196, 196, 196);
+    width: 500px;
+}
 .nav{
-    width: 550px;
+    width: 700px;
     height: 100px;
     background-color: #757575;
     display: flex;
     align-items: center;
     justify-content: space-around;
+    clip-path: polygon(
+        0px 30px,
+        30px 0px, 
+        670px 0px,
+        700px 30px,
+        700px 100px, 
+        0px 100px);
+    
 }
 .nav img{
     width: 80px;
 }
-.contextoNav{
-    width: 550px;
-    height: 300px;
-    background-color: rgb(22, 22, 22);
+.imagemOqg{
+    margin-right: 20px;
+    position: relative;
+    overflow: hidden;
 }
-/* .imagemOqg{
-    width: 360px;
-    height: 460px;
-    transition: 0.8s ease-in-out;
-    background-image: url(../assets/destaque/garen.jpg);
-}
-.imagemOqg:hover{
-    background-image: url(../assets/destaque/garenGelo.jpg);
-} */
 
-.tamanho{
-    
-}
-.deg{
+.lol{
     display: flex;
     flex-direction: row;
-    position: relative;
+    position: absolute;
+    top: 100px;
+    left: 100%;
     width: 700px;
     height: 350px;
     /* background-color: white; */
@@ -292,6 +309,7 @@ body{
 }
 .span1:hover~.caixa4{
     background-image: url(../assets/destaque/sivir105.jpg);
+    background-size: cover;
     width: 105px;
     height: 350px;
     left: 490px;
@@ -375,6 +393,7 @@ body{
 }
 .span2:hover~.caixa4{
     background-image: url(../assets/destaque/sivir105.jpg);
+    background-size: cover;
     width: 105px;
     height: 350px;
     left: 490px;
@@ -449,6 +468,7 @@ body{
 }
 .span3:hover~.caixa4{
     background-image: url(../assets/destaque/sivir105.jpg);
+    background-size: cover;
     width: 105px;
     height: 350px;
     left: 490px;
@@ -574,6 +594,7 @@ body{
 }
 .span5:hover~.caixa4{
     background-image: url(../assets/destaque/sivir105.jpg);
+    background-size: cover;
     width: 105px;
     height: 350px;
     left: 315px;
@@ -593,4 +614,1203 @@ body{
 @keyframes kaisaCloud {
     0% {background-image: url(../assets/destaque/kaisa280.jpg);}
     25%{background-image: url(../assets/destaque/kaisa280cloud.jpg);}
+}
+
+.series{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    left: 100%;
+    top: 100px;
+    /* position: relative; */
+    width: 700px;
+    height: 350px;
+    /* background-color: white; */
+    background-image: url(../assets/destaque/fundoNetflix.jpg);
+    opacity: 1;
+}
+.navNetflix{
+    width: 700px;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.navNetflix b{
+
+    font-size: 15px;
+    color: white;
+}
+.liNet{
+    margin: 0 25px;
+}
+.liHover{
+    position: relative;
+    cursor: pointer;
+}
+.liHover::after{
+    content: '';
+    width: 0px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+.liHover:hover::after{
+    width: 100%;
+}
+.navNetflix img{
+    height: 100px;
+}
+.netflixLogo{
+    height: 64px;
+    width: 206px;
+    background-image: url(../assets/destaque/netteste.jpg);
+ 
+}
+.netflixLogo:hover{
+    animation: logoFlash 0.6s ease-in-out;
+    /* animation-delay: 0.2s;  */
+}
+@keyframes logoFlash {
+    0%{background-image: url(../assets/destaque/netteste.jpg);}
+    8%{background-image: url(../assets/destaque/animacao/f1.jpg);}
+    16%{background-image: url(../assets/destaque/animacao/f2.jpg);}
+    24%{background-image: url(../assets/destaque/animacao/f3.jpg);}
+    32%{background-image: url(../assets/destaque/animacao/f4.jpg);}
+    40%{background-image: url(../assets/destaque/animacao/f5.jpg);}
+    48%{background-image: url(../assets/destaque/animacao/f6.jpg);}
+    56%{background-image: url(../assets/destaque/animacao/f7.jpg);}
+    64%{background-image: url(../assets/destaque/animacao/f8.jpg);}
+    72%{background-image: url(../assets/destaque/animacao/f9.jpg);}
+    80%{background-image: url(../assets/destaque/animacao/f10.jpg);}
+    88%{background-image: url(../assets/destaque/animacao/f11.jpg);}
+    100%{background-image: url(../assets/destaque/netteste.jpg);}
+}
+.serie{
+    width: 200px;
+    height: 114px;
+    position: absolute;
+}
+.serie2{
+    width: 200px;
+    height: 78px;
+    position: absolute;
+}
+.s1{
+    top: 105px;
+    left: 34px;
+    background-image: url(../assets/destaque/suits.jpg);
+    transition: 1s ease-in-out;
+    background-size: cover;
+    z-index: 5;
+}
+.s1:hover{
+    left: 100px;
+    top: 24px;
+    width: 500px;
+    height: 285px;
+    z-index: 10;
+    animation: suits 8s infinite;
+    animation-delay: 2s;
+    background-image: url(../assets/destaque/animacao/suits1.jpg);
+}
+@keyframes suits {
+    0%{background-image: url(../assets/destaque/animacao/suits1.jpg);}
+    33%{background-image: url(../assets/destaque/animacao/suits2.jpg);}
+    66%{background-image: url(../assets/destaque/animacao/suits3.jpg);}
+    100%{background-image: url(../assets/destaque/animacao/suits1.jpg);}
+}
+.s2{
+    top: 105px;
+    left: 250px;
+    background-image: url(../assets/destaque/arcane.jpg);
+    background-size: cover;
+    transition: 1s ease-in-out;
+    z-index: 5;
+}
+.s2:hover{
+    left: 100px;
+    top: 24px;
+    width: 500px;
+    height: 285px;
+    z-index: 10;
+    animation: arcane 8s infinite;
+    animation-delay: 2s;
+    background-image: url(../assets/destaque/animacao/arcane3.jpg);
+}
+@keyframes arcane {
+    0%{background-image: url(../assets/destaque/animacao/arcane3.jpg);}
+    33%{background-image: url(../assets/destaque/animacao/arcane1.jpg);}
+    66%{background-image: url(../assets/destaque/animacao/arcane2.jpg);}
+    100%{background-image: url(../assets/destaque/animacao/arcane3.jpg);}
+}
+.s3{
+    top: 105px;
+    left: 470px;
+    background-image: url(../assets/destaque/himym.jpg);
+    background-size: cover;
+    transition: 1s ease-in-out;  
+    z-index: 5;
+}
+.s3:hover{
+    left: 100px;
+    top: 24px;
+    width: 500px;
+    height: 285px;
+    z-index: 10;
+    animation: himym 8s infinite;
+    animation-delay: 2s;
+    background-image: url(../assets/destaque/animacao/himym1.jpg);
+}
+@keyframes himym {
+    0%{background-image: url(../assets/destaque/animacao/himym1.jpg);}
+    33%{background-image: url(../assets/destaque/animacao/himym2.jpg);}
+    66%{background-image: url(../assets/destaque/animacao/himym3.jpg);}
+    100%{background-image: url(../assets/destaque/animacao/himym1.jpg);}
+}
+.s4{
+    top: 272px;
+    left: 34px;
+    background-image: url(../assets/destaque/gambito.jpg);
+    background-size: cover;
+}
+.s5{
+    top: 272px;
+    left: 250px;
+    background-image: url(../assets/destaque/gotham.jpg);
+    background-size: cover;
+}
+.s6{
+    top: 272px;
+    left: 470px;
+    background-image: url(../assets/destaque/cyberpunk.jpg);
+    background-size: cover;
+}
+
+.invisivel{
+    opacity: 0;
+    position: absolute;
+    left: -500px;
+}
+
+.musicas{
+    position: absolute;
+    top: 100px;
+    left: 100%;
+    opacity: 0;
+    width: 700px;
+    height: 350px;
+    background-color: #757575;
+    background-image: url(../assets/destaque/fundoSpotify.jpg);
+    overflow: hidden;
+}
+
+.disco{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    transition: 1s ease-in-out;
+    background-size: cover;
+}
+.rock1{
+    background-image: url(../assets/destaque/rock.jpg);
+    z-index: 5;
+    top: 110px;
+    left: 75px;
+}
+.rock2{
+    background-image: url(../assets/destaque/rock2.jpg);
+    z-index: 4;
+    transform: skew(-10deg, 10deg);
+    top: 119px;
+    left: 84px;
+    
+}
+.rock3{
+    background-image: url(../assets/destaque/rock3.jpg);
+    z-index: 3;
+    transform: skew(-20deg, 20deg);
+    top: 128px;
+    left: 93px;
+}
+.rock1:hover{
+    background-image: url(../assets/destaque/rock1.jpg);
+    width: 150px;
+    height: 150px;
+    left: 78px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 10;
+    animation: rock1 8s ease-in-out;
+    animation-delay: 1s;
+}
+.rock1:hover~.rock2{
+    background-image: url(../assets/destaque/rock2.jpg);
+    width: 150px;
+    height: 150px;
+    left: 273px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 9;
+    animation: rock2 8s ease-in-out;
+    animation-delay: 1s;
+}
+.rock1:hover~.rock3{
+    background-image: url(../assets/destaque/rock3.jpg);
+    width: 150px;
+    height: 150px;
+    left: 468px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 8;
+    animation: rock3 8s ease-in-out;
+    animation-delay: 1s;
+}
+@keyframes rock1 {
+    0%{background-image: url(../assets/destaque/rock1.jpg);}
+    20%{background-image: url(../assets/destaque/rock11.jpg);}
+}
+@keyframes rock2 {
+    0%{background-image: url(../assets/destaque/rock2.jpg);}
+    20%{background-image: url(../assets/destaque/rock22.jpg);}
+}
+@keyframes rock3 {
+    0%{background-image: url(../assets/destaque/rock3.jpg);}
+    20%{background-image: url(../assets/destaque/rock33.jpg);}
+}
+.trap1{
+    background-image: url(../assets/destaque/trap.jpg);
+    z-index: 5;
+    top: 110px;
+    left: 300px;
+}
+.trap2{
+    background-image: url(../assets/destaque/trap2.jpg);
+    z-index: 4;
+    transform: skew(-10deg, 10deg);
+    top: 119px;
+    left: 309px;
+}
+.trap3{
+    background-image: url(../assets/destaque/trap3.jpg);
+    z-index: 3;
+    transform: skew(-20deg, 20deg);
+    top: 128px;
+    left: 318px;
+}
+.trap1:hover{
+    width: 150px;
+    height: 150px;
+    left: 273px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 10;
+    background-image: url(../assets/destaque/trap1.jpg);
+    animation: trap1 8s ease-in-out;
+    animation-delay: 1s;
+}
+.trap1:hover~.trap2{
+    width: 150px;
+    height: 150px;
+    left: 78px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 9;
+    background-image: url(../assets/destaque/trap2.jpg);
+    animation: trap2 8s ease-in-out;
+    animation-delay: 1s;
+}
+.trap1:hover~.trap3{
+    width: 150px;
+    height: 150px;
+    left: 468px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 8;
+    background-image: url(../assets/destaque/trap3.jpg);
+    animation: trap3 8s ease-in-out;
+    animation-delay: 1s;
+}
+@keyframes trap1 {
+    0%{background-image: url(../assets/destaque/trap1.jpg);}
+    20%{background-image: url(../assets/destaque/trap11.jpg);}
+}
+@keyframes trap2 {
+    0%{background-image: url(../assets/destaque/trap2.jpg);}
+    20%{background-image: url(../assets/destaque/trap22.jpg);}
+}
+@keyframes trap3 {
+    0%{background-image: url(../assets/destaque/trap3.jpg);}
+    20%{background-image: url(../assets/destaque/trap33.jpg);}
+}
+.anime1{
+    background-image: url(../assets/destaque/anime.jpg);
+    z-index: 5;
+    top: 110px;
+    left: 524px;
+}
+.anime2{
+    background-image: url(../assets/destaque/anime2.jpg);
+    z-index: 4;
+    transform: skew(-10deg, 10deg);
+    top: 119px;
+    left: 533px;
+}
+.anime3{
+    background-image: url(../assets/destaque/anime3.jpg);
+    z-index: 3;
+    transform: skew(-20deg, 20deg);
+    top: 128px;
+    left: 542px;
+}
+.anime1:hover{
+    width: 150px;
+    height: 150px;
+    left: 468px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 10;
+    background-image: url(../assets/destaque/anime1.jpg);
+    animation: anime1 8s ease-in-out;
+    animation-delay: 1s;
+}
+.anime1:hover~.anime2{
+    width: 150px;
+    height: 150px;
+    left: 273px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 9;
+    background-image: url(../assets/destaque/anime2.jpg);
+    animation: anime2 8s ease-in-out;
+    animation-delay: 1s;
+}
+.anime1:hover~.anime3{
+    width: 150px;
+    height: 150px;
+    left: 78px;
+    top: 71px;
+    transform: skew(0,0);
+    z-index: 8;
+    background-image: url(../assets/destaque/anime3.jpg);
+    animation: anime3 8s ease-in-out;
+    animation-delay: 1s;
+  
+}
+@keyframes anime1 {
+    0%{background-image: url(../assets/destaque/anime1.jpg);}
+    20%{background-image: url(../assets/destaque/anime11.jpg);}
+}
+@keyframes anime2 {
+    0%{background-image: url(../assets/destaque/anime2.jpg);}
+    20%{background-image: url(../assets/destaque/anime22.jpg);}
+}
+@keyframes anime3 {
+    0%{background-image: url(../assets/destaque/anime3.jpg);}
+    20%{background-image: url(../assets/destaque/anime33.jpg);}
+}
+
+.playlist1{
+    top: 330px;
+    left: 75px;
+    background-image: url(../assets/destaque/playlist1.jpg);
+}
+.playlist2{
+    top: 330px;
+    left: 300px;
+    background-color: aquamarine;
+}
+.playlist3{
+    top: 330px;
+    left: 542px;
+    background-color: aquamarine;
+}
+.navSpotify{
+    width: 700px;
+    height: 65px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.navSpotify b{
+    font-size: 15px;
+    color: white;
+}
+.liNet{
+    margin: 0 25px;
+}
+.liHover{
+    position: relative;
+    cursor: pointer;
+}
+.liHover::after{
+    content: '';
+    width: 0px;
+    height: 2px;
+    background-color: white;
+    position: absolute;
+    top: 20px;
+    left: 0;
+    transition: 0.5s ease-in-out;
+}
+.liHover:hover::after{
+    width: 100%;
+}
+.navSpotify  img{
+    height: 100px;
+}
+.spotifyLogo{
+    height: 64px;
+    width: 206px;
+    background-image: url(../assets/destaque/spotifyLogo.jpg);
+}
+.spotifyLogo:hover{
+    animation: logoSpotify 1s ease-in-out;
+}
+@keyframes logoSpotify {
+    0%{background-image: url(../assets/destaque/animacao/s1.jpg);}
+    8%{background-image: url(../assets/destaque/animacao/s2.jpg);}
+    16%{background-image: url(../assets/destaque/animacao/s3.jpg);}
+    24%{background-image: url(../assets/destaque/animacao/s4.jpg);}
+    32%{background-image: url(../assets/destaque/animacao/s5.jpg);}
+    40%{background-image: url(../assets/destaque/animacao/s6.jpg);}
+    48%{background-image: url(../assets/destaque/animacao/s7.jpg);}
+    56%{background-image: url(../assets/destaque/animacao/s8.jpg);}
+    64%{background-image: url(../assets/destaque/animacao/s9.jpg);}
+    72%{background-image: url(../assets/destaque/animacao/s10.jpg);}
+    80%{background-image: url(../assets/destaque/animacao/s1.jpg);}
+    88%{background-image: url(../assets/destaque/spotifyLogo.jpg);}
+    100%{background-image: url(../assets/destaque/spotifyLogo.jpg);}
+}
+.mangas{
+    position: relative;
+    width: 700px;
+    height: 350px;
+    background-color: #757575;
+    overflow: hidden;
+}
+/* .teste40{
+    width: 200px;
+    height: 200px;
+    background-color: beige; */
+    /* border: 2px solid black;
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    clip-path: polygon(
+        0px 0px, 
+        200px 0px,
+        200px 0px, 
+        200px 200px, 
+        0px 200px);
+    transition: 1s ease-in-out;
+}
+.teste40:hover{
+    clip-path: polygon(
+        0px 0px, 
+        160px 0px,
+        200px 40px, 
+        200px 200px, 
+        0px 200px);
+}
+
+.teste50{
+    position: absolute;
+    top: 40px;
+    left: 300px;
+    background-color: antiquewhite;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: 1s ease-in-out;
+}
+
+.teste50:hover{
+    border-radius: 0px;
+    transform: rotate(90deg);
+    width: 350px;
+    height: 200px;
+    left: 90px;
+    top: 75px;
+}
+.teste60{
+    position: absolute;
+    top: 100px;
+    left: 300px;
+    background-color: antiquewhite;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: 1s ease-in-out;
+}
+.teste60:hover{
+    border-radius: 0px;
+    transform: rotate(90deg);
+    width: 200px;
+    height: 350px;
+    left: 170px;
+    top: 0px;
+}
+.teste60:hover .escondida{
+    opacity: 1;
+    
+}
+.escondida{
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+   transition: 1s ease-in-out;
+   transition-delay: 1s;
+}
+@keyframes teste {
+    5%{
+       display: block; 
+    }
+} */
+
+
+.atual{
+    left: 0;
+    z-index: 100;
+    opacity: 1;
+}
+.boxS{
+    width: 95px;
+    height: 143px;
+    background-color: #494949;
+    position: absolute;
+    transition: 0.5s ease-in-out;
+}
+
+.teste71{
+    z-index: 5;
+    top: 27px;
+    left: 70px;
+}
+.teste72{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste73{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste74{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste71:hover{
+    width: 150px;
+    height: 200px;
+    top: 20px;
+    left: 30px;
+    z-index: 15;
+}
+.teste71:hover .teste72{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+    z-index: 15;
+}
+.teste71:hover .teste73{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 320px;
+    animation: teste73 1.5s ease-in-out;
+    z-index: 15;
+}
+.teste71:hover .teste74{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 480px;
+    animation: teste74 2s ease-in-out;
+    z-index: 15;
+}
+@keyframes teste72 {
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    50%{
+        top: 0px;
+        left: 0px;
+    }
+    100%{
+        top: 0px;
+        left: 160px;
+    }
+}
+@keyframes teste73 {
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    33%{
+        top: 0px;
+        left: 0px;
+    }
+    66%{
+        top: 0px;
+        left: 160px;
+    }
+    100%{
+        top: 0px;
+        left: 320px;
+    }
+}
+@keyframes teste74 {
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    25%{
+        top: 0px;
+        left: 0px;
+    }
+    50%{
+        top: 0px;
+        left: 160px;
+    }
+    75%{
+        top: 0px;
+        left: 320px;
+    }
+    100%{
+        top: 0px;
+        left: 480px;
+    }
+}
+.teste75{
+    z-index: 5;
+    top: 27px;
+    left: 195px;
+}
+.teste76{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste77{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste78{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste75:hover{
+    width: 150px;
+    height: 200px;
+    top: 20px;
+    left: 190px;
+}
+.teste75:hover .teste76{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+}
+.teste75:hover .teste77{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+}
+.teste75:hover .teste78{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 320px;
+    animation: teste73 1.5s ease-in-out;
+}
+@keyframes teste76 {
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    50%{
+        top: 0px;
+        left: 0px;
+    }
+    100%{
+        top: 0px;
+        left: -160px;
+    }
+}
+.teste79{
+    z-index: 5;
+    top: 27px;
+    left: 320px;
+}
+.teste80{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste81{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste82{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste79:hover{
+    width: 150px;
+    height: 200px;
+    top: 20px;
+    left: 350px;
+}
+.teste79:hover .teste80{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -320px;
+    animation: teste80 1.5s ease-in-out;
+}
+.teste79:hover .teste81{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+}
+.teste79:hover .teste82{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+}
+@keyframes teste80 {
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    33%{
+        top: 0px;
+        left: 0px;
+    }
+    66%{
+        top: 0px;
+        left: -160px;
+    }
+    100%{
+        top: 0px;
+        left: -320px;
+    }
+}
+.teste83{
+    z-index: 5;
+    top: 27px;
+    left: 448px;
+}
+.teste84{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste85{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste86{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste83:hover{
+    width: 150px;
+    height: 200px;
+    top: 20px;
+    left: 350px;
+}
+.teste83:hover .teste84{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+}
+.teste83:hover .teste85{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+}
+.teste83:hover .teste86{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -320px;
+    animation: teste80 1.5s ease-in-out;
+}
+
+.teste87{
+    z-index: 5;
+    top: 27px;
+    left: 574px;
+}
+.teste88{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste89{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste90{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste87:hover{
+    width: 150px;
+    height: 200px;
+    top: 20px;
+    left: 510px;
+}
+.teste87:hover .teste88{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+}
+.teste87:hover .teste89{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -320px;
+    animation: teste80 1.5s ease-in-out;
+}
+.teste87:hover .teste90{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -480px;
+    animation: teste90 2s ease-in-out;
+}
+
+@keyframes teste90 {
+    0%{
+        top: 0px;
+        left: 0px;
+    }
+    25%{
+        top: 0px;
+        left: 0px;
+    }
+    50%{
+        top: 0px;
+        left: -160px;
+    }
+    75%{
+        top: 0px;
+        left: -320px;
+    }
+    100%{
+        top: 0px;
+        left: -480px;
+    }
+}
+.teste91{
+    z-index: 5;
+    top: 181px;
+    left: 70px;
+}
+.teste92{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste93{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste94{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste91:hover{
+    width: 150px;
+    height: 200px;
+    top: 100px;
+    left: 30px;
+}
+.teste91:hover .teste92{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+}
+.teste91:hover .teste93{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 320px;
+    animation: teste73 1.5s ease-in-out;
+}
+.teste91:hover .teste94{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 480px;
+    animation: teste74 2s ease-in-out;
+}
+.teste95{
+    z-index: 5;
+    top: 181px;
+    left: 195px;
+}
+.teste96{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste97{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste98{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste95:hover{
+    width: 150px;
+    height: 200px;
+    top: 100px;
+    left: 190px;
+}
+.teste95:hover .teste96{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+}
+.teste95:hover .teste97{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+}
+.teste95:hover .teste98{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 320px;
+    animation: teste73 1.5s ease-in-out;
+}
+.teste99{
+    z-index: 5;
+    top: 181px;
+    left: 320px;
+}
+.teste100{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste101{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste102{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+
+.teste99:hover{
+    width: 150px;
+    height: 200px;
+    top: 100px;
+    left: 350px;
+}
+.teste99:hover .teste100{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -320px;
+    animation: teste80 1.5s ease-in-out;
+}
+.teste99:hover .teste101{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+}
+.teste99:hover .teste102{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+}
+.teste103{
+    z-index: 5;
+    top: 181px;
+    left: 447px;
+}
+.teste104{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste105{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste106{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste103:hover{
+    width: 150px;
+    height: 200px;
+    top: 100px;
+    left: 350px;
+}
+.teste103:hover .teste104{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -320px;
+    animation: teste80 1.5s ease-in-out;
+}
+.teste103:hover .teste105{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+}
+.teste103:hover .teste106{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: 160px;
+    animation: teste72 1s ease-in-out;
+}
+.teste107{
+    z-index: 5;
+    top: 181px;
+    left: 574px;
+}
+.teste108{
+    z-index: 4;
+    top: 0;
+    left: 0;
+}
+.teste109{
+    z-index: 3;
+    top: 0;
+    left: 0;
+}
+.teste110{
+    z-index: 2;
+    top: 0;
+    left: 0;
+}
+.teste107:hover{
+    width: 150px;
+    height: 200px;
+    top: 100px;
+    left: 510px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.teste107:hover .teste108{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -160px;
+    animation: teste76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.teste107:hover .teste109{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -320px;
+    animation: teste80 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.teste107:hover .teste110{
+    width: 150px;
+    height: 200px;
+    top: 0px;
+    left: -480px;
+    animation: teste90 2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.menu{
+    position: absolute;
+    top: 27px;
+    left: 10px;
+    z-index: 10;
+}
+.menuAba{
+    position: absolute;
+    top: 13px;
+    left: 2px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    background-color: rgb(1, 117, 78);
+    transition: 1s ease-in-out;
+    z-index: 6;
+}
+.menu:hover~.menuAba{
+    width: 350px;
+    height: 150px;
+    border-radius: 0;
+    left: -100px;
+    top: 100px;
+    transform: rotate(90deg);
+    z-index: 9;
+}
+.menuAba:hover{
+    width: 350px;
+    height: 150px;
+    border-radius: 0;
+    left: -100px;
+    top: 100px;
+    transform: rotate(90deg);
+    z-index: 9;
 }
