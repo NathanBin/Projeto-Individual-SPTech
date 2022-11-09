@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/login.css">
-    <script src="js/script.js"></script>
+    <title>Artwork</title>
+    <link rel="stylesheet" href="css/artwork.css">
     <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
+    <script src="js/funcoes.js"></script>
 </head>
 <body>
 
@@ -115,103 +116,152 @@
         </div>
     </div>
 
-    <div class="lContainer">
-        <div class="alerta_erro">
-            <div class="card_erro" id="cardErro">
-                <span id="mensagem_erro"></span>
-            </div>
-        </div>
+    <div id="modalL" class="modalLogin">
         <div class="lFormulario">
             <div class="lHeader">
-                <a href="index.html"><img src="assets/icons/lgo3.png" width="100px"></a>
+                <img src="assets/icons/lgo3.png" width="100px" alt="">
                 <h1><b class="tBin">BIN</b><b class="tStation">STATION</b></h1>
             </div>
-            <div class="campo">
+            <div class="lCampo">
                 <label for="inEmail">Seu E-mail</label>
                 <input type="email" id="inEmail" placeholder="N.l.Bin@sptech.school">
             </div>
-            <div class="campo">
+            <div class="lCampo">
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="entrar()">Entrar</button>
-            <div class="footer">
+            <button onclick="">Entrar</button>
+            <div class="lFooter">
                 <div><b><a href="">Esqueceu a senha?</a></b></div>
                 <div><b><a href="">Cadastre-se</a></b></div>
             </div>
         </div>
     </div>
 
+    <div class="aContainer">
+        <div class="art">
+            <!-- <img src="assets/Artwork/kan-liu-666k-fullsize.jpg" alt="" class="imgWork">
+            <img src="assets/Artwork/kan-liu-666k-details.jpg" alt="" class="imgWork">
+            <img src="assets/Artwork/kan-liu-666k-fullsize-b-w.jpg" alt="" class="imgWork">
+            <img src="assets/Artwork/kan-liu-666k-lineart.jpg" alt="" class="imgWork"> -->
+            
+        </div>
+        <div class="descricao">
+            <div class="artista">
+                <img src="" id="imagemAutor"  class="autor">
+                <div class="info">
+                    <h2 id="nomeAutor"></h2>
+                    <p id="descricaoAutor"></p>
+                </div>
+            </div>
+            <button class="bFollow" onclick=""><i class="fa-solid fa-user-plus"></i>Follow</button>
+            <div class="avaliacao">
+                <button class="bLike" onclick=""><i class="fa-solid fa-heart"></i>Like</button>
+                <button class="bColecao" onclick=""><i class="fa-solid fa-bookmark"></i>Add na coleção</button>
+            </div>
+            <div class="sobre">
+                <h2 id="nomePost"></h2>
+                <p id="descricaoPost"></p>
+            </div>
+            <div class="status">
+                <p><p id="like">0</p> Likes</p>
+                <p><p id="visualizacao">0</p> Views</p>
+                <p><p id="comentario">1</p> Comentarios</p>
+            </div>
+            <!-- <div class="comentarios">
+                <p><b id="comentario">1</b> Comentarios</p>
+                <div class="campoComentario">
+                    <img src="" class="imgID">
+                    <div class="caixa">
+                        <b id="nomeComentario"></b>
+                        <p id="comentario"></p>
+                    </div>
+                </div>
+            </div> -->
+            
+        </div>
+    </div>
+    
 </body>
 </html>
 <script>
-    function entrar() {
-        /* aguardar(); */
 
-        var emailVar = inEmail.value;
-        var senhaVar = inSenha.value;
-
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
-            /* finalizarAguardar(); */
-            return false;
+function iniciarModal(id){
+        if(sessionStorage.fecharModal !== id){
+            const modal = document.getElementById(id);
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if(e.target.id == id){
+                    modal.classList.remove('mostrar')
+                    sessionStorage.fecharModal = id
+                }
+            })
         }
-        else {
-            setInterval(sumirMensagem, 5000)
-        }
+    }
 
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
 
-        fetch("/usuarios/autenticar", {
+    function artwork(){
+        var idPostagem = sessionStorage.getItem('IDIMAGEM_IMAGEM');
+        var imagens = document.querySelector('.art');
+        var iconAutor = document.querySelector('#imagemAutor');
+
+        fetch(`/artwork/selectPost/${idPostagem}`).then(function (resposta) {
+            if (resposta.ok) {
+                resposta.json().then(function (response) {
+                    /* console.log(JSON.parse((JSON.stringify(response)))[0].likes) */
+                    iconAutor.src = `${JSON.parse((JSON.stringify(response)))[0].icone}`
+                    nomeAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].nickname}`
+                    descricaoAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoAutor}`
+                    nomePost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].titulo}`
+                    descricaoPost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoPost}`
+                    like.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].likes}`
+                    visualizacao.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].views}`
+                    comentario.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].comentarios}`
+                    
+                    for(var i = 0; i < response.length; i++){
+                        imagens.innerHTML += `<img src="${JSON.parse((JSON.stringify(response)))[i].base64}" class="imgWork">`
+                    }
+
+                    response.reverse();
+                })
+            }else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+        
+    }
+
+    window.onload = function() {
+        artwork();
+        verificarLogin();
+    };
+
+    /* function pegarPostagem() {
+        var idImagemVar = sessionStorage.getItem('IDIMAGEM_IMAGEM');
+        var imagens = document.querySelector('.art');
+       
+        fetch("/artwork/selectPost", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
+                idImagemServer: idImagemVar
             })
         }).then(function (resposta) {
-            console.log("ESTOU NO THEN DO entrar()!")
+
+            console.log("resposta: ", resposta);
 
             if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NICKNAME_USUARIO = json.nickname;
-                    sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
-
-                    /* setTimeout(function () { */
-                        window.location = "/perfil.html";
-                    }/* , 1000); // apenas para exibir o loading */
-
-                /* } */);
+                console.log(JSON.stringify(resposta))
 
             } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                resposta.text().then(texto => {
-                    console.error(texto);
-                    finalizarAguardar(texto);
-                });
+                throw ("Houve um erro ao tentar realizar o cadastro!");
             }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
 
         return false;
-    }
-
-    function sumirMensagem() {
-        cardErro.style.display = "none"
-    }
-
+    } */
 </script>

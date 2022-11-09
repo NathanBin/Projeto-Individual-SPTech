@@ -175,7 +175,8 @@ body{
     flex-direction: row;
     position: absolute;
     top: 100px;
-    left: 100%;
+    left: 0;
+    z-index: 600;
     width: 700px;
     height: 350px;
     /* background-color: white; */
@@ -807,6 +808,7 @@ body{
     background-color: #757575;
     background-image: url(../assets/destaque/fundoSpotify.jpg);
     overflow: hidden;
+    /* z-index: 600; */
 }
 
 .disco{
@@ -1095,87 +1097,6 @@ body{
     background-color: #757575;
     overflow: hidden;
 }
-/* .teste40{
-    width: 200px;
-    height: 200px;
-    background-color: beige; */
-    /* border: 2px solid black;
-    position: absolute;
-    top: 50px;
-    left: 50px;
-    clip-path: polygon(
-        0px 0px, 
-        200px 0px,
-        200px 0px, 
-        200px 200px, 
-        0px 200px);
-    transition: 1s ease-in-out;
-}
-.teste40:hover{
-    clip-path: polygon(
-        0px 0px, 
-        160px 0px,
-        200px 40px, 
-        200px 200px, 
-        0px 200px);
-}
-
-.teste50{
-    position: absolute;
-    top: 40px;
-    left: 300px;
-    background-color: antiquewhite;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    transition: 1s ease-in-out;
-}
-
-.teste50:hover{
-    border-radius: 0px;
-    transform: rotate(90deg);
-    width: 350px;
-    height: 200px;
-    left: 90px;
-    top: 75px;
-}
-.teste60{
-    position: absolute;
-    top: 100px;
-    left: 300px;
-    background-color: antiquewhite;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    transition: 1s ease-in-out;
-}
-.teste60:hover{
-    border-radius: 0px;
-    transform: rotate(90deg);
-    width: 200px;
-    height: 350px;
-    left: 170px;
-    top: 0px;
-}
-.teste60:hover .escondida{
-    opacity: 1;
-    
-}
-.escondida{
-    opacity: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-   transition: 1s ease-in-out;
-   transition-delay: 1s;
-}
-@keyframes teste {
-    5%{
-       display: block; 
-    }
-} */
-
 
 .atual{
     left: 0;

@@ -3,8 +3,11 @@ var usuarioModel = require("../models/usuarioModel");
 var sessoes = [];
 
 
-/* function listar(req, res) {
-    usuarioModel.listar()
+function pegarIcon(req, res) {
+    var idUsuario = req.params.idUsuario;
+    /* var idUsuario = req.body.idUsuarioServer; */
+
+    usuarioModel.pegarIcon(idUsuario)
         .then(function (resultado) {
             if (resultado.length > 0) {
                 res.status(200).json(resultado);
@@ -18,7 +21,7 @@ var sessoes = [];
                 res.status(500).json(erro.sqlMessage);
             }
         );
-} */
+}
 
 function entrar(req, res) {
     var email = req.body.emailServer;
@@ -92,5 +95,6 @@ function cadastrar(req, res) {
 } */
 module.exports = {
     entrar,
-    cadastrar
+    cadastrar,
+    pegarIcon
 }

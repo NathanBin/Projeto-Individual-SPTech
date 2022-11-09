@@ -11,8 +11,7 @@ var app = express();
 var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var canvasRouter = require("./src/routes/canvas");
-/* var avisosRouter = require("./src/routes/avisos");
-var medidasRouter = require("./src/routes/medidas"); */
+var artworkRouter = require("./src/routes/artwork");
 
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ limit: '50mb' }));
@@ -23,8 +22,7 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/canvas", canvasRouter);
-/* app.use("/avisos", avisosRouter);
-app.use("/medidas", medidasRouter) */
+app.use("/artwork", artworkRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

@@ -3,242 +3,290 @@ var galeryList = [
     {
         image: "assets/destaque/2mage250.jpg",
         titulo: "Necromance",
-        subtitulo: "LostElf"
+        subtitulo: "LostElf",
+        idPost: 1
     },
     {
         image: "assets/destaque/tkHigh250.jpg",
         titulo: "TK",
-        subtitulo: "TkHighnoon"
+        subtitulo: "TkHighnoon",
+        idPost: 2
     },
     {
         image: "assets/destaque/sennaHigh250.jpg",
         titulo: "Senna",
-        subtitulo: "Binho do Santa"
+        subtitulo: "Binho do Santa",
+        idPost: 3
     },
     {
         image: "assets/destaque/mage250.jpg",
         titulo: "Mage",
-        subtitulo: "Binho do Santa"
+        subtitulo: "Binho do Santa",
+        idPost: 4
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 5
     },
     {
         image: "assets/capa/3q1.jpg",
         titulo: "Xin Thao",
-        subtitulo: "3Q Studio"
+        subtitulo: "3Q Studio",
+        idPost: 6
     },
     {
         image: "assets/capa/3q2.jpg",
         titulo: "Necro",
-        subtitulo: "3Q Studio"
+        subtitulo: "3Q Studio",
+        idPost: 7
     },
     {
         image: "assets/capa/3q3.jpg",
         titulo: "Maid",
-        subtitulo: "3Q Studio"
+        subtitulo: "3Q Studio",
+        idPost: 8
     },
     {
         image: "assets/capa/3q4.jpg",
         titulo: "Sera & Guz",
-        subtitulo: "3Q Studio"
+        subtitulo: "3Q Studio",
+        idPost: 9
     },
     {
         image: "assets/capa/3q5.jpg",
         titulo: "Gunslinger",
-        subtitulo: "3Q Studio"
+        subtitulo: "3Q Studio",
+        idPost: 10
     },
     {
         image: "assets/capa/blackwarrior.jpg",
         titulo: "Warrior",
-        subtitulo: "Jun Mo Xiao"
+        subtitulo: "Jun Mo Xiao",
+        idPost: 11
     },
     {
         image: "assets/capa/bochen1.jpg",
         titulo: "Irelia Divine",
-        subtitulo: "Bo Chen"
+        subtitulo: "Bo Chen",
+        idPost: 12
     },
     {
         image: "assets/capa/bochen2.jpg",
         titulo: "Jinx Arcane",
-        subtitulo: "Bo Chen"
+        subtitulo: "Bo Chen",
+        idPost: 13
     },
     {
         image: "assets/capa/demacia.jpg",
         titulo: "Demacia",
-        subtitulo: "Binho do Santa"
+        subtitulo: "Binho do Santa",
+        idPost: 14
     },
     {
         image: "assets/capa/enviroment1.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 15
     },
     {
         image: "assets/capa/enviroment2.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 16
     },
     {
         image: "assets/capa/enviroment3.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 17
     },
     {
         image: "assets/capa/ina1.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 18
     },
     {
         image: "assets/capa/ina2.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 19
     },
     {
         image: "assets/capa/ina3.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 20
     },
     {
         image: "assets/capa/ina4.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 21
     },
     {
         image: "assets/capa/jarvanYan.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 22
     },
     {
         image: "assets/capa/kayle.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 23
     },
     {
         image: "assets/capa/mshen1.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 24
     },
     {
         image: "assets/capa/mshen2.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 25
     },
     {
         image: "assets/capa/mshen3.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 26
     },
     {
         image: "assets/capa/mshen4.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 27
     },
     {
         image: "assets/capa/mshen5.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 28
     },
     {
         image: "assets/capa/mshen6.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 29
     },
     {
         image: "assets/capa/valorantYan.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 30
     },
     {
         image: "assets/capa/warrior.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 31
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 32
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 33
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 34
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 35
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 36
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 37
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 38
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 39
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 40
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 41
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 42
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 43
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 44
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 45
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 46
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 47
     },
     {
         image: "assets/destaque/pistol250.jpg",
         titulo: "Pistol",
-        subtitulo: "Deiv Calviz"
+        subtitulo: "Deiv Calviz",
+        idPost: 48
     }
 ]
 
@@ -277,14 +325,22 @@ function embaralhar(){
         
         var posicao = validacaoClass()
         minhaLista.innerHTML += `
-        <div class="imgArtes ${posicao}">
-        <img src="${clas.image}" alt="" >
-        <div class="destaqueHover">
-        <b>${clas.titulo}</b><br>
-        <p>${clas.subtitulo}</p>
-        </div>
-        </div>  
+        <div onclick="levarArtwork()" class="imgArtes ${posicao}">
+            <p class="idPost">${clas.idPost}</p>
+            <img src="${clas.image}" alt="" >
+            <div class="destaqueHover">
+                <b>${clas.titulo}</b><br>
+                <p>${clas.subtitulo}</p>
+            </div>
+        </div> 
         `     
     });
 
+}
+function levarArtwork(){
+    var idPostagem = document.querySelector('.idPost');
+    sessionStorage.removeItem('IDIMAGEM_IMAGEM')
+    sessionStorage.IDIMAGEM_IMAGEM = idPostagem.innerHTML
+
+    window.location = "testeArtwork.html"
 }

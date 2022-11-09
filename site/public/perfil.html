@@ -11,17 +11,18 @@
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
     <script src="js/perfil.js"></script>
+    <script src="js/funcoes.js"></script>
 </head>
 <body>
 
-    <div class="main" >
+    <div class="main deslogado" >
         <div class="header" >
-            <div class="logo">
-                <div><img src="assets/BinLogo2.png" alt=""></div>
+            <a href="index.html"><div class="logo">
+                <div><img src="assets/BinLogo2.png"></div>
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
-            </div>
+            </div></a>
             <div class="pesquisa">
-                <a href="#"><img src="assets/lupaCinza.png" alt="" width="25px"></a>
+                <img src="assets/lupaCinza.png" width="25px">
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
@@ -33,23 +34,112 @@
             </div>
             <div class="ulHeader">
                 <ul>
-                    <li><a href=""><img src="assets/icons/in.png" alt="" width="30px">Login</a></li>
-                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" alt="" width="25px">Cadastre-se</a></li>
+                    <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
+                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li>
                 </ul>
+            </div>
+        </div>
+        
+        <div class="subHeader">
+            <div class="container" >
+                <ul >
+                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-trend-up"></i>Trending</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="main logado esconder" >
+        <div class="header" >
+            <a href="index.html"><div class="logo">
+                <div><img src="assets/BinLogo2.png"></div>
+                <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
+            </div></a>
+            <div class="pesquisa">
+                <img src="assets/lupaCinza.png" width="25px">
+                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <div class="barraPesquisa">
+                    <ul>
+                        <li><a href="#">Pesquise por Artes</a></li>
+                        <li><a href="#">Pesquise por Artistas</a></li>
+                        <li><a href="#">Pesquise por Estúdios</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="ulHeader">
+                <ul>
+                    <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                    <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
+                    <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
+                    <div class="divLi" onclick="modalLogin()">
+                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
+                    </div>
+                    <!-- <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
+                    <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li> -->
+                </ul>
+            </div>
+            <div class="userModal">
+                <div class="modalHeader">
+                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <div class="userInfo">
+                        <p id="userName">Nathan Rodrigo</p>
+                        <div class="userPerfil">
+                            <button class="userProfile">Ver Perfil</button>
+                            <button class="userProfile">Editar Perfil</button>
+                        </div>
+                    </div>
+                </div>
+                <span></span>
+                <button class="userModalOption"><i class="fa-solid fa-palette"></i>Meus Desenhos</button>
+                <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
+                <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
+                <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
+                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li class="l1" onmouseenter="trocarL()" onmouseleave="destrocar()" ><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
-                    <li class="l2" onmouseenter="trocarP()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/pincel.png" id="PincelB" class="imgIconSub imgPincelB" onmouseover="trocarP()" width="30px">Artes</a></li>
-                    <li class="l3" onmouseenter="trocarA()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/artista.png" id="ArtistaB" class="imgIconSub imgArtistaB" onmouseover="trocarA()" width="30px"> Artistas</a></li>
-                    <li class="l4" onmouseenter="trocarG()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/grafico.png" id="GraficoB" class="imgIconSub imgGraficoB" onmouseover="trocarG()" width="25px"> Trending</a></li>
-                    <li class="l5" onmouseenter="trocarC()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/contato.png" id="ContatoB" class="imgIconSub imgContatoB" onmouseover="trocarC()" width="20px"> Contato</a></li>
+                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                    <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                    <li><a href="#"><i class="fa-solid fa-arrow-trend-up"></i>Trending</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
                 </ul>
             </div>
         </div>
     </div>
+
+    <div id="modalL" class="modalLogin">
+        <div class="lFormulario">
+            <div class="lHeader">
+                <img src="assets/icons/lgo3.png" width="100px" alt="">
+                <h1><b class="tBin">BIN</b><b class="tStation">STATION</b></h1>
+            </div>
+            <div class="lCampo">
+                <label for="inEmail">Seu E-mail</label>
+                <input type="email" id="inEmail" placeholder="N.l.Bin@sptech.school">
+            </div>
+            <div class="lCampo">
+                <label for="inSenha">Sua senha</label>
+                <input type="password" id="inSenha" placeholder="********">
+            </div>
+            <button onclick="">Entrar</button>
+            <div class="lFooter">
+                <div><b><a href="">Esqueceu a senha?</a></b></div>
+                <div><b><a href="">Cadastre-se</a></b></div>
+            </div>
+        </div>
+    </div>
+
     <div class="perfil">
         <div class="gradienteBanner">
             <div class="info">
@@ -308,6 +398,25 @@
 </body>
 </html>
 <script>
+
+    function iniciarModal(id){
+        if(sessionStorage.fecharModal !== id){
+            const modal = document.getElementById(id);
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if(e.target.id == id){
+                    modal.classList.remove('mostrar')
+                    sessionStorage.fecharModal = id
+                }
+            })
+        }
+    }
+
+    window.onload = function() {
+        verificarLogin();
+    }; 
+
+
     const liB11 = document.querySelector('.b11');
     const liB12 = document.querySelector('.b12');
     const liB13 = document.querySelector('.b13');

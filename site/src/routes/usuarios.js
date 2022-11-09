@@ -3,9 +3,14 @@ var router = express.Router();
 
 var usuarioController = require("../controllers/usuarioController");
 
-/* router.get("/listar", function (req, res) {
-    usuarioController.listar(req, res);
-}); */
+router.get("/pegarIcon/:idUsuario", function (req, res) {
+    usuarioController.pegarIcon(req, res);
+});
+
+router.post("/pegarIconn", function (req, res) {
+    usuarioController.pegarIcon(req, res);
+});
+
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {

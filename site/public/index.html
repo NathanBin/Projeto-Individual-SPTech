@@ -18,10 +18,10 @@
 
     <div class="main deslogado" >
         <div class="header" >
-            <div class="logo">
-                <div><img src="assets/BinLogo2.png" alt=""></div>
+            <a href="index.html"><div class="logo">
+                <div><img src="assets/BinLogo2.png"></div>
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
-            </div>
+            </div></a>
             <div class="pesquisa">
                 <img src="assets/lupaCinza.png" width="25px">
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
@@ -58,10 +58,10 @@
 
     <div class="main logado esconder" >
         <div class="header" >
-            <div class="logo">
-                <div><img src="assets/BinLogo2.png" alt=""></div>
+            <a href="index.html"><div class="logo">
+                <div><img src="assets/BinLogo2.png"></div>
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
-            </div>
+            </div></a>
             <div class="pesquisa">
                 <img src="assets/lupaCinza.png" width="25px">
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
@@ -343,18 +343,50 @@
     // Está sendo executada em grid.js Linha:249
 
     function verificarLogin(){
-        var verSession = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        var idUsuario = sessionStorage.getItem('IDUSUARIO_USUARIO');
         var logado = document.querySelector('.logado');
         var deslogado = document.querySelector('.deslogado');
 
-        if(verSession != null){
+
+        fetch(`/usuario/pegarIcon/${idUsuario}`, { cache: 'no-store' }).then(function (resposta) {
+                if (resposta.ok) {
+                    console.log('até aqui ok')
+                }
+            })
+
+        if(idUsuario != null){
             deslogado.classList.add('esconder');
             logado.classList.remove('esconder');
+
+            
+
+            /* fetch("/usuario/pegarIconn", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    idUsuarioServer: idUsuario
+                })
+            }).then(function (resposta) {
+
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                    console.log(JSON.stringify(resposta))
+
+                } else {
+                    throw ("Houve um erro ao tentar realizar o cadastro!");
+                }
+            }) */
+
         }else{
             deslogado.classList.remove('esconder');
             logado.classList.add('esconder');
         }
     }
+
+
 </script>
 <script>//Video de confirmação de email
     function rodarVideo(){
