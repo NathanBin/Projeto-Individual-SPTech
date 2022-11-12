@@ -102,7 +102,7 @@
                 <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
                 <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
                 <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
-                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                <button onclick="deslogar()" class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
@@ -133,7 +133,7 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="">Entrar</button>
+            <button onclick="entrar()">Entrar</button>
             <div class="lFooter">
                 <div><b><a href="">Esqueceu a senha?</a></b></div>
                 <div><b><a href="">Cadastre-se</a></b></div>
@@ -606,4 +606,68 @@
         }
     }
     setInterval(carrosselDestaque, 5000)
+</script>
+<script>//Função de logar e deslogar
+    function entrar() {
+
+        var emailVar = inEmail.value;
+        var senhaVar = inSenha.value;
+
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+            return false;
+        }
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NICKNAME_USUARIO = json.nickname;
+                    sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
+
+                        window.location = "/perfil.html";
+                })
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function deslogar(){
+        sessionStorage.removeItem('EMAIL_USUARIO')
+        sessionStorage.removeItem('NICKNAME_USUARIO')
+        sessionStorage.removeItem('IDUSUARIO_USUARIO')
+
+        window.location = "/index.html";
+    }
+</script>
+<script>
+    
 </script>

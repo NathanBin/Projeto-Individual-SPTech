@@ -1,15 +1,15 @@
 
 var galeryList = [
     {
-        image: "assets/destaque/2mage250.jpg",
-        titulo: "Necromance",
-        subtitulo: "LostElf",
+        image: "assets/capa/starguardian.jpg",
+        titulo: "Starguardians",
+        subtitulo: "Envar Studio",
         idPost: 1
     },
     {
-        image: "assets/destaque/tkHigh250.jpg",
-        titulo: "TK",
-        subtitulo: "TkHighnoon",
+        image: "assets/capa/angel250.jpg",
+        titulo: "Archlight",
+        subtitulo: "Envar Studio",
         idPost: 2
     },
     {
@@ -291,6 +291,7 @@ var galeryList = [
 ]
 
 var classesUsadas = []
+var contador = 0
 
 window.onload = function() {
     embaralhar();
@@ -307,18 +308,23 @@ function validacaoClass(){
                 'd31','d32','d33','d34','d35','d36','d37','d38','d39','d40',
                 'd41','d42','d43','d44','d45','d46','d47','d48']
         }
-
+        
+        contador++
         var proxima = Math.floor(Math.random()*(classesUsadas.length - 1));
         
-        var inClasse = classesUsadas[proxima]
+        var inClasse = [classesUsadas[proxima], contador]
         classesUsadas.splice(proxima, 1)
+
+        if(contador == 48){
+            contador = 0
+        }
 
         
         return inClasse;
 }
 
 
-function embaralhar(){
+/* function embaralhar(){
    
     minhaLista.innerHTML = ''
     galeryList.forEach((clas) => {
@@ -336,11 +342,38 @@ function embaralhar(){
         `     
     });
 
+}   */ 
+
+function embaralhar(){
+
+    minhaLista.innerHTML = ''
+
+    for(var i = 0; i < galeryList.length; i++){
+        var posicao = validacaoClass()
+        minhaLista.innerHTML += `
+        <div onclick="levarArtwork(${posicao[1]})" class="imgArtes ${posicao[0]}">
+            <p class="idPost">${galeryList[i].idPost}</p>
+            <img src="${galeryList[i].image}">
+            <div class="destaqueHover">
+                <b>${galeryList[i].titulo}</b><br>
+                <p>${galeryList[i].subtitulo}</p>
+            </div>
+        </div> 
+        `  
+    }
 }
-function levarArtwork(){
-    var idPostagem = document.querySelector('.idPost');
-    sessionStorage.removeItem('IDIMAGEM_IMAGEM')
-    sessionStorage.IDIMAGEM_IMAGEM = idPostagem.innerHTML
+
+function levarArtwork(id){
+    var idPostagem = document.querySelectorAll('.idPost');
+    sessionStorage.removeItem('IDIMAGEM_IMAGEM');
+
+    for(var i = 0; i != id + 1; i++){
+        if(i == id){
+            sessionStorage.IDIMAGEM_IMAGEM = idPostagem[i - 1].innerHTML
+            console.log(idPostagem[i - 1].innerHTML)
+            break
+        }
+    } 
 
     window.location = "testeArtwork.html"
 }
