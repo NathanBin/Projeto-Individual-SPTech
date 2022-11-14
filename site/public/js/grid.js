@@ -293,10 +293,7 @@ var galeryList = [
 var classesUsadas = []
 var contador = 0
 
-window.onload = function() {
-    embaralhar();
-    verificarLogin();
-  }; 
+
 
 function validacaoClass(){
         if(classesUsadas.length == 0){
@@ -322,27 +319,6 @@ function validacaoClass(){
         
         return inClasse;
 }
-
-
-/* function embaralhar(){
-   
-    minhaLista.innerHTML = ''
-    galeryList.forEach((clas) => {
-        
-        var posicao = validacaoClass()
-        minhaLista.innerHTML += `
-        <div onclick="levarArtwork()" class="imgArtes ${posicao}">
-            <p class="idPost">${clas.idPost}</p>
-            <img src="${clas.image}" alt="" >
-            <div class="destaqueHover">
-                <b>${clas.titulo}</b><br>
-                <p>${clas.subtitulo}</p>
-            </div>
-        </div> 
-        `     
-    });
-
-}   */ 
 
 function embaralhar(){
 

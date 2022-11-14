@@ -67,14 +67,14 @@ primary key (fkUsuario, fkPostagem, fkUsuarioPostagem, fkImagem)
 -- PRODUÇÂO (AZURE)
 
 
-reate table usuario (
+create table usuario (
 idUsuario int primary key identity(1,1),
 nickname varchar(45),
 senha varchar(45),
 email varchar(45),
-icone text,
+icone varchar(max),
 descricaoAutor varchar(255),
-backgroundImage text
+backgroundImage varchar(max)
 );
 
 create table follow (
@@ -85,7 +85,7 @@ primary key (fkUsuarioSeguidor, fkUsuarioSeguido)
 
 create table imagem (
 idImagem int primary key identity(1,1),
-base64 text
+imagemBase64 varchar(max)
 );
 
 create table postagem (
@@ -98,22 +98,16 @@ descricaoPost varchar(255),
 likes int,
 comentarios int,
 visualizacao int,
-capa text,
+capa varchar(max),
 primary key (idPostagem, fkUsuario, fkImagem)
 );
 
 create table desenho (
 idDesenho int identity(1,1),
 titulo varchar(100),
-base64 text,
+desenhoBase64 varchar(max),
 fkUsuario int foreign key references usuario(idUsuario),
 primary key (idDesenho, fkUsuario)
-);
-
-create table colecao (
-idColecao int identity(1,1),
-fkUsuario int foreign key references usuario(idUsuario),
-primary key (idColecao, fkUsuario)
 );
 
 create table postagemCurtida (

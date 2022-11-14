@@ -148,9 +148,9 @@
         </div>
         <div class="descricao">
             <div class="artista">
-                <img src="" id="imagemAutor"  class="autor">
+                <img onclick="levarPerfil()" src="" id="imagemAutor"  class="autor">
                 <div class="info">
-                    <h2 id="nomeAutor"></h2>
+                    <h2 onclick="levarPerfil()" id="nomeAutor"></h2>
                     <p id="descricaoAutor"></p>
                 </div>
             </div>
@@ -215,11 +215,13 @@ function iniciarModal(id){
                     nomePost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].titulo}`
                     descricaoPost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoPost}`
                     like.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].likes}`
-                    visualizacao.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].views}`
+                    visualizacao.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].visualizacao}`
                     comentario.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].comentarios}`
+                    sessionStorage.removeItem('IDPERFIL_USUARIO');
+                    sessionStorage.IDPERFIL_USUARIO = `${JSON.parse((JSON.stringify(response)))[0].fkUsuario}`
                     
                     for(var i = 0; i < response.length; i++){
-                        imagens.innerHTML += `<img src="${JSON.parse((JSON.stringify(response)))[i].base64}" class="imgWork">`
+                        imagens.innerHTML += `<img src="${JSON.parse((JSON.stringify(response)))[i].imagemBase64}" class="imgWork">`
                     }
 
                     response.reverse();
@@ -236,34 +238,6 @@ function iniciarModal(id){
         verificarLogin();
     };
 
-    /* function pegarPostagem() {
-        var idImagemVar = sessionStorage.getItem('IDIMAGEM_IMAGEM');
-        var imagens = document.querySelector('.art');
-       
-        fetch("/artwork/selectPost", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                idImagemServer: idImagemVar
-            })
-        }).then(function (resposta) {
-
-            console.log("resposta: ", resposta);
-
-            if (resposta.ok) {
-                console.log(JSON.stringify(resposta))
-
-            } else {
-                throw ("Houve um erro ao tentar realizar o cadastro!");
-            }
-        }).catch(function (resposta) {
-            console.log(`#ERRO: ${resposta}`);
-        });
-
-        return false;
-    } */
 </script>
 <script>//Função de logar e deslogar
     function entrar() {
@@ -324,5 +298,10 @@ function iniciarModal(id){
         sessionStorage.removeItem('IDUSUARIO_USUARIO')
 
         window.location = "/index.html";
+    }
+</script>
+<script>//Função de levar ao perfil
+    function levarPerfil(){
+        window.location = "/testePerfil.html";
     }
 </script>

@@ -21,8 +21,8 @@ function pegarIcon(req, res) {
                 res.status(500).json(erro.sqlMessage);
             }
         );
-}
-
+}  
+ 
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -54,7 +54,7 @@ function entrar(req, res) {
                     console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
                     res.status(500).json(erro.sqlMessage);
                 }
-            );
+            ); 
     }
 
 }
@@ -87,12 +87,6 @@ function cadastrar(req, res) {
             );
     }
 }
-
-/* module.exports = {
-    entrar,
-    cadastrar,
-    listar
-} */
 module.exports = {
     entrar,
     cadastrar,

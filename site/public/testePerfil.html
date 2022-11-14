@@ -12,6 +12,7 @@
     <script src="js/script.js"></script>
     <script src="js/perfil.js"></script>
     <script src="js/funcoes.js"></script>
+    <script src="js/grid.js"></script>
 </head>
 <body>
 
@@ -141,6 +142,7 @@
     </div>
 
     <div class="perfil">
+        <img src="" class="fundoBanner">
         <div class="gradienteBanner">
             <div class="info">
                 <img id="iconeAutor" class="icon" src="">
@@ -172,7 +174,7 @@
             <div class="containerSobre">
                 <div class="sumario">
                     <h3>Sumario</h3>
-                    <p id="descAutor"></p>      
+                    <p id="descAutorSobre"></p>      
                 </div>
                 <div class="contatos">
                     <h3>Contato</h3>
@@ -481,7 +483,7 @@
 </script>
 <script>
 
-    var idA = 1
+    var idA = 6
 
     function testeIdArtista(){
         sessionStorage.IDPERFIL_USUARIO = idA
@@ -490,6 +492,7 @@
 
     function portifolio(){
         var idArtista = sessionStorage.getItem('IDPERFIL_USUARIO');
+        var fundo = document.querySelector('.fundoBanner');
 
         fetch(`/artwork/selectPerfil/${idArtista}`).then(function (resposta) {
             if (resposta.ok) {
@@ -499,15 +502,18 @@
                     nickAutor.innerHTML =  `${JSON.parse((JSON.stringify(response)))[0].nickname}`
                     descAutor.innerHTML =  `${JSON.parse((JSON.stringify(response)))[0].descricaoAutor}`
                     linkAutor.innerHTML =  `${JSON.parse((JSON.stringify(response)))[0].email}`
+                    fundo.src = `${JSON.parse((JSON.stringify(response)))[0].backgroundImage}`
+                    descAutorSobre.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoAutor}`
+                    emailAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].email}`
 
                     for(var i = 0; i < response.length; i++){
                         idEstrutura.innerHTML += `
                         <div onclick="levarArtwork(${i + 1})" class="portifolio">
-                            <p class="idPost">${JSON.parse((JSON.stringify(response)))[0].idPostagem}</p>
-                            <img src="${JSON.parse((JSON.stringify(response)))[0].capa}">
+                            <p class="idPost">${JSON.parse((JSON.stringify(response)))[i].idPostagem}</p>
+                            <img class="artePortifolio" src="${JSON.parse((JSON.stringify(response)))[i].capa}">
                             <div class="destaqueHover">
-                                <b>${JSON.parse((JSON.stringify(response)))[0].titulo}</b><br>
-                                <p>${JSON.parse((JSON.stringify(response)))[0].nickname}</p>
+                                <b>${JSON.parse((JSON.stringify(response)))[i].titulo}</b><br>
+                                <p>${JSON.parse((JSON.stringify(response)))[i].nickname}</p>
                             </div>
                         </div> 
                         `

@@ -7,6 +7,10 @@ router.get("/selectPost", function (req, res) {
     artworkController.postagem(req, res);
 });
 
+router.get("/carregar", function (req, res) {
+    artworkController.carregar(req, res)
+});
+
 router.get("/selectPost/:idPostagem", function (req, res) {
     artworkController.postagem(req, res);
 });

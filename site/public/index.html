@@ -79,7 +79,8 @@
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
-                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li><img src="" class="userButton" id="iconeUser"></li>
+                        <!-- <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li> -->
                         <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
                     </div>
                     <!-- <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
@@ -88,11 +89,12 @@
             </div>
             <div class="userModal">
                 <div class="modalHeader">
-                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <img onclick="perfilUsuario()" src="" class="userButton" id="iconeUser2">
+                    <!-- <button class="userButton"><i class="fa-solid fa-user"></i></button> -->
                     <div class="userInfo">
-                        <p id="userName">Nathan Rodrigo</p>
+                        <p id="userName"></p>
                         <div class="userPerfil">
-                            <button class="userProfile">Ver Perfil</button>
+                            <button onclick="perfilUsuario()" class="userProfile">Ver Perfil</button>
                             <button class="userProfile">Editar Perfil</button>
                         </div>
                     </div>
@@ -220,8 +222,8 @@
         <div class="artes">
             <ul>
                 <li><button class="bArtes b1 active1" onclick="embaralhar()">Recentes</button></li>
-                <li><button class="bArtes b2">Trending</button></li>
-                <li><button class="bArtes b3">Comunidade</button></li>
+                <li><button class="bArtes b2" onclick="artesTF()">Trending</button></li>
+                <li><button class="bArtes b3" onclick="verificarLogin()">Comunidade</button></li>
             </ul>            
 
             <div id="minhaLista" class="desenhos">
@@ -337,55 +339,41 @@
 
 </body>
 </html>
+<script>//Window onload
+    window.onload = function() {
+        embaralhar();
+        verificarLogin();
+        artesTF();
+    }; 
+</script>
 <script>//Aparição do Header
-
-    // A função executa ao carregar a pagina
-    // Está sendo executada em grid.js Linha:249
 
     function verificarLogin(){
         var idUsuario = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        var icone = sessionStorage.getItem('ICONE_USUARIO');
+        var nome = sessionStorage.getItem('NICKNAME_USUARIO');
         var logado = document.querySelector('.logado');
         var deslogado = document.querySelector('.deslogado');
-
-
-        fetch(`/usuario/pegarIcon/${idUsuario}`, { cache: 'no-store' }).then(function (resposta) {
-                if (resposta.ok) {
-                    console.log('até aqui ok')
-                }
-            })
 
         if(idUsuario != null){
             deslogado.classList.add('esconder');
             logado.classList.remove('esconder');
-
-            
-
-            /* fetch("/usuario/pegarIconn", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    idUsuarioServer: idUsuario
-                })
-            }).then(function (resposta) {
-
-                console.log("resposta: ", resposta);
-
-                if (resposta.ok) {
-                    console.log(JSON.stringify(resposta))
-
-                } else {
-                    throw ("Houve um erro ao tentar realizar o cadastro!");
-                }
-            }) */
-
+            userName.innerHTML = nome
+            iconeUser.src = icone
+            iconeUser2.src = icone
         }else{
             deslogado.classList.remove('esconder');
             logado.classList.add('esconder');
         }
     }
 
+    function perfilUsuario(){
+        var idUsuario = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        sessionStorage.removeItem('IDPERFIL_USUARIO');
+        sessionStorage.IDPERFIL_USUARIO = idUsuario
+
+        window.location = "/testePerfil.html";
+    }
 
 </script>
 <script>//Video de confirmação de email
@@ -641,6 +629,7 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NICKNAME_USUARIO = json.nickname;
                     sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
+                    sessionStorage.ICONE_USUARIO = json.icone;
 
                         window.location = "/perfil.html";
                 })
@@ -668,6 +657,35 @@
         window.location = "/index.html";
     }
 </script>
-<script>
+<script>//Função de carregar imagens
     
+    function artesTF(){
+
+        fetch("/artwork/carregar").then(function (resposta) {
+            if(resposta.ok) {
+                resposta.json().then(function (response) {
+                    minhaLista.innerHTML = ''
+                    for(var i = 0; i < response.length; i++){
+                        var posicao = validacaoClass()
+                        minhaLista.innerHTML += `
+                        <div onclick="levarArtwork(${posicao[1]})" class="imgArtes ${posicao[0]}">
+                            <p class="idPost">${response[i].idPostagem}</p>
+                            <img src="${response[i].capa}">
+                            <div class="destaqueHover">
+                                <b>${response[i].titulo}</b><br>
+                                <p>${response[i].nickname}</p>
+                            </div>
+                        </div> 
+                        `
+                    }
+                })
+                console.log('Sucesso')
+                
+
+                
+            }else{
+                console.error('Nenhum dado encontrado ou erro na API')
+            }
+        })
+    }
 </script>

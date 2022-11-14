@@ -5,7 +5,8 @@ function postagem(idPostagem) {
 
     var instrucao = `
     SELECT 
-    base64,
+    imagemBase64,
+    fkUsuario,
     icone,
     nickname,
     descricaoAutor,
@@ -13,12 +14,12 @@ function postagem(idPostagem) {
     descricaoPost,
     likes,
     comentarios,
-    views
+    visualizacao
 FROM
     usuario
-        INNER JOIN
+        JOIN
     postagem ON idUsuario = fkUsuario
-        INNER JOIN
+        JOIN
     imagem ON fkImagem = idImagem
 WHERE
     idPostagem = ${idPostagem};
@@ -40,8 +41,19 @@ console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
 }
 
+function carregar(){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function carregar():")
+
+    var instrucao = `
+    select distinct idPostagem, titulo, capa, nickname from postagem join usuario on idUsuario = fkUsuario;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     postagem,
-    perfil
+    perfil,
+    carregar
 }
 
