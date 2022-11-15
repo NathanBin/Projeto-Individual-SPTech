@@ -138,7 +138,7 @@
             <button onclick="entrar()">Entrar</button>
             <div class="lFooter">
                 <div><b><a href="">Esqueceu a senha?</a></b></div>
-                <div><b><a href="">Cadastre-se</a></b></div>
+                <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
             </div>
         </div>
     </div>
@@ -221,14 +221,19 @@
         
         <div class="artes">
             <ul>
-                <li><button class="bArtes b1 active1" onclick="embaralhar()">Recentes</button></li>
-                <li><button class="bArtes b2" onclick="artesTF()">Trending</button></li>
-                <li><button class="bArtes b3" onclick="verificarLogin()">Comunidade</button></li>
+                <li><button class="bArtes b1 active1" onclick="artesTF()">Recentes</button></li>
+                <li><button class="bArtes b2" onclick="imagensTrending()">Trending</button></li>
+                <li><button class="bArtes b3" onclick="desenhosCanvas()">Comunidade</button></li>
             </ul>            
 
             <div id="minhaLista" class="desenhos">
                 
-                
+            </div>
+            <div id="idTrend" class="trend">
+
+            </div>
+            <div id="desenhosCanva" class="canvasDesenho">
+
             </div>
         </div>
         <div class="divulgacao">
@@ -361,9 +366,11 @@
             userName.innerHTML = nome
             iconeUser.src = icone
             iconeUser2.src = icone
+            sessionStorage.fecharModal = 'modalL'
         }else{
             deslogado.classList.remove('esconder');
             logado.classList.add('esconder');
+            sessionStorage.removeItem('fecharModal')
         }
     }
 
@@ -630,8 +637,9 @@
                     sessionStorage.NICKNAME_USUARIO = json.nickname;
                     sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
                     sessionStorage.ICONE_USUARIO = json.icone;
+                    sessionStorage.IDPERFIL_USUARIO = json.idUsuario;
 
-                        window.location = "/perfil.html";
+                        window.location = "/testePerfil.html";
                 })
             } else {
 
@@ -653,6 +661,8 @@
         sessionStorage.removeItem('EMAIL_USUARIO')
         sessionStorage.removeItem('NICKNAME_USUARIO')
         sessionStorage.removeItem('IDUSUARIO_USUARIO')
+        sessionStorage.removeItem('ICONE_USUARIO')
+        sessionStorage.removeItem('fecharModal')
 
         window.location = "/index.html";
     }
@@ -667,6 +677,9 @@
                     minhaLista.innerHTML = ''
                     for(var i = 0; i < response.length; i++){
                         var posicao = validacaoClass()
+                        desenhosCanva.style.display = "none"
+                        idTrend.style.display = "none"
+                        minhaLista.style.display = "grid"
                         minhaLista.innerHTML += `
                         <div onclick="levarArtwork(${posicao[1]})" class="imgArtes ${posicao[0]}">
                             <p class="idPost">${response[i].idPostagem}</p>
@@ -678,14 +691,71 @@
                         </div> 
                         `
                     }
-                })
-                console.log('Sucesso')
-                
-
-                
+                })     
             }else{
                 console.error('Nenhum dado encontrado ou erro na API')
             }
         })
     }
+</script>
+<script>//Ultimos desenhos
+
+
+    function desenhosCanvas(){
+
+        fetch("/canvas/carregarDesenho").then(function (resposta) {
+            if(resposta.ok){
+                resposta.json().then(function (response) {
+                    var atual = JSON.parse((JSON.stringify(response)))
+                    minhaLista.style.display = "none"
+                    idTrend.style.display = "none"
+                    desenhosCanva.style.display = "grid"
+                    desenhosCanva.innerHTML = ''
+                    for(var i = 0; i < response.length; i++){
+                        desenhosCanva.innerHTML += `
+                        <div onclick="levarArtworkD(${i+1})" class="draw f${i+1}">
+                            <p class="idDesen">${atual[i].idDesenho}</p>
+                            <img src="${atual[i].desenhoBase64}" height="270px">
+                            <div class="destaqueHover">
+                                <b>${atual[i].titulo}</b><br>
+                                <p>${atual[i].nickname}</p>
+                            </div>
+                        </div>
+                        `
+                    }
+                })
+            }
+        })
+    }
+</script>
+<script>//Trending
+
+    function imagensTrending(){
+
+        fetch("/artwork/trending").then(function (resposta) {
+            if(resposta.ok){
+                resposta.json().then(function (response) {
+                    var atual = JSON.parse((JSON.stringify(response)))
+                    minhaLista.style.display = "none"
+                    desenhosCanva.style.display = "none"
+                    idTrend.style.display = "flex"
+                    idTrend.innerHTML = ''
+                    for(var i = 0; i < response.length; i++){
+                        idTrend.innerHTML += `
+                        <div onclick="levarArtworkT(${i+1})" class="draw2 g${i+1}">
+                            <p class="idTrending">${atual[i].idPostagem}</p>
+                            <img src="${atual[i].capa}" width="100%">
+                            <div class="destaqueHover">
+                                <b>${atual[i].titulo}</b><br>
+                                <p>${atual[i].nickname}</p>
+                                <span>Likes: ${atual[i].likes}</span>
+                            </div>
+                        </div>
+                        `
+                    }
+                })
+            }
+        })
+    }
+
 </script>

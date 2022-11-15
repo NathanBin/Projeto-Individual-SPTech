@@ -13,13 +13,12 @@
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
 </head>
 <body>
-
     <div class="main deslogado" >
         <div class="header" >
-            <div class="logo">
-                <div><img src="assets/BinLogo2.png" alt=""></div>
+            <a href="index.html"><div class="logo">
+                <div><img src="assets/BinLogo2.png"></div>
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
-            </div>
+            </div></a>
             <div class="pesquisa">
                 <img src="assets/lupaCinza.png" width="25px">
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
@@ -56,10 +55,10 @@
 
     <div class="main logado esconder" >
         <div class="header" >
-            <div class="logo">
-                <div><img src="assets/BinLogo2.png" alt=""></div>
+            <a href="index.html"><div class="logo">
+                <div><img src="assets/BinLogo2.png"></div>
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
-            </div>
+            </div></a>
             <div class="pesquisa">
                 <img src="assets/lupaCinza.png" width="25px">
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
@@ -77,7 +76,8 @@
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
-                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li><img src="" class="userButton" id="iconeUser"></li>
+                        <!-- <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li> -->
                         <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
                     </div>
                     <!-- <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
@@ -86,11 +86,12 @@
             </div>
             <div class="userModal">
                 <div class="modalHeader">
-                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <img onclick="perfilUsuario()" src="" class="userButton" id="iconeUser2">
+                    <!-- <button class="userButton"><i class="fa-solid fa-user"></i></button> -->
                     <div class="userInfo">
-                        <p id="userName">Nathan Rodrigo</p>
+                        <p id="userName"></p>
                         <div class="userPerfil">
-                            <button class="userProfile">Ver Perfil</button>
+                            <button onclick="perfilUsuario()" class="userProfile">Ver Perfil</button>
                             <button class="userProfile">Editar Perfil</button>
                         </div>
                     </div>
@@ -100,7 +101,7 @@
                 <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
                 <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
                 <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
-                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                <button onclick="deslogar()" class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
@@ -131,13 +132,14 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="">Entrar</button>
+            <button onclick="entrar()">Entrar</button>
             <div class="lFooter">
                 <div><b><a href="">Esqueceu a senha?</a></b></div>
                 <div><b><a href="">Cadastre-se</a></b></div>
             </div>
         </div>
     </div>
+
 
     <div class="background">
         <div class="gradiente">
@@ -439,8 +441,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NICKNAME_USUARIO = json.nickname;
                     sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
+                    sessionStorage.ICONE_USUARIO = json.icone;
+                    sessionStorage.IDPERFIL_USUARIO = json.idUsuario;
 
-                        window.location = "/perfil.html";
+                        window.location = "/testePerfil.html";
                 })
             } else {
 

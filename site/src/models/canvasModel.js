@@ -1,18 +1,28 @@
 var database = require("../database/config");
 
 function canvasBase64(base64, id, titulo) { 
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function canvasBase64():", base64);
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function canvasBase64():");
 
     var instrucao = `
-    INSERT INTO desenho (titulo, base64, fkUsuario) VALUES ('${titulo}', '${base64}', ${id});
+    INSERT INTO desenho (titulo, desenhoBase64, fkUsuario) VALUES ('${titulo}', '${base64}', ${id});
 `;
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
 }
 
-function pegarUltimoB64(b64) {
+function carregarDesenho(){
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function carregarDesenho():");
 
-    instrucaoSql = ''
+    var instrucao = `
+    select distinct top 15 desenhoBase64, titulo, idDesenho, nickname from desenho join usuario on idUsuario = fkUsuario order by idDesenho desc;
+`;
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+/* function pegarUltimoB64(b64) {
+
+    instrucaoSql = '' 
 
     if (process.env.AMBIENTE_PROCESSO == "producao") {
         instrucaoSql = `select top ${limite_linhas}
@@ -29,7 +39,7 @@ function pegarUltimoB64(b64) {
         console.log("\nO AMBIENTE (produção OU desenvolvimento) NÃO FOI DEFINIDO EM app.js\n");
         return
     }
-
+ 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
 }
@@ -66,13 +76,11 @@ function attTitulo(titulo, b64) {
 `;
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
-}
+} */
 
 
 module.exports = {
     canvasBase64,
-    pegarUltimoB64,
-    pegarUltimoIDB64,
-    attTitulo
+    carregarDesenho
 }
 

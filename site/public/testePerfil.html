@@ -11,7 +11,6 @@
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
     <script src="js/perfil.js"></script>
-    <script src="js/funcoes.js"></script>
     <script src="js/grid.js"></script>
 </head>
 <body>
@@ -79,7 +78,8 @@
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
-                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li><img src="" class="userButton" id="iconeUser"></li>
+                        <!-- <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li> -->
                         <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
                     </div>
                     <!-- <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
@@ -88,11 +88,12 @@
             </div>
             <div class="userModal">
                 <div class="modalHeader">
-                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <img onclick="perfilUsuario()" src="" class="userButton" id="iconeUser2">
+                    <!-- <button class="userButton"><i class="fa-solid fa-user"></i></button> -->
                     <div class="userInfo">
-                        <p id="userName">Nathan Rodrigo</p>
+                        <p id="userName"></p>
                         <div class="userPerfil">
-                            <button class="userProfile">Ver Perfil</button>
+                            <button onclick="perfilUsuario()" class="userProfile">Ver Perfil</button>
                             <button class="userProfile">Editar Perfil</button>
                         </div>
                     </div>
@@ -102,7 +103,7 @@
                 <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
                 <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
                 <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
-                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                <button onclick="deslogar()" class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
@@ -133,11 +134,46 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="">Entrar</button>
+            <button onclick="entrar()">Entrar</button>
             <div class="lFooter">
                 <div><b><a href="">Esqueceu a senha?</a></b></div>
-                <div><b><a href="">Cadastre-se</a></b></div>
+                <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
             </div>
+        </div>
+    </div>
+
+    <div class="editar">
+        <button class="bAttPerfil"><i class="fa-solid fa-user-pen"></i>Editar Perfil</button>
+    </div>
+    <div id="modalE" class="modalEditar">
+        <div class="editarPerfil">
+            <div class="divC">
+                <div class="divBanner">
+                    <span>Mudar Imagem de fundo</span>
+                    <img src="" id="mudarBanner">
+                    <label for="inImagemBanner"><i class="fa-solid fa-file-arrow-up"></i></label>
+                    <input type="file" id="inImagemBanner"  onchange="converterImagemFundo()">         
+                </div>
+            </div>
+            <div class="divCaixa">
+                <div class="divIcon">
+                    <span>Mudar Icone</span>
+                    <img src="" id="mudarIcone">
+                    <label for="inImagemIcone"><i class="fa-solid fa-file-arrow-up"></i></label>
+                    <input type="file" id="inImagemIcone" onchange="converterImagemIcone()">
+                    
+                </div>
+                <div class="divNick">
+                    <span>Mudar nickname</span>
+                    <input type="text" id="inNick">
+                </div>
+                <div class="divDesc">
+                    <span>Mudar descrição de perfil</span>
+                    <textarea id="inDesc" cols="30" rows="10"></textarea>
+                </div>
+            </div>
+            <button onclick="atualizarPerfil()" class="buttonAtt">Editar Perfil</button>
+    
         </div>
     </div>
 
@@ -168,7 +204,6 @@
     <div class="conteudos">
         <div id="idEstrutura" class="estrutura">
             
-
         </div>
         <div id="idSobre" class="sobre">
             <div class="containerSobre">
@@ -183,189 +218,26 @@
             </div>
         </div>
         <div id="idLikes" class="likes">
-            <!-- <div class="imgCurtida">
-                <img class="artePortifolio" src="assets/capa/blackwarrior.jpg" alt="">
-                <div class="destaqueHover">
-                    <b>BlackWarrior</b>
-                    <p>Jun Mo Xiao</p>
-                </div>
-            </div> -->
+
         </div>
-        <div id="idSeguindo" class="seguindo">
-            <!-- <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div> -->
+        <div id="idSeguindo" class="seguindo">  
 
         </div>
         <div id="idSeguidores" class="seguidores">
-            <!-- <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div>
-
-            <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div> -->
+            
         </div>
     </div>
 </body>
 </html>
 <script>
+
+    var userL = sessionStorage.getItem('IDUSUARIO_USUARIO');
+    var perfilAtual = sessionStorage.getItem('IDPERFIL_USUARIO');
+    if(userL == perfilAtual){
+        var botaoEditar = document.querySelector('.editar')
+
+        botaoEditar.style.display = "block"
+    }
 
     function iniciarModal(id){
         if(sessionStorage.fecharModal !== id){
@@ -454,8 +326,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NICKNAME_USUARIO = json.nickname;
                     sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
+                    sessionStorage.ICONE_USUARIO = json.icone;
+                    sessionStorage.IDPERFIL_USUARIO = json.idUsuario;
 
-                        window.location = "/perfil.html";
+                        window.location = "/testePerfil.html";
                 })
             } else {
 
@@ -482,13 +356,8 @@
     }
 </script>
 <script>
-
-    var idA = 6
-
-    function testeIdArtista(){
-        sessionStorage.IDPERFIL_USUARIO = idA
-        
-    }
+    var iconeAtual = ''
+    var fundoAtual = ''
 
     function portifolio(){
         var idArtista = sessionStorage.getItem('IDPERFIL_USUARIO');
@@ -497,33 +366,178 @@
         fetch(`/artwork/selectPerfil/${idArtista}`).then(function (resposta) {
             if (resposta.ok) {
                 resposta.json().then(function (response) {
-                    console.log(response)
-                    iconeAutor.src =  `${JSON.parse((JSON.stringify(response)))[0].icone}`
-                    nickAutor.innerHTML =  `${JSON.parse((JSON.stringify(response)))[0].nickname}`
-                    descAutor.innerHTML =  `${JSON.parse((JSON.stringify(response)))[0].descricaoAutor}`
-                    linkAutor.innerHTML =  `${JSON.parse((JSON.stringify(response)))[0].email}`
-                    fundo.src = `${JSON.parse((JSON.stringify(response)))[0].backgroundImage}`
-                    descAutorSobre.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoAutor}`
-                    emailAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].email}`
+                    var infoPerfil = JSON.parse((JSON.stringify(response)))
+                    iconeAutor.src = `${infoPerfil[0].icone}`
+                    mudarIcone.src = `${infoPerfil[0].icone}`
+                    nickAutor.innerHTML =  `${infoPerfil[0].nickname}`
+                    inNick.value = `${infoPerfil[0].nickname}`
+                    descAutor.innerHTML =  `${infoPerfil[0].descricaoAutor}`
+                    inDesc.value = `${infoPerfil[0].descricaoAutor}`
+                    linkAutor.innerHTML =  `${infoPerfil[0].email}`
+                    fundo.src = `${infoPerfil[0].backgroundImage}`
+                    mudarBanner.src = `${infoPerfil[0].backgroundImage}`
+                    descAutorSobre.innerHTML = `${infoPerfil[0].descricaoAutor}`
+                    emailAutor.innerHTML = `${infoPerfil[0].email}`
+                    iconeAtual = `${infoPerfil[0].icone}`
+                    fundoAtual = `${infoPerfil[0].backgroundImage}`
+                    sessionStorage.removeItem('ICONE_USUARIO')
+                    sessionStorage.ICONE_USUARIO = `${infoPerfil[0].icone}`
+                    console.log(infoPerfil)
 
-                    for(var i = 0; i < response.length; i++){
-                        idEstrutura.innerHTML += `
-                        <div onclick="levarArtwork(${i + 1})" class="portifolio">
-                            <p class="idPost">${JSON.parse((JSON.stringify(response)))[i].idPostagem}</p>
-                            <img class="artePortifolio" src="${JSON.parse((JSON.stringify(response)))[i].capa}">
-                            <div class="destaqueHover">
-                                <b>${JSON.parse((JSON.stringify(response)))[i].titulo}</b><br>
-                                <p>${JSON.parse((JSON.stringify(response)))[i].nickname}</p>
-                            </div>
-                        </div> 
-                        `
+                    if(infoPerfil[0].idPostagem != null){
+                        for(var i = 0; i < response.length; i++){
+                            idEstrutura.innerHTML += `
+                            <div onclick="levarArtwork(${i + 1})" class="portifolio">
+                                <p class="idPost">${infoPerfil[i].idPostagem}</p>
+                                <img class="artePortifolio" src="${infoPerfil[i].capa}">
+                                <div class="destaqueHover">
+                                    <b>${infoPerfil[i].tituloPost}</b><br>
+                                    <p>${infoPerfil[i].nickname}</p>
+                                </div>
+                            </div> 
+                            `
+                        }
                     }
+                    
 
                     
                 })
             }else {
                 console.error('Nenhum dado encontrado ou erro na API')
             }
+        }).then(
+            fetch(`/artwork/selectPerfill/${idArtista}`).then(function (resposta){
+                if(resposta.ok){
+                    resposta.json().then(function (response) {
+                        var info = JSON.parse((JSON.stringify(response)))
+                        
+                        if(info[0].idDesenho != null){
+                            for(var j = 0; j < response.length; j++){
+                                console.log(info)
+                                idEstrutura.innerHTML += `
+                                <div onclick="levarArtworkD(${j + 1})" class="portifolio">
+                                    <p class="idDesen">${info[j].idDesenho}</p>
+                                    <img class="artePortifolio" src="${info[j].desenhoBase64}">
+                                    <div class="destaqueHover">
+                                        <b>${info[j].tituloDese}</b><br>
+                                        <p>${info[j].nickname}</p>
+                                    </div>
+                                </div> 
+                                `
+                            }
+
+                        }
+                    })
+                }else{
+                    console.error('Nenhum dado encontrado ou erro na API')
+                }
+            })
+        )
+    }
+
+    function testeando1(){
+        var idArtista = sessionStorage.getItem('IDPERFIL_USUARIO');
+        fetch(`/artwork/selectPerfill/${idArtista}`).then(function (resposta){
+            if(resposta.ok){
+                resposta.json().then(function (response) {
+                    var info = JSON.parse((JSON.stringify(response)))
+                    console.log(info[0].idDesenho)
+                })
+            }else{
+                console.error('Nenhum dado encontrado ou erro na API')
+            }
         })
     }
 </script>
+<script>//editar perfil
+
+    function iniciarModalEditar(id){
+        const modal = document.getElementById(id);
+        modal.classList.add('mostrar');
+        modal.addEventListener('click', (e) => {
+            if(e.target.id == id){
+                modal.classList.remove('mostrar')
+            }
+        })
+    }
+    const botaoAtt = document.querySelector('.bAttPerfil')
+    botaoAtt.addEventListener('click', function() {
+        iniciarModalEditar('modalE')
+    })
+
+    function converterImagemIcone(){
+        var arquivoInput = document.querySelector('#inImagemIcone').files;
+    
+        if(arquivoInput.length > 0){
+            var imagemIcone = arquivoInput[0];
+
+            var lerImagem = new FileReader();
+            
+
+            lerImagem.onload = function(icone){
+                var novoIcone = icone.target.result
+                iconeAtual = novoIcone;
+                var iconeTrocar = document.querySelector('#mudarIcone')
+
+                iconeTrocar.src = novoIcone;
+            }
+
+            lerImagem.readAsDataURL(imagemIcone);
+        
+        }
+    }
+
+    function converterImagemFundo(){
+        var arquivoInput = document.querySelector('#inImagemBanner').files;
+
+        if(arquivoInput.length > 0){
+            var imagemFundo = arquivoInput[0];
+
+            var lerImagem = new FileReader();
+            
+
+            lerImagem.onload = function(fundo){
+                var novoFundo = fundo.target.result
+                fundoAtual = novoFundo;
+                var fundoTrocar = document.querySelector('#mudarBanner')
+
+                fundoTrocar.src = novoFundo;
+            }
+
+            lerImagem.readAsDataURL(imagemFundo);
+        
+        }
+    }
+
+    function atualizarPerfil(){
+        var novoNick = inNick.value
+        var novaDesc = inDesc.value
+        var iconeNovo = iconeAtual
+        var fundoNovo = fundoAtual
+
+        fetch(`/usuarios/atualizarPerfil/${sessionStorage.getItem("IDUSUARIO_USUARIO")}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                novoNick,
+                novaDesc,
+                iconeNovo,
+                fundoNovo
+            })
+        }).then(function (resposta) {
+            if (resposta.ok) {
+                window.location = "/testePerfil.html";
+            }else {
+                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+    }
+
+
+
+</script>
+<script src="js/funcoes.js"></script>

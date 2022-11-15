@@ -87,8 +87,33 @@ function cadastrar(req, res) {
             );
     }
 }
+
+function atualizarPerfil(req, res) {
+    var nick = req.body.novoNick;
+    var desc = req.body.novaDesc;
+    var icone = req.body.iconeNovo;
+    var fundo = req.body.fundoNovo;
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.atualizarPerfil(nick, desc, icone, fundo, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+
+}
+
 module.exports = {
     entrar,
     cadastrar,
-    pegarIcon
+    pegarIcon,
+    atualizarPerfil
 }

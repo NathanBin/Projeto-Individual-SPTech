@@ -31,8 +31,18 @@ function cadastrar(nickname, senha, email) {
     return database.executar(instrucao);
 }
 
+function atualizarPerfil(nick, desc, icone, fundo, idUsuario) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function atualizarPerfil(): ");
+    var instrucao = `
+    update usuario set nickname = '${nick}', icone = '${icone}', descricaoAutor = '${desc}', backgroundImage = '${fundo}' where idUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
-    pegarIcon
+    pegarIcon,
+    atualizarPerfil
 };

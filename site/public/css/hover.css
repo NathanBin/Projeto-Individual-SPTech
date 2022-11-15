@@ -8,6 +8,12 @@
 .imgArtes:hover .destaqueHover{
     opacity: 1;
 }
+.draw:hover .destaqueHover{
+    opacity: 1;
+}
+.draw2:hover .destaqueHover{
+    opacity: 1;
+}
 
 .emDestaque{
     position: relative;
@@ -39,14 +45,64 @@
     transition: 0.5s ease;
     position: absolute;
     opacity: 0;
-    height: 55px;   
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%;   
     left: 0;
     bottom: 0px;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     color: white;
     border-radius: 0;
     background-image: linear-gradient(to top, #000000, rgba(32, 32, 32, 0));
+}
+
+.draw .destaqueHover{
+    transition: 0.5s ease;
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80%;   
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    border-radius: 0;
+    background-image: linear-gradient(to top, #0000007a, rgba(32, 32, 32, 0));
+
+}
+.draw2 .destaqueHover{
+    transition: 0.5s ease;
+    position: absolute;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80%;   
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    color: white;
+    border-radius: 0;
+    background-image: linear-gradient(to top, #0000007a, rgba(32, 32, 32, 0));
+}
+.draw2 .destaqueHover b{
+    font-size: 40px;
+    margin-bottom: -20px;
+}
+.draw2 .destaqueHover p{
+    font-size: 30px;
+    margin-bottom: 0px;
+}
+.draw2 .destaqueHover span{
+    font-size: 30px;
+    margin-bottom: 30px;
 }
 
 .imgDestaque {
@@ -64,12 +120,14 @@
 
 .imgArtes .destaqueHover b{
     font-size: 20px;
+    margin-bottom: -25px;
 }
 .destaqueHover p{
     font-size: 20px;
 }
 .imgArtes .destaqueHover p{
     font-size: 15px;
+    margin-bottom: 15px;
 }
 .teste{
     width: 50px;

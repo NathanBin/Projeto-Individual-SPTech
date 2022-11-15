@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/canvas.css">
     <script src="js/script.js"></script>
     <script src="js/canvas.js"></script>
-    <script src="js/funcoes.js"></script>
+
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -78,7 +78,8 @@
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
-                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li><img src="" class="userButton" id="iconeUser"></li>
+                        <!-- <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li> -->
                         <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
                     </div>
                     <!-- <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
@@ -87,11 +88,12 @@
             </div>
             <div class="userModal">
                 <div class="modalHeader">
-                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <img onclick="perfilUsuario()" src="" class="userButton" id="iconeUser2">
+                    <!-- <button class="userButton"><i class="fa-solid fa-user"></i></button> -->
                     <div class="userInfo">
-                        <p id="userName">Nathan Rodrigo</p>
+                        <p id="userName"></p>
                         <div class="userPerfil">
-                            <button class="userProfile">Ver Perfil</button>
+                            <button onclick="perfilUsuario()" class="userProfile">Ver Perfil</button>
                             <button class="userProfile">Editar Perfil</button>
                         </div>
                     </div>
@@ -101,7 +103,7 @@
                 <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
                 <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
                 <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
-                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                <button onclick="deslogar()" class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
@@ -132,13 +134,14 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="">Entrar</button>
+            <button onclick="entrar()">Entrar</button>
             <div class="lFooter">
                 <div><b><a href="">Esqueceu a senha?</a></b></div>
-                <div><b><a href="">Cadastre-se</a></b></div>
+                <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
             </div>
         </div>
     </div>
+
 
         <div class="modalUpload">
             <div class="modalContainer">
@@ -326,6 +329,12 @@
 </body>
 </html>
 <script>
+    
+    var logado = sessionStorage.getItem('IDUSUARIO_USUARIO');
+    if(logado == null){
+        iniciarModal('modalL')
+    }
+
     function iniciarModal(id){
         if(sessionStorage.fecharModal !== id){
             const modal = document.getElementById(id);
@@ -350,15 +359,12 @@
         var titulo = tituloF.value
         var msgResposta = document.querySelector('.imgPublicada')
         
-
         fetch("/canvas/guardarCanvas", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
                 canvasServer: b64,
                 idServer: idUsu,
                 tituloServer: titulo
@@ -392,81 +398,6 @@
         modalU.classList.remove('show')
     }
 
-
-    /* function pegarBase64(){
-        let imgA = document.querySelector('#imgA');
-        let modalU = document.querySelector('.modalUpload')
-        
-        fetch(`/canvas/pegarCanvas`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.parse((JSON.stringify(resposta)))[0].base64}`);
-                    modalU.classList.add('show');
-                    imgDesenho.src = JSON.parse((JSON.stringify(resposta)))[0].base64;
-                    resposta.reverse();
-                    pegarValor();
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
-    } */
-
-
-    /* var ultimoId = 0 */
-
-    /* function pegarValor(){
-        fetch(`/canvas/pegarIdCanvas`, { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
-                    console.log(`Dados recebidos: ${JSON.parse((JSON.stringify(resposta)))[0].idDesenho}`);
-                    ultimoId = JSON.parse((JSON.stringify(resposta)))[0].idDesenho
-                    return resposta;
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção da base64: ${error.message}`);
-            });
-    }
- */
-
-    /* function alterarTitulo(){
-        var titulo = tituloF.value
-        var b64 = ultimoId
-
-
-        console.log(titulo)
-        console.log(b64)
-
-        fetch(`/canvas/atualizarTitulo`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                tituloServer: titulo,
-                b64Server: b64
-            })
-        }).then(function (resposta) {
-
-            if (resposta.ok) {
-                window.alert("Desenho publicado com sucesso!");
-                window.location = "canvas.html"
-            } else if (resposta.status == 404) {
-                window.alert("Deu 404!");
-            } else {
-                throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-            }
-        }).catch(function (resposta) {
-        console.log(`#ERRO: ${resposta}`);
-        });
-    } */
 </script>
 <script>//Função de logar e deslogar
     function entrar() {
@@ -502,8 +433,10 @@
                     sessionStorage.EMAIL_USUARIO = json.email;
                     sessionStorage.NICKNAME_USUARIO = json.nickname;
                     sessionStorage.IDUSUARIO_USUARIO = json.idUsuario;
+                    sessionStorage.ICONE_USUARIO = json.icone;
+                    sessionStorage.IDPERFIL_USUARIO = json.idUsuario;
 
-                        window.location = "/perfil.html";
+                    window.location = "/testePerfil.html";
                 })
             } else {
 
@@ -529,3 +462,4 @@
         window.location = "/index.html";
     }
 </script>
+<script src="js/funcoes.js"></script>

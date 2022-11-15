@@ -15,8 +15,28 @@ router.get("/selectPost/:idPostagem", function (req, res) {
     artworkController.postagem(req, res);
 });
 
+router.get("/selectDesenho/:idDesenhoCanvas", function (req, res) {
+    artworkController.desenhos(req, res);
+});
+
 router.get("/selectPerfil/:idArtista", function (req, res) {
     artworkController.perfil(req, res);
 });
+
+router.get("/selectPerfill/:idArtista", function (req, res) {
+    artworkController.perfill(req, res);
+});
  
-module.exports = router;
+router.get("/trending", function (req, res) {
+    artworkController.trending(req, res);
+});
+
+router.delete("/deletarPostagem/:idPostagem", function (req, res) {
+    artworkController.deletarPostagem(req, res);
+});
+
+router.delete("/deletarDesenho/:idDesenho", function (req, res) {
+    artworkController.deletarDesenho(req, res);
+});
+
+module.exports = router; 

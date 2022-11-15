@@ -319,10 +319,11 @@ function validacaoClass(){
         
         return inClasse;
 }
-
+ 
 function embaralhar(){
 
     minhaLista.innerHTML = ''
+    minhaLista.style.display = "grid"
 
     for(var i = 0; i < galeryList.length; i++){
         var posicao = validacaoClass()
@@ -342,6 +343,7 @@ function embaralhar(){
 function levarArtwork(id){
     var idPostagem = document.querySelectorAll('.idPost');
     sessionStorage.removeItem('IDIMAGEM_IMAGEM');
+    sessionStorage.removeItem('IDDESENHO_DESENHO');
 
     for(var i = 0; i != id + 1; i++){
         if(i == id){
@@ -350,6 +352,38 @@ function levarArtwork(id){
             break
         }
     } 
+
+    window.location = "testeArtwork.html"
+}
+
+function levarArtworkT(id){
+    var idTrending = document.querySelectorAll('.idTrending');
+    sessionStorage.removeItem('IDIMAGEM_IMAGEM');
+    sessionStorage.removeItem('IDDESENHO_DESENHO');
+
+    for(var i = 0; i != id + 1; i++){
+        if(i == id){
+            sessionStorage.IDIMAGEM_IMAGEM = idTrending[i - 1].innerHTML
+            console.log(idTrending[i - 1].innerHTML)
+            break
+        }
+    }
+
+    window.location = "testeArtwork.html"
+}
+
+function levarArtworkD(id){
+    var idDesenhoCanvas = document.querySelectorAll('.idDesen');
+    sessionStorage.removeItem('IDIMAGEM_IMAGEM');
+    sessionStorage.removeItem('IDDESENHO_DESENHO');
+
+    for(var i = 0; i != id + 1; i++){
+        if(i == id){
+            sessionStorage.IDDESENHO_DESENHO = idDesenhoCanvas[i - 1].innerHTML
+            console.log(idDesenhoCanvas[i - 1].innerHTML)
+            break
+        }
+    }
 
     window.location = "testeArtwork.html"
 }

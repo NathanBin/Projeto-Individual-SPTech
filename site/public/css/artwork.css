@@ -132,4 +132,22 @@ button i{
     display: flex;
     flex-direction: column;
 }
+.buttonExcluir{
+    display: none;
+    position: absolute;
+    width: 130px;
+    height: 27px;
+    background-color: rgb(230, 81, 81);
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    right: 25px;
+    top: 180px;
+    color: white;
+}
+button:hover{
+    transition: 0.5s;
+    opacity: 0.8;
+    cursor: pointer;
+}
 
