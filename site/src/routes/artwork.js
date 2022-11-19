@@ -26,6 +26,10 @@ router.get("/selectPerfil/:idArtista", function (req, res) {
 router.get("/selectPerfill/:idArtista", function (req, res) {
     artworkController.perfill(req, res);
 });
+
+router.get("/selectSeguindo/:idArtista", function (req, res) {
+    artworkController.seguindo(req, res);
+});
  
 router.get("/trending", function (req, res) {
     artworkController.trending(req, res);
@@ -38,5 +42,13 @@ router.delete("/deletarPostagem/:idPostagem", function (req, res) {
 router.delete("/deletarDesenho/:idDesenho", function (req, res) {
     artworkController.deletarDesenho(req, res);
 });
+
+router.get("/seguindo/:idArtista", function (req, res) {
+    artworkController.users(req, res);
+})
+
+router.get("/seusFollows/:idPerfil", function (req, res) {
+    artworkController.seusFollows(req, res);
+})
 
 module.exports = router; 

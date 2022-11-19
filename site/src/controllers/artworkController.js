@@ -67,6 +67,64 @@ function perfill(req, res) {
 
 }
 
+function seguindo(req, res) {
+    var idArtista = req.params.idArtista;
+
+        artworkModel.seguindo(idArtista)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`);
+
+                    res.json(resultado);
+
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                        res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+}
+
+function users(req, res) {
+    var posicoes = req.params.idArtista;
+        
+        artworkModel.users(posicoes)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); 
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            ); 
+}
+
+function seusFollows(req, res) {
+    var idPerfil = req.params.idPerfil;
+        
+        artworkModel.seusFollows(idPerfil)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`); 
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+                }
+            ); 
+}
+
 function carregar(req, res){
 
     artworkModel.carregar()
@@ -170,5 +228,8 @@ module.exports = {
     desenhos,
     perfill,
     deletarPostagem,
-    deletarDesenho
+    deletarDesenho,
+    seguindo,
+    users,
+    seusFollows
 }

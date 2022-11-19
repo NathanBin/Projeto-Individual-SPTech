@@ -23,6 +23,8 @@ FROM
     imagem ON fkImagem = idImagem
 WHERE
     idPostagem = ${idPostagem};
+
+    update postagem set visualizacao = (visualizacao + 1) where idPostagem = ${idPostagem};
 `;
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
@@ -54,6 +56,38 @@ console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
 }
 
+function seguindo(idArtista) { 
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function seguindo():", idArtista);
+
+    var instrucao = `
+    select fkUsuarioSeguido from follow where fkUsuarioSeguidor = ${idArtista};
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function users(posicoes) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function users(): ")
+
+    var instrucao = `
+    select distinct top 3 capa, backgroundImage, nickname, descricaoAutor from usuario join postagem on idUsuario = fkUsuario where idUsuario in (${posicoes});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+} 
+
+function seusFollows(idPerfil) { 
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function seusFollows():")
+
+    var instrucao = `
+    select distinct fkUsuario, capa from postagem where fkUsuario in (select fkUsuarioSeguido from follow where fkUsuarioSeguidor = ${idPerfil}); 
+    `;
+
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+ 
 
 function carregar(){
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function carregar():")
@@ -80,6 +114,8 @@ function desenhos(idDesenhoCanvas) {
 
     var instrucao = `
     select desenhoBase64, fkUsuario, titulo, icone, nickname, descricaoAutor, likes, comentarios, visualizacao from desenho join usuario on idUsuario = fkUsuario where idDesenho = ${idDesenhoCanvas};
+
+    update desenho set visualizacao = (visualizacao + 1) where idDesenho = ${idDesenhoCanvas};
 `;
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
@@ -110,6 +146,9 @@ module.exports = {
     desenhos,
     perfill,
     deletarPostagem,
-    deletarDesenho
+    deletarDesenho,
+    seguindo,
+    users,
+    seusFollows
 }
 

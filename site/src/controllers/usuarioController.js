@@ -88,6 +88,69 @@ function cadastrar(req, res) {
     }
 }
 
+function avaliacao(req, res) {
+    var idUsuario = req.body.idUsuario;
+    var msg = req.body.msgAvaliacao;
+    var estrelas = req.body.estrelas;
+    
+    usuarioModel.avaliacao(idUsuario, msg, estrelas)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar a avaliação! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function deletarAvaliacao(req, res) {
+    var idUsuario = req.params.idUsuario;
+    
+    usuarioModel.deletarAvaliacao(idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao deletar a avaliação! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function seguirUser(req, res) {
+    var seguidor = req.body.userAtual;
+    var seguido = req.body.userTela;
+    
+    usuarioModel.seguirUser(seguidor, seguido)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao realizar o cadastro! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function atualizarPerfil(req, res) {
     var nick = req.body.novoNick;
     var desc = req.body.novaDesc;
@@ -115,5 +178,8 @@ module.exports = {
     entrar,
     cadastrar,
     pegarIcon,
-    atualizarPerfil
+    atualizarPerfil,
+    seguirUser,
+    avaliacao,
+    deletarAvaliacao
 }

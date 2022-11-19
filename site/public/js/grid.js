@@ -353,7 +353,7 @@ function levarArtwork(id){
         }
     } 
 
-    window.location = "testeArtwork.html"
+    window.location = "artwork.html"
 }
 
 function levarArtworkT(id){
@@ -369,7 +369,7 @@ function levarArtworkT(id){
         }
     }
 
-    window.location = "testeArtwork.html"
+    window.location = "artwork.html"
 }
 
 function levarArtworkD(id){
@@ -385,5 +385,5 @@ function levarArtworkD(id){
         }
     }
 
-    window.location = "testeArtwork.html"
+    window.location = "artwork.html"
 }

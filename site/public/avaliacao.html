@@ -5,11 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BINSTATION</title>
-    <link rel="stylesheet" href="css/artwork.css">
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/avaliacao.css">
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
-
 </head>
 <body>
 
@@ -140,233 +139,196 @@
         </div>
     </div>
 
-    <button onclick="excluirPostagem()" class="buttonExcluir"><i class="fa-solid fa-trash"></i>Excluir Postagem</button>
-    <div class="aContainer">
-        <div class="art">
-            <!-- <img src="assets/Artwork/kan-liu-666k-fullsize.jpg" alt="" class="imgWork">
-            <img src="assets/Artwork/kan-liu-666k-details.jpg" alt="" class="imgWork">
-            <img src="assets/Artwork/kan-liu-666k-fullsize-b-w.jpg" alt="" class="imgWork">
-            <img src="assets/Artwork/kan-liu-666k-lineart.jpg" alt="" class="imgWork"> -->
-            
-        </div>
-        <div class="descricao">
-            <div class="artista">
-                <img onclick="levarPerfil()" src="" id="imagemAutor"  class="autor">
-                <div class="info">
-                    <h2 onclick="levarPerfil()" id="nomeAutor"></h2>
-                    <p id="descricaoAutor"></p>
-                </div>
-            </div>
-            <button class="bFollow" onclick="seguirUser()"><i class="fa-solid fa-user-plus"></i>Follow</button>
+    <div class="conteudoAvaliacao">
+        <div class="gradiente">
             <div class="avaliacao">
-                <button class="bLike" onclick=""><i class="fa-solid fa-heart"></i>Like</button>
-                <button class="bColecao" onclick=""><i class="fa-solid fa-bookmark"></i>Add na coleção</button>
-            </div>
-            <div class="sobre">
-                <h2 id="nomePost"></h2>
-                <p id="descricaoPost"></p>
-            </div>
-            <div class="status">
-                <p><p id="like">0</p> Likes</p>
-                <p><p id="visualizacao">0</p> Views</p>
-                <p><p id="comentario">1</p> Comentarios</p>
-            </div>
-            <!-- <div class="comentarios">
-                <p><b id="comentario">1</b> Comentarios</p>
-                <div class="campoComentario">
-                    <img src="" class="imgID">
-                    <div class="caixa">
-                        <b id="nomeComentario"></b>
-                        <p id="comentario"></p>
+                <h2>Faça uma avaliação sobre nosso site</h2>
+
+                <div class="caixa">
+                    <div class="star">
+                        <button onclick="estrala1()" id="b1"><i class="fa-solid fa-star"></i></button>
+                        <button onclick="estrala2()" id="b2"><i class="fa-solid fa-star"></i></button>
+                        <button onclick="estrala3()" id="b3"><i class="fa-solid fa-star"></i></button>
+                        <button onclick="estrala4()" id="b4"><i class="fa-solid fa-star"></i></button>
+                        <button onclick="estrala5()" id="b5"><i class="fa-solid fa-star"></i></button>
                     </div>
+                    <textarea id="mensagem" cols="30" rows="10"></textarea>
                 </div>
-            </div> -->
-            
+                <button onclick="enviar()" class="enviar">Enviar</button>
+            </div>
         </div>
     </div>
+    <div class="erro">
+        <div id="logado" class="caixaErro log">
+            <span id="mensagemErro">Você precisa estar logado para avaliar o site!</span>
+            <video id="videoErro1" src="assets/gif/GifRed.mp4"></video>
+            <span id="loading"></span>
+        </div>
+        <div id="vazio" class="caixaErro vazio">
+            <span id="mensagemErro">Você precisa escrever algo para avaliar o site!</span>
+            <video id="videoErro" src="assets/gif/GifRed.mp4"></video>
+            <span id="loading"></span>
+        </div>
+        <div id="zero" class="caixaErro vazio">
+            <span id="mensagemErro">Você precisa escolher uma quantidade de estrelas para avaliar o site!</span>
+            <video id="videoErro2" src="assets/gif/GifRed.mp4"></video>
+            <span id="loading"></span>
+        </div>
+        <div id="confirmado" class="caixaErro vazio">
+            <span id="mensagemErro">Obrigado pela sua avaliacao!</span>
+            <video id="videoErro3" src="assets/gif/gif2.mp4"></video>
+            <span id="loading2"></span>
+        </div>
+        <div id="duplicidade" class="caixaErro vazio">
+            <span id="mensagemErro">Você ja avaliou o site!<br>Deseja apagar sua avaliação?</span>
+            <video id="videoErro4" src="assets/gif/GifRed.mp4" height="90px"></video>
+            <button class="apagar" onclick="apagar()">Apagar!</button>
+        </div>
+    </div>
+    
     
 </body>
 </html>
 <script>
 
-    var usuario = sessionStorage.getItem('IDUSUARIO_USUARIO')
-    var donoPost = sessionStorage.getItem('IDPERFIL_USUARIO')
-    if(usuario == donoPost){
-        var botaoExcluir = document.querySelector('.buttonExcluir')
-        botaoExcluir.style.display = "block"
+    var estrelas = 0
+
+    function estrala1(){
+        b1.style.color = "white"
+        b2.style.color = "rgb(34,34,34)"
+        b3.style.color = "rgb(34,34,34)"
+        b4.style.color = "rgb(34,34,34)"
+        b5.style.color = "rgb(34,34,34)"
+        estrelas = 1
+    }
+    function estrala2(){
+        b1.style.color = "white"
+        b2.style.color = "white"
+        b3.style.color = "rgb(34,34,34)"
+        b4.style.color = "rgb(34,34,34)"
+        b5.style.color = "rgb(34,34,34)"
+        estrelas = 2
+    }
+    function estrala3(){
+        b1.style.color = "white"
+        b2.style.color = "white"
+        b3.style.color = "white"
+        b4.style.color = "rgb(34,34,34)"
+        b5.style.color = "rgb(34,34,34)"
+        estrelas = 3
+    }
+    function estrala4(){
+        b1.style.color = "white"
+        b2.style.color = "white"
+        b3.style.color = "white"
+        b4.style.color = "white"
+        b5.style.color = "rgb(34,34,34)"
+        estrelas = 4
+    }
+    function estrala5(){
+        b1.style.color = "white"
+        b2.style.color = "white"
+        b3.style.color = "white"
+        b4.style.color = "white"
+        b5.style.color = "white"
+        estrelas = 5
     }
 
-    function iniciarModal(id){
-        if(sessionStorage.fecharModal !== id){
-            const modal = document.getElementById(id);
-            modal.classList.add('mostrar');
-            modal.addEventListener('click', (e) => {
-                if(e.target.id == id){
-                    modal.classList.remove('mostrar')
-                    sessionStorage.fecharModal = id
-                }
-            })
+    function enviar(){
+        var idUsuario = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var msgAvaliacao = mensagem.value
+        var erro = document.querySelector('.erro')
+
+        if(idUsuario == null){
+            erro.style.display = "flex"
+            logado.style.display = "flex"
+            videoErro1.play()
+
+            setTimeout(() => {
+                erro.style.display = "none"
+                logado.style.display = "none"
+            }, 5000)
+            return false
+        }else if(msgAvaliacao == ''){
+            erro.style.display = "flex"
+            vazio.style.display = "flex"
+            videoErro.play()
+
+            setTimeout(() => {
+                erro.style.display = "none"
+                vazio.style.display = "none"
+            }, 5000)
+            return false
+        }else if(estrelas == 0){
+            erro.style.display = "flex"
+            zero.style.display = "flex"
+            videoErro2.play()
+
+            setTimeout(() => {
+                erro.style.display = "none"
+                zero.style.display = "none"
+            }, 5000)
+            return false
         }
-    }
 
-    function seguirUser(){
-        var userAtual = sessionStorage.getItem('IDUSUARIO_USUARIO');
-        var userTela = sessionStorage.getItem('IDPERFIL_USUARIO');
-        var bFollow = document.querySelector('.bFollow')
-
-        fetch("/usuarios/seguirUser", {
+        fetch("/usuarios/avaliacao", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                userAtual,
-                userTela
+                idUsuario,
+                msgAvaliacao,
+                estrelas: estrelas
             })
         }).then(function (resposta) {
-            if(resposta.ok){
-                console.log('Funcionou!!!')
+            if (resposta.ok) {
+                erro.style.display = "flex"
+                confirmado.style.display = "flex"
+                videoErro3.play()
+
+                setTimeout(() => {
+                    window.location = "index.html";
+                }, 5000)
+                return false
+            } else {
+
+                erro.style.display = "flex"
+                duplicidade.style.display = "flex"
+                videoErro4.play()
             }
+
+        }).catch(function (erro) {
+            console.log(erro);
         })
-
-        bFollow.innerHTML = `<i class="fa-solid fa-check"></i>Seguindo`
-        
     }
 
-    function excluirPostagem(){
-        var postagem = sessionStorage.getItem('IDIMAGEM_IMAGEM')
-        var desenhoAtual = sessionStorage.getItem('IDDESENHO_DESENHO')
+    function apagar(){
+        var usuario = sessionStorage.getItem('IDUSUARIO_USUARIO')
 
-        if(postagem != null){
-            fetch(`/artwork/deletarPostagem/${postagem}`, {
+        fetch(`/usuarios/deletarAvaliacao/${usuario}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
                 }
             }).then(function (resposta) {
                 if (resposta.ok) {
-                    window.location = "/perfil.html";
+                    window.location = "/avaliacao.html";
                 }else {
-                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
+                    throw ("Houve um erro ao tentar apagar a avaliacao! Código da resposta: " + resposta.status);
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
-        }else{
-            fetch(`/artwork/deletarDesenho/${desenhoAtual}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            }).then(function (resposta) {
-                if (resposta.ok) {
-                    window.location = "/perfil.html";
-                }else {
-                    throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
-                }
-            }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-        }
     }
-
-
-    function artwork(){
-        var idPostagem = sessionStorage.getItem('IDIMAGEM_IMAGEM');
-        var idDesenhoCanvas = sessionStorage.getItem('IDDESENHO_DESENHO');
-        var imagens = document.querySelector('.art');
-        var iconAutor = document.querySelector('#imagemAutor');
-
-        if(idPostagem != null){
-            fetch(`/artwork/selectPost/${idPostagem}`).then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (response) {
-                        /* console.log(JSON.parse((JSON.stringify(response)))[0].likes) */
-                        iconAutor.src = `${JSON.parse((JSON.stringify(response)))[0].icone}`
-                        nomeAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].nickname}`
-                        descricaoAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoAutor}`
-                        nomePost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].titulo}`
-                        descricaoPost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoPost}`
-                        like.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].likes}`
-                        visualizacao.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].visualizacao}`
-                        comentario.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].comentarios}`
-                        sessionStorage.removeItem('IDPERFIL_USUARIO');
-                        sessionStorage.IDPERFIL_USUARIO = `${JSON.parse((JSON.stringify(response)))[0].fkUsuario}`
-                        
-                        for(var i = 0; i < response.length; i++){
-                            imagens.innerHTML += `<img src="${JSON.parse((JSON.stringify(response)))[i].imagemBase64}" class="imgWork">`
-                        }
-
-                        response.reverse();
-                    })
-                }else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-        }else{
-            fetch(`/artwork/selectDesenho/${idDesenhoCanvas}`).then(function (resposta) {
-                if (resposta.ok) {
-                    resposta.json().then(function (response) {
-                        /* console.log(JSON.parse((JSON.stringify(response)))[0].likes) */
-                        iconAutor.src = `${JSON.parse((JSON.stringify(response)))[0].icone}`
-                        nomeAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].nickname}`
-                        descricaoAutor.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoAutor}`
-                        nomePost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].titulo}`
-                        /* descricaoPost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoPost}` */
-                        like.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].likes}`
-                        visualizacao.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].visualizacao}`
-                        comentario.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].comentarios}`
-                        sessionStorage.removeItem('IDPERFIL_USUARIO');
-                        sessionStorage.IDPERFIL_USUARIO = `${JSON.parse((JSON.stringify(response)))[0].fkUsuario}`
-                        
-                        for(var i = 0; i < response.length; i++){
-                            imagens.innerHTML += `<img src="${JSON.parse((JSON.stringify(response)))[i].desenhoBase64}" class="imgWork">`
-                        }
-
-                        response.reverse();
-                    })
-                }else {
-                    console.error('Nenhum dado encontrado ou erro na API');
-                }
-            })
-        }
-        
-    }
-
-    function seguidor(){
-        var idArtista = sessionStorage.getItem('IDUSUARIO_USUARIO')
-        var userPostagem = sessionStorage.getItem('IDPERFIL_USUARIO')
-        var bFollow = document.querySelector('.bFollow')
-        
-        fetch(`/artwork/selectSeguindo/${idArtista}`).then(function (resposta){
-                if(resposta.ok){
-                    resposta.json().then(function (response) {
-                        var userSeguindo = JSON.parse((JSON.stringify(response)))
-
-                        for(var i = 0; i < userSeguindo.length; i++){
-                           if(userPostagem == userSeguindo[i].fkUsuarioSeguido){
-                                console.log('Achou!')
-                                bFollow.innerHTML = `<i class="fa-solid fa-check"></i>Seguindo`
-                           }
-                        }
-                        
-                    })
-                }else{
-                    console.error('Nenhum dado encontrado ou erro na API')
-                }
-            })
-    }
-
+</script>
+<script>//Window onload
     window.onload = function() {
-        artwork();
         verificarLogin();
-        seguidor();
-    };
-
-
+    }; 
 </script>
 <script>//Função de logar e deslogar
-        function entrar() {
+    function entrar() {
 
         var emailVar = inEmail.value;
         var senhaVar = inSenha.value;
@@ -418,9 +380,9 @@
         })
 
         return false;
-        }
+    }
 
-        function deslogar(){
+    function deslogar(){
         sessionStorage.removeItem('EMAIL_USUARIO')
         sessionStorage.removeItem('NICKNAME_USUARIO')
         sessionStorage.removeItem('IDUSUARIO_USUARIO')
@@ -428,11 +390,63 @@
         sessionStorage.removeItem('fecharModal')
 
         window.location = "/index.html";
-        }
-</script>
-<script>//Função de levar ao perfil
-    function levarPerfil(){
-        window.location = "/perfil.html";
     }
 </script>
-<script src="js/funcoes.js"></script>
+<script>//Aparecer Modal Login
+    sessionStorage.removeItem('fecharModal')
+    function iniciarModal(id){
+        if(sessionStorage.fecharModal !== id){
+            const modal = document.getElementById(id);
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if(e.target.id == id){
+                    modal.classList.remove('mostrar')
+                    sessionStorage.fecharModal = id
+                }
+            })
+        }
+    }
+
+    const botaoLogin = document.querySelector('.liLogin')
+    botaoLogin.addEventListener('click', function() {
+        sessionStorage.clear()
+        iniciarModal('modalL')
+    })
+
+    function modalLogin(){
+        var login1 = document.querySelector('.userModal')
+        login1.classList.toggle('mostrarModal1')
+    }
+</script>
+<script>//Aparição do Header
+
+    function verificarLogin(){
+        var idUsuario = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        var icone = sessionStorage.getItem('ICONE_USUARIO');
+        var nome = sessionStorage.getItem('NICKNAME_USUARIO');
+        var logado = document.querySelector('.logado');
+        var deslogado = document.querySelector('.deslogado');
+
+        if(idUsuario != null){
+            deslogado.classList.add('esconder');
+            logado.classList.remove('esconder');
+            userName.innerHTML = nome
+            iconeUser.src = icone
+            iconeUser2.src = icone
+            sessionStorage.fecharModal = 'modalL'
+        }else{
+            deslogado.classList.remove('esconder');
+            logado.classList.add('esconder');
+            sessionStorage.removeItem('fecharModal')
+        }
+    }
+
+    function perfilUsuario(){
+        var idUsuario = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        sessionStorage.removeItem('IDPERFIL_USUARIO');
+        sessionStorage.IDPERFIL_USUARIO = idUsuario
+
+        window.location = "/perfil.html";
+    }
+
+</script>

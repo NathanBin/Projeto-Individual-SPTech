@@ -26,7 +26,7 @@ function perfilUsuario(){
     sessionStorage.removeItem('IDPERFIL_USUARIO');
     sessionStorage.IDPERFIL_USUARIO = idUsuario
 
-    window.location = "/testePerfil.html";
+    window.location = "/perfil.html";
 }
 
 //Função Modal Login

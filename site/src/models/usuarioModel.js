@@ -18,14 +18,21 @@ function entrar(email, senha) {
     return database.executar(instrucao);
 } 
  
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucao
 function cadastrar(nickname, senha, email) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nickname, senha, email);
     
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
     var instrucao = `
         INSERT INTO usuario (nickname, senha, email) VALUES ('${nickname}', '${senha}', '${email}');
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function seguirUser(seguidor, seguido) {
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function seguirUser():");
+    
+    var instrucao = `
+        INSERT INTO follow VALUES (${seguidor}, ${seguido});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -40,9 +47,30 @@ function atualizarPerfil(nick, desc, icone, fundo, idUsuario) {
     return database.executar(instrucao);
 }
 
+function avaliacao(idUsuario, msg, estrelas) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function avaliacao(): ");
+    var instrucao = `
+    insert into avaliacao values (${idUsuario}, '${msg}', ${estrelas});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function deletarAvaliacao(idUsuario) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarAvaliacao(): ");
+    var instrucao = `
+    delete from avaliacao where fkUsuario = ${idUsuario};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
     pegarIcon,
-    atualizarPerfil
+    atualizarPerfil,
+    seguirUser,
+    avaliacao,
+    deletarAvaliacao
 };
