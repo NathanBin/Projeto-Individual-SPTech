@@ -51,6 +51,10 @@ router.get("/curtiu/:idArtista", function (req, res) {
     artworkController.curtiu(req, res);
 })
 
+router.get("/curtidos/:idArtista", function (req, res) {
+    artworkController.curtidos(req, res);
+})
+
 router.get("/seusFollows/:idPerfil", function (req, res) {
     artworkController.seusFollows(req, res);
 })

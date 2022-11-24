@@ -156,6 +156,17 @@ console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
 }
 
+function curtidos(idArtista) { 
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function seguindo():", idArtista);
+
+    var instrucao = `
+    select distinct capa, titulo 'tituloPost', nickname, fkPostagem from postagem join usuario on idUsuario = fkUsuario join postagemCurtida on idPostagem = fkPostagem where fkUsuarioCurtidor = ${idArtista};
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
 module.exports = {
     postagem,
     perfil,
@@ -169,6 +180,7 @@ module.exports = {
     users,
     seusFollows,
     likes,
-    curtiu
+    curtiu,
+    curtidos
 }
 

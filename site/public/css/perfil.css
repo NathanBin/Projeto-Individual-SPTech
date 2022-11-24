@@ -234,7 +234,10 @@ button i{
     margin: 0 13px;
 }
 .capa img{
-    width: 92%;
+    /* width: 92%; */
+    object-fit: cover;
+    height: 158px;
+    width: 281px/*  */;
     margin: 9px;
 }
 .capa{

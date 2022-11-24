@@ -35,4 +35,8 @@ router.delete("/deletarAvaliacao/:idUsuario", function (req, res) {
     usuarioController.deletarAvaliacao(req, res);
 });
 
+router.get("/perfilSeguindo/:idUsuario", function (req, res) {
+    usuarioController.perfilSeguindo(req, res);
+});
+
 module.exports = router;  

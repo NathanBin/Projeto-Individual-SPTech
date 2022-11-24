@@ -410,11 +410,16 @@
     window.onload = function() {
         artwork();
         verificarLogin();
-        seguidor();
+        /* seguidor();
         verificarSeguindo();
-        curtiu();
+        curtiu(); */
     };
 
+    setTimeout(()=>{
+        curtiu();
+        verificarSeguindo();
+        seguidor();
+    },500)
 
 </script>
 <script>//Função de logar e deslogar
