@@ -1,292 +1,292 @@
 
 var galeryList = [
     {
-        image: "assets/capa/starguardian.jpg",
-        titulo: "Starguardians",
+        image: "assets/capa/capa1.jpg",
+        titulo: "Archlight",
         subtitulo: "Envar Studio",
         idPost: 1
     },
     {
-        image: "assets/capa/angel250.jpg",
-        titulo: "Archlight",
+        image: "assets/capa/capa2.jpg",
+        titulo: "Starguardians",
         subtitulo: "Envar Studio",
         idPost: 2
     },
     {
-        image: "assets/destaque/sennaHigh250.jpg",
-        titulo: "Senna",
-        subtitulo: "Binho do Santa",
+        image: "assets/capa/capa3.jpg",
+        titulo: "Kings of Glory",
+        subtitulo: "3QStudio",
         idPost: 3
     },
     {
-        image: "assets/destaque/mage250.jpg",
-        titulo: "Mage",
-        subtitulo: "Binho do Santa",
+        image: "assets/capa/capa4.jpg",
+        titulo: "Kings of Glory",
+        subtitulo: "3QStudio",
         idPost: 4
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa5.jpg",
+        titulo: "Kings of Glory",
+        subtitulo: "3QStudio",
         idPost: 5
     },
     {
-        image: "assets/capa/3q1.jpg",
-        titulo: "Xin Thao",
-        subtitulo: "3Q Studio",
+        image: "assets/capa/capa6.jpg",
+        titulo: "Kings of Glory",
+        subtitulo: "3QStudio",
         idPost: 6
     },
     {
-        image: "assets/capa/3q2.jpg",
-        titulo: "Necro",
-        subtitulo: "3Q Studio",
+        image: "assets/capa/capa7.jpg",
+        titulo: "J4 Championship",
+        subtitulo: "Yan Kyohara",
         idPost: 7
     },
     {
-        image: "assets/capa/3q3.jpg",
-        titulo: "Maid",
-        subtitulo: "3Q Studio",
+        image: "assets/capa/capa8.jpg",
+        titulo: "Cithria & The Demancians",
+        subtitulo: "DEN",
         idPost: 8
     },
     {
-        image: "assets/capa/3q4.jpg",
-        titulo: "Sera & Guz",
-        subtitulo: "3Q Studio",
+        image: "assets/capa/capa9.jpg",
+        titulo: "Battle Academy Garen & Wukong",
+        subtitulo: "Ina Wong",
         idPost: 9
     },
     {
-        image: "assets/capa/3q5.jpg",
-        titulo: "Gunslinger",
-        subtitulo: "3Q Studio",
+        image: "assets/capa/capa10.jpg",
+        titulo: "Mundo Rageborn",
+        subtitulo: "Ina Wong",
         idPost: 10
     },
     {
-        image: "assets/capa/blackwarrior.jpg",
-        titulo: "Warrior",
-        subtitulo: "Jun Mo Xiao",
+        image: "assets/capa/capa11.jpg",
+        titulo: "Monster Tamer Lulu and Zap Maw",
+        subtitulo: "Ina Wong",
         idPost: 11
     },
     {
-        image: "assets/capa/bochen1.jpg",
-        titulo: "Irelia Divine",
-        subtitulo: "Bo Chen",
+        image: "assets/capa/capa12.jpg",
+        titulo: "Smite: Deadly Dinner Discordia",
+        subtitulo: "Ina Wong",
         idPost: 12
     },
     {
-        image: "assets/capa/bochen2.jpg",
-        titulo: "Jinx Arcane",
-        subtitulo: "Bo Chen",
+        image: "assets/capa/capa13.jpg",
+        titulo: "Knights of the Dragon",
+        subtitulo: "Wonjo Jung / HEX",
         idPost: 13
     },
     {
-        image: "assets/capa/demacia.jpg",
-        titulo: "Demacia",
-        subtitulo: "Binho do Santa",
-        idPost: 14
-    },
-    {
-        image: "assets/capa/enviroment1.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
-        idPost: 15
-    },
-    {
-        image: "assets/capa/enviroment2.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa16.jpg",
+        titulo: "Dextra",
+        subtitulo: "MingChen Shen",
         idPost: 16
     },
     {
-        image: "assets/capa/enviroment3.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa17.jpg",
+        titulo: "Iron Inquisitor Kayle",
+        subtitulo: "Chengwei Pan",
         idPost: 17
     },
     {
-        image: "assets/capa/ina1.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa18.jpg",
+        titulo: "Advance",
+        subtitulo: "MingChen Shen",
         idPost: 18
     },
     {
-        image: "assets/capa/ina2.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa19.jpg",
+        titulo: "JJ - Snake Fight",
+        subtitulo: "MingChen Shen",
         idPost: 19
     },
     {
-        image: "assets/capa/ina3.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa20.jpg",
+        titulo: "Jaelan  & Jaeya 2",
+        subtitulo: "MingChen Shen",
         idPost: 20
     },
     {
-        image: "assets/capa/ina4.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa21.jpg",
+        titulo: "Jaelan  & Jaeya",
+        subtitulo: "MingChen Shen",
         idPost: 21
     },
     {
-        image: "assets/capa/jarvanYan.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa22.jpg",
+        titulo: "Jaelan  & Jaeya",
+        subtitulo: "MingChen Shen",
         idPost: 22
     },
     {
-        image: "assets/capa/kayle.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa23.jpg",
+        titulo: "Jaelan  & Jaeya",
+        subtitulo: "MingChen Shen",
         idPost: 23
     },
     {
-        image: "assets/capa/mshen1.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa24.jpg",
+        titulo: "Jaelan  & Jaeya",
+        subtitulo: "MingChen Shen",
         idPost: 24
     },
     {
-        image: "assets/capa/mshen2.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa25.jpg",
+        titulo: "Jaelan  & Jaeya",
+        subtitulo: "MingChen Shen",
         idPost: 25
     },
     {
-        image: "assets/capa/mshen3.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa26.jpg",
+        titulo: "Divine Sword Irelia",
+        subtitulo: "Bo Chen",
         idPost: 26
     },
     {
-        image: "assets/capa/mshen4.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa27.jpg",
+        titulo: "Battle Queen Katarina",
+        subtitulo: "MingChen Shen",
         idPost: 27
     },
     {
-        image: "assets/capa/mshen5.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa28.jpg",
+        titulo: "KDA Fanart",
+        subtitulo: "MingChen Shen",
         idPost: 28
     },
     {
-        image: "assets/capa/mshen6.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa29.jpg",
+        titulo: "Victorian Interrior Concept",
+        subtitulo: "Aobo Wang",
         idPost: 29
     },
     {
-        image: "assets/capa/valorantYan.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa30.jpg",
+        titulo: "Cidade Industrial",
+        subtitulo: "Aobo Wang",
         idPost: 30
     },
     {
-        image: "assets/capa/warrior.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa31.jpg",
+        titulo: "ARcane Jinxs Splash Art",
+        subtitulo: "Bo Chen",
         idPost: 31
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa32.jpg",
+        titulo: "Sunny Day",
+        subtitulo: "Aobo Wang",
         idPost: 32
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa33.jpg",
+        titulo: "Corrupted Pantheon",
+        subtitulo: "Kudos Production",
         idPost: 33
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa34.jpg",
+        titulo: "Soulhunter Kayn Splash Art",
+        subtitulo: "Jean Go",
         idPost: 34
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa35.jpg",
+        titulo: "The Shadow Assassin",
+        subtitulo: "Kudos Production",
         idPost: 35
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa36.jpg",
+        titulo: "Dark Star Zed",
+        subtitulo: "Kudos Production",
         idPost: 36
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa37.jpg",
+        titulo: "Montain Village | Mooncolony",
+        subtitulo: "MooncolonySTUDIO",
         idPost: 37
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa38.jpg",
+        titulo: "Rain of Soul",
+        subtitulo: "Kan Liu",
         idPost: 38
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa39.jpg",
+        titulo: "zZz",
+        subtitulo: "Kan Liu",
         idPost: 39
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa40.jpg",
+        titulo: "Connection",
+        subtitulo: "Kan Liu",
         idPost: 40
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa41.jpg",
+        titulo: "From the Ashes",
+        subtitulo: "Kan Liu",
         idPost: 41
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa42.jpg",
+        titulo: "Core Boat and Cute Priest Five",
+        subtitulo: "Kan Liu",
         idPost: 42
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa43.jpg",
+        titulo: "Shuiji, Water Mage",
+        subtitulo: "Kan Liu",
         idPost: 43
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa44.jpg",
+        titulo: "Sylvanas",
+        subtitulo: "Sora Kim",
         idPost: 44
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa45.jpg",
+        titulo: "Sanguine Sylvanas",
+        subtitulo: "Sora Kim",
         idPost: 45
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa46.jpg",
+        titulo: "Dragon-Slayer Olaf & Diana",
+        subtitulo: "XiaoGuang Sun",
         idPost: 46
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa47.jpg",
+        titulo: "Lunar Beast Aphelios",
+        subtitulo: "Francis Tneh",
         idPost: 47
     },
     {
-        image: "assets/destaque/pistol250.jpg",
-        titulo: "Pistol",
-        subtitulo: "Deiv Calviz",
+        image: "assets/capa/capa48.jpg",
+        titulo: "White & Gold",
+        subtitulo: "Dan Kendi",
         idPost: 48
+    },
+    {
+        image: "assets/capa/capa49.jpg",
+        titulo: "Peony",
+        subtitulo: "Dan Kendi",
+        idPost: 49
+    },
+    {
+        image: "assets/capa/capa50.jpg",
+        titulo: "Chung Hua - Tiger New Year",
+        subtitulo: "Dan Kendi",
+        idPost: 50
     }
 ]
 

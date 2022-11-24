@@ -173,7 +173,7 @@ body{
 }
 #modalT{
     position: absolute;
-    height: 100%;
+    height: 84vh;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
@@ -203,7 +203,7 @@ body{
 
 #modalC{
     position: absolute;
-    height: 100%;
+    height: 84vh;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
@@ -218,7 +218,7 @@ body{
 }
 #modalF{
     position: absolute;
-    height: 100%;
+    height: 84vh;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
@@ -248,7 +248,7 @@ body{
 }
 #modalZ{
     position: absolute;
-    height: 100%;
+    height: 84vh;
     width: 100%;
     background-color: rgba(0,0,0,0.1);
     z-index: 100;  
@@ -275,6 +275,21 @@ body{
 }
 .mostrar .zoom{
     animation: animModal .3s;
+}
+.zoom button{
+    margin: 15px;
+    width: 125px;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: #0053af;
+    border-radius: 7px;
+    color: white;
+    font-size: 15px;
+    transition: 0.5s ease-in-out;
+}
+.zoom button:hover{
+    opacity: 0.8;
 }
 
 .iconsT .fa-solid{

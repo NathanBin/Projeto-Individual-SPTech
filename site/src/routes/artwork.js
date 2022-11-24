@@ -47,8 +47,16 @@ router.get("/seguindo/:idArtista", function (req, res) {
     artworkController.users(req, res);
 })
 
+router.get("/curtiu/:idArtista", function (req, res) {
+    artworkController.curtiu(req, res);
+})
+
 router.get("/seusFollows/:idPerfil", function (req, res) {
     artworkController.seusFollows(req, res);
+})
+
+router.post("/curtirPostagem", function (req, res) {
+    artworkController.likes(req, res);
 })
 
 module.exports = router; 

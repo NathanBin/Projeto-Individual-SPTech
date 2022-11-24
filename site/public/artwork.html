@@ -139,10 +139,6 @@
     <button onclick="excluirPostagem()" class="buttonExcluir"><i class="fa-solid fa-trash"></i>Excluir Postagem</button>
     <div class="aContainer">
         <div class="art">
-            <!-- <img src="assets/Artwork/kan-liu-666k-fullsize.jpg" alt="" class="imgWork">
-            <img src="assets/Artwork/kan-liu-666k-details.jpg" alt="" class="imgWork">
-            <img src="assets/Artwork/kan-liu-666k-fullsize-b-w.jpg" alt="" class="imgWork">
-            <img src="assets/Artwork/kan-liu-666k-lineart.jpg" alt="" class="imgWork"> -->
             
         </div>
         <div class="descricao">
@@ -155,7 +151,7 @@
             </div>
             <button class="bFollow" onclick="seguirUser()"><i class="fa-solid fa-user-plus"></i>Follow</button>
             <div class="avaliacao">
-                <button class="bLike" onclick=""><i class="fa-solid fa-heart"></i>Like</button>
+                <button class="bLike" onclick="likes()"><i class="fa-solid fa-heart"></i>Like</button>
                 <button class="bColecao" onclick=""><i class="fa-solid fa-bookmark"></i>Add na coleção</button>
             </div>
             <div class="sobre">
@@ -185,11 +181,14 @@
 </html>
 <script>
 
-    var usuario = sessionStorage.getItem('IDUSUARIO_USUARIO')
-    var donoPost = sessionStorage.getItem('IDPERFIL_USUARIO')
-    if(usuario == donoPost){
-        var botaoExcluir = document.querySelector('.buttonExcluir')
-        botaoExcluir.style.display = "block"
+    function verificarSeguindo(){
+        var usuario = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var donoPost = sessionStorage.getItem('IDPERFIL_USUARIO')
+        if(usuario == donoPost){
+            var botaoExcluir = document.querySelector('.buttonExcluir')
+            botaoExcluir.style.display = "block"
+        }
+        
     }
 
     function iniciarModal(id){
@@ -224,6 +223,8 @@
                 console.log('Funcionou!!!')
             }
         })
+
+        
 
         bFollow.innerHTML = `<i class="fa-solid fa-check"></i>Seguindo`
         
@@ -288,6 +289,7 @@
                         comentario.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].comentarios}`
                         sessionStorage.removeItem('IDPERFIL_USUARIO');
                         sessionStorage.IDPERFIL_USUARIO = `${JSON.parse((JSON.stringify(response)))[0].fkUsuario}`
+                        sessionStorage.IDIMAGEM_PRIMEIRA = `${JSON.parse((JSON.stringify(response)))[0].fkImagem}`
                         
                         for(var i = 0; i < response.length; i++){
                             imagens.innerHTML += `<img src="${JSON.parse((JSON.stringify(response)))[i].imagemBase64}" class="imgWork">`
@@ -353,10 +355,64 @@
             })
     }
 
+    function curtiu(){
+        var idArtista = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var idPostagem = sessionStorage.getItem('IDIMAGEM_IMAGEM')
+        var bLike = document.querySelector('.bLike')
+        
+        fetch(`/artwork/curtiu/${idArtista}`).then(function (resposta){
+                if(resposta.ok){
+                    resposta.json().then(function (response) {
+                        var curtido = JSON.parse((JSON.stringify(response)))
+
+                        for(var i = 0; i < curtido.length; i++){
+                           if(idPostagem == curtido[i].fkPostagem){
+                                console.log('Achou!')
+                                bLike.innerHTML = `<i class="fa-solid fa-check"></i>Curtido`
+                           }
+                        }
+                        
+                    })
+                }else{
+                    console.error('Nenhum dado encontrado ou erro na API')
+                }
+            })
+    }
+
+    function likes(){
+        var idArtista = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var userPostagem = sessionStorage.getItem('IDPERFIL_USUARIO')
+        var postagemAtual = sessionStorage.getItem('IDIMAGEM_IMAGEM')
+        var imagemAtual = sessionStorage.getItem('IDIMAGEM_PRIMEIRA')
+        var bLike = document.querySelector('.bLike')
+
+        fetch("/artwork/curtirPostagem", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                idArtista,
+                userPostagem,
+                postagemAtual,
+                imagemAtual
+            })
+        }).then(function (resposta) {
+            if(resposta.ok){
+                console.log('Funcionou!!!')
+
+            }
+        })
+
+        bLike.innerHTML = `<i class="fa-solid fa-check"></i>Curtido`
+    }
+
     window.onload = function() {
         artwork();
         verificarLogin();
         seguidor();
+        verificarSeguindo();
+        curtiu();
     };
 
 

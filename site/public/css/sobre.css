@@ -124,7 +124,7 @@ body{
 .oqueGosto{
     display: flex;
     flex-direction: row;
-
+    
 }
 .eu{
     display: flex;
@@ -132,7 +132,7 @@ body{
     flex-direction: column;
     align-items: center;
     width: 650px;
-    height: 650px;
+    height: 500px;
 }
 .eu h2{
     color: white;
@@ -159,27 +159,57 @@ body{
         700px 30px,
         700px 100px, 
         0px 100px);
-    
+    background-image: url(../assets/fundouni2.jpg);
 }
+.circuloOpcao{
+    border-radius: 50%;
+    background-color: #ffffffaf;
+    width: 86px;
+    height: 86px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 42px;
+    transition: 1s ease-in-out;
+}
+.logoL.logoAtiva ~.circuloOpcao{
+    left: 42px;
+}
+
+.logoLI.logoAtiva ~.circuloOpcao{
+    left: 218px;
+}
+.logoM.logoAtiva ~.circuloOpcao{
+    left: 393px;
+}
+.logoS.logoAtiva ~.circuloOpcao{
+    left: 569px;
+}
+
 .nav img{
     width: 80px;
+    z-index: 2;
 }
 .imagemOqg{
     margin-right: 20px;
     position: relative;
     overflow: hidden;
 }
-
+@keyframes aparecer {
+    0%{opacity: 0;}
+    100%{opacity: 1;}
+}
 .lol{
     display: flex;
     flex-direction: row;
     position: absolute;
     top: 100px;
     left: 0;
-    z-index: 600;
+    z-index: 10;
     width: 700px;
     height: 350px;
-    /* background-color: white; */
+    animation: aparecer 1s ease-in-out;
     background-image: url(../assets/destaque/backgroundlol.jpg);
 }
 .degrau{
@@ -619,16 +649,15 @@ body{
 
 .series{
     position: absolute;
-    display: flex;
+    display: none;
     flex-direction: row;
-    left: 100%;
     top: 100px;
-    /* position: relative; */
     width: 700px;
     height: 350px;
-    /* background-color: white; */
     background-image: url(../assets/destaque/fundoNetflix.jpg);
     opacity: 1;
+    z-index: 10;
+    animation: aparecer 1s ease-in-out;
 }
 .navNetflix{
     width: 700px;
@@ -800,15 +829,16 @@ body{
 
 .musicas{
     position: absolute;
+    display: none;
     top: 100px;
-    left: 100%;
-    opacity: 0;
+    opacity: 1;
     width: 700px;
     height: 350px;
     background-color: #757575;
     background-image: url(../assets/destaque/fundoSpotify.jpg);
     overflow: hidden;
-    /* z-index: 600; */
+    z-index: 10;
+    animation: aparecer 1s ease-in-out;
 }
 
 .disco{
@@ -1096,6 +1126,10 @@ body{
     height: 350px;
     background-color: #757575;
     overflow: hidden;
+    z-index: 10;
+    opacity: 1;
+    animation: aparecer 1s ease-in-out;
+    display: none;
 }
 
 .atual{
@@ -1111,58 +1145,58 @@ body{
     transition: 0.5s ease-in-out;
 }
 
-.teste71{
+.pagina71{
     z-index: 5;
     top: 27px;
     left: 70px;
 }
-.teste72{
+.pagina72{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste73{
+.pagina73{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste74{
+.pagina74{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste71:hover{
+.pagina71:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 30px;
     z-index: 15;
 }
-.teste71:hover .teste72{
+.pagina71:hover .pagina72{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
     z-index: 15;
 }
-.teste71:hover .teste73{
+.pagina71:hover .pagina73{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 320px;
-    animation: teste73 1.5s ease-in-out;
+    animation: pagina73 1.5s ease-in-out;
     z-index: 15;
 }
-.teste71:hover .teste74{
+.pagina71:hover .pagina74{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 480px;
-    animation: teste74 2s ease-in-out;
+    animation: pagina74 2s ease-in-out;
     z-index: 15;
 }
-@keyframes teste72 {
+@keyframes pagina72 {
     0%{
         top: 0px;
         left: 0px;
@@ -1176,7 +1210,7 @@ body{
         left: 160px;
     }
 }
-@keyframes teste73 {
+@keyframes pagina73 {
     0%{
         top: 0px;
         left: 0px;
@@ -1194,7 +1228,7 @@ body{
         left: 320px;
     }
 }
-@keyframes teste74 {
+@keyframes pagina74 {
     0%{
         top: 0px;
         left: 0px;
@@ -1216,54 +1250,54 @@ body{
         left: 480px;
     }
 }
-.teste75{
+.pagina75{
     z-index: 5;
     top: 27px;
     left: 195px;
 }
-.teste76{
+.pagina76{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste77{
+.pagina77{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste78{
+.pagina78{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste75:hover{
+.pagina75:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 190px;
 }
-.teste75:hover .teste76{
+.pagina75:hover .pagina76{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
 }
-.teste75:hover .teste77{
+.pagina75:hover .pagina77{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
 }
-.teste75:hover .teste78{
+.pagina75:hover .pagina78{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 320px;
-    animation: teste73 1.5s ease-in-out;
+    animation: pagina73 1.5s ease-in-out;
 }
-@keyframes teste76 {
+@keyframes pagina76 {
     0%{
         top: 0px;
         left: 0px;
@@ -1277,54 +1311,54 @@ body{
         left: -160px;
     }
 }
-.teste79{
+.pagina79{
     z-index: 5;
     top: 27px;
     left: 320px;
 }
-.teste80{
+.pagina80{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste81{
+.pagina81{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste82{
+.pagina82{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste79:hover{
+.pagina79:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 350px;
 }
-.teste79:hover .teste80{
+.pagina79:hover .pagina80{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -320px;
-    animation: teste80 1.5s ease-in-out;
+    animation: pagina80 1.5s ease-in-out;
 }
-.teste79:hover .teste81{
+.pagina79:hover .pagina81{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
 }
-.teste79:hover .teste82{
+.pagina79:hover .pagina82{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
 }
-@keyframes teste80 {
+@keyframes pagina80 {
     0%{
         top: 0px;
         left: 0px;
@@ -1342,103 +1376,103 @@ body{
         left: -320px;
     }
 }
-.teste83{
+.pagina83{
     z-index: 5;
     top: 27px;
     left: 448px;
 }
-.teste84{
+.pagina84{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste85{
+.pagina85{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste86{
+.pagina86{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste83:hover{
+.pagina83:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 350px;
 }
-.teste83:hover .teste84{
+.pagina83:hover .pagina84{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
 }
-.teste83:hover .teste85{
+.pagina83:hover .pagina85{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
 }
-.teste83:hover .teste86{
+.pagina83:hover .pagina86{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -320px;
-    animation: teste80 1.5s ease-in-out;
+    animation: pagina80 1.5s ease-in-out;
 }
 
-.teste87{
+.pagina87{
     z-index: 5;
     top: 27px;
     left: 574px;
 }
-.teste88{
+.pagina88{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste89{
+.pagina89{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste90{
+.pagina90{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste87:hover{
+.pagina87:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 510px;
 }
-.teste87:hover .teste88{
+.pagina87:hover .pagina88{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
 }
-.teste87:hover .teste89{
+.pagina87:hover .pagina89{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -320px;
-    animation: teste80 1.5s ease-in-out;
+    animation: pagina80 1.5s ease-in-out;
 }
-.teste87:hover .teste90{
+.pagina87:hover .pagina90{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -480px;
-    animation: teste90 2s ease-in-out;
+    animation: pagina90 2s ease-in-out;
 }
 
-@keyframes teste90 {
+@keyframes pagina90 {
     0%{
         top: 0px;
         left: 0px;
@@ -1460,244 +1494,244 @@ body{
         left: -480px;
     }
 }
-.teste91{
+.pagina91{
     z-index: 5;
     top: 181px;
     left: 70px;
 }
-.teste92{
+.pagina92{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste93{
+.pagina93{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste94{
+.pagina94{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste91:hover{
+.pagina91:hover{
     width: 150px;
     height: 200px;
     top: 100px;
     left: 30px;
 }
-.teste91:hover .teste92{
+.pagina91:hover .pagina92{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
 }
-.teste91:hover .teste93{
+.pagina91:hover .pagina93{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 320px;
-    animation: teste73 1.5s ease-in-out;
+    animation: pagina73 1.5s ease-in-out;
 }
-.teste91:hover .teste94{
+.pagina91:hover .pagina94{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 480px;
-    animation: teste74 2s ease-in-out;
+    animation: pagina74 2s ease-in-out;
 }
-.teste95{
+.pagina95{
     z-index: 5;
     top: 181px;
     left: 195px;
 }
-.teste96{
+.pagina96{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste97{
+.pagina97{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste98{
+.pagina98{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste95:hover{
+.pagina95:hover{
     width: 150px;
     height: 200px;
     top: 100px;
     left: 190px;
 }
-.teste95:hover .teste96{
+.pagina95:hover .pagina96{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
 }
-.teste95:hover .teste97{
+.pagina95:hover .pagina97{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
 }
-.teste95:hover .teste98{
+.pagina95:hover .pagina98{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 320px;
-    animation: teste73 1.5s ease-in-out;
+    animation: pagina73 1.5s ease-in-out;
 }
-.teste99{
+.pagina99{
     z-index: 5;
     top: 181px;
     left: 320px;
 }
-.teste100{
+.pagina100{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste101{
+.pagina101{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste102{
+.pagina102{
     z-index: 2;
     top: 0;
     left: 0;
 }
 
-.teste99:hover{
+.pagina99:hover{
     width: 150px;
     height: 200px;
     top: 100px;
     left: 350px;
 }
-.teste99:hover .teste100{
+.pagina99:hover .pagina100{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -320px;
-    animation: teste80 1.5s ease-in-out;
+    animation: pagina80 1.5s ease-in-out;
 }
-.teste99:hover .teste101{
+.pagina99:hover .pagina101{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
 }
-.teste99:hover .teste102{
+.pagina99:hover .pagina102{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
 }
-.teste103{
+.pagina103{
     z-index: 5;
     top: 181px;
     left: 447px;
 }
-.teste104{
+.pagina104{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste105{
+.pagina105{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste106{
+.pagina106{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste103:hover{
+.pagina103:hover{
     width: 150px;
     height: 200px;
     top: 100px;
     left: 350px;
 }
-.teste103:hover .teste104{
+.pagina103:hover .pagina104{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -320px;
-    animation: teste80 1.5s ease-in-out;
+    animation: pagina80 1.5s ease-in-out;
 }
-.teste103:hover .teste105{
+.pagina103:hover .pagina105{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
 }
-.teste103:hover .teste106{
+.pagina103:hover .pagina106{
     width: 150px;
     height: 200px;
     top: 0px;
     left: 160px;
-    animation: teste72 1s ease-in-out;
+    animation: pagina72 1s ease-in-out;
 }
-.teste107{
+.pagina107{
     z-index: 5;
     top: 181px;
     left: 574px;
 }
-.teste108{
+.pagina108{
     z-index: 4;
     top: 0;
     left: 0;
 }
-.teste109{
+.pagina109{
     z-index: 3;
     top: 0;
     left: 0;
 }
-.teste110{
+.pagina110{
     z-index: 2;
     top: 0;
     left: 0;
 }
-.teste107:hover{
+.pagina107:hover{
     width: 150px;
     height: 200px;
     top: 100px;
     left: 510px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.teste107:hover .teste108{
+.pagina107:hover .pagina108{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -160px;
-    animation: teste76 1s ease-in-out;
+    animation: pagina76 1s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.teste107:hover .teste109{
+.pagina107:hover .pagina109{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -320px;
-    animation: teste80 1.5s ease-in-out;
+    animation: pagina80 1.5s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-.teste107:hover .teste110{
+.pagina107:hover .pagina110{
     width: 150px;
     height: 200px;
     top: 0px;
     left: -480px;
-    animation: teste90 2s ease-in-out;
+    animation: pagina90 2s ease-in-out;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .menu{
@@ -1734,4 +1768,26 @@ body{
     top: 100px;
     transform: rotate(90deg);
     z-index: 9;
+}
+
+.movimento img{
+    border-radius: 50%;
+    /* margin-left: 250px; */
+}
+.movimento{
+    position: absolute;
+}
+.pqArte{
+    width: 600px;
+    height: 500px;
+    position: relative;
+    /* background-color: rgb(21,21,21); */
+    margin-left: 100px;
+}
+.pqArte span{
+    color: white;
+    font-size: 50px;
+    position: absolute;
+    top: 300px;
+    left: 50px;
 }

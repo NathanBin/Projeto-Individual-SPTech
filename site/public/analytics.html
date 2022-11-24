@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BINSTATION</title>
+    <link rel="stylesheet" href="css/hover.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/analytics.css">
+    <script src="js/script.js"></script>
+    <script src="js/grid.js"></script>
+    <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
+</head>
+    <body>
+        <div class="main deslogado" >
+            <div class="header" >
+                <a href="index.html"><div class="logo">
+                    <div><img src="assets/BinLogo2.png"></div>
+                    <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
+                </div></a>
+                <div class="pesquisa">
+                    <img src="assets/lupaCinza.png" width="25px">
+                    <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                    <div class="barraPesquisa">
+                        <ul>
+                            <li><a href="#">Pesquise por Artes</a></li>
+                            <li><a href="#">Pesquise por Artistas</a></li>
+                            <li><a href="#">Pesquise por Estúdios</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ulHeader">
+                    <ul>
+                        <li class="liLogin"><button><img src="assets/icons/in.png" width="30px">Login</button></li>
+                        <li class="liCadastro"><a href="cadastro.html"><img src="assets/icons/on.png" width="25px">Cadastre-se</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="subHeader">
+                <div class="container" >
+                    <ul >
+                        <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                        <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                        <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                        <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                        <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="main logado esconder" >
+            <div class="header" >
+                <a href="index.html"><div class="logo">
+                    <div><img src="assets/BinLogo2.png"></div>
+                    <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
+                </div></a>
+                <div class="pesquisa">
+                    <img src="assets/lupaCinza.png" width="25px">
+                    <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                    <div class="barraPesquisa">
+                        <ul>
+                            <li><a href="#">Pesquise por Artes</a></li>
+                            <li><a href="#">Pesquise por Artistas</a></li>
+                            <li><a href="#">Pesquise por Estúdios</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ulHeader">
+                    <ul>
+                        <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                        <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
+                        <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
+                        <div class="divLi" onclick="modalLogin()">
+                            <li><img src="" class="userButton" id="iconeUser"></li>
+                            <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
+                        </div>
+                    </ul>
+                </div>
+                <div class="userModal">
+                    <div class="modalHeader">
+                        <img onclick="perfilUsuario()" src="" class="userButton" id="iconeUser2">
+                        <div class="userInfo">
+                            <p id="userName"></p>
+                            <div class="userPerfil">
+                                <button onclick="perfilUsuario()" class="userProfile">Ver Perfil</button>
+                                <button class="userProfile">Editar Perfil</button>
+                            </div>
+                        </div>
+                    </div>
+                    <span></span>
+                    <button class="userModalOption"><i class="fa-solid fa-palette"></i>Meus Desenhos</button>
+                    <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
+                    <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
+                    <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
+                    <button onclick="deslogar()" class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                </div>
+            </div>
+            <div class="subHeader">
+                <div class="container" >
+                    <ul >
+                        <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                        <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
+                        <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
+                        <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
+                        <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
+                        <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalL" class="modalLogin">
+            <div class="lFormulario">
+                <div class="lHeader">
+                    <img src="assets/icons/lgo3.png" width="100px" alt="">
+                    <h1><b class="tBin">BIN</b><b class="tStation">STATION</b></h1>
+                </div>
+                <div class="lCampo">
+                    <label for="inEmail">Seu E-mail</label>
+                    <input type="email" id="inEmail" placeholder="N.l.Bin@sptech.school">
+                </div>
+                <div class="lCampo">
+                    <label for="inSenha">Sua senha</label>
+                    <input type="password" id="inSenha" placeholder="********">
+                </div>
+                <button onclick="entrar()">Entrar</button>
+                <div class="lFooter">
+                    <div><b><a href="">Esqueceu a senha?</a></b></div>
+                    <div><b><a href="">Cadastre-se</a></b></div>
+                </div>
+            </div>
+        </div>
+        <div class="conteudo">
+            <div class="navbarLateral">
+                <button onclick="curtidos()" class="bOpcao">Mais Curtidos</button>
+                <button onclick="visualizados()">Mais Visualizados</button>
+                <button onclick="recentes()">Mais Recentes</button>
+                <button onclick="perfis()">Perfis mais Seguidos</button>
+                <button>Estasticas do Site</button>
+            </div>
+            <div class="content">
+                <div id="topPostagem" class="topPostagem">
+                    <h3>Postagens</h3>
+                    <div class="top">
+                        <img src="assets/capa/capa10.jpg">
+                        <div class="dHover">
+                            <p class="nomeAutor">Binho</p>
+                            <p class="infoSelect">10431 Likes</p>
+                        </div>
+                    </div>
+                    <div class="top primeiro">
+                        <img src="assets/capa/capa12.jpg">
+                        <div class="dHover">
+                            <p class="nomeAutor">Binho</p>
+                            <p class="infoSelect">10431 Likes</p>
+                        </div>
+                    </div>
+                    <div class="top">
+                        <img src="assets/capa/capa20.jpg">
+                        <div class="dHover">
+                            <p class="nomeAutor">Binho</p>
+                            <p class="infoSelect">10431 Likes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="topDesenho">
+                    <h3>Desenhos</h3>
+                    <div class="top">
+                        <img src="assets/capa/capa19.jpg">
+                        <div class="dHover">
+                            <p class="nomeAutor">Binho</p>
+                            <p class="infoSelect">10431 Likes</p>
+                        </div>
+                    </div>
+                    <div class="top primeiro">
+                        <img src="assets/capa/capa49.jpg">
+                        <div class="dHover">
+                            <p class="nomeAutor">Binho</p>
+                            <p class="infoSelect">10431 Likes</p>
+                        </div>
+                    </div>
+                    <div class="top">
+                        <img src="assets/capa/capa35.jpg">
+                        <div class="dHover">
+                            <p class="nomeAutor">Binho</p>
+                            <p class="infoSelect">10431 Likes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+<script>
+
+    function curtidos(){
+
+        fetch(`/analytics/curtidos`).then(function (resposta) {
+                if (resposta.ok) {
+                    resposta.json().then(function (response) {
+                        topPostagem.innerHTML = `<h3>Postagens</h3>`
+
+                        topPostagem.innerHTML += `
+                                <div class="top">
+                                    <img src="${response[1].capa}">
+                                    <div class="dHover">
+                                        <p class="nomeAutor">${response[1].nickname}</p>
+                                        <p class="infoSelect">Likes: ${response[1].likes}</p>
+                                    </div>
+                                </div>
+                                <div class="top primeiro">
+                                    <img src="${response[0].capa}">
+                                    <div class="dHover">
+                                        <p class="nomeAutor">${response[0].nickname}</p>
+                                        <p class="infoSelect">Likes: ${response[0].likes}</p>
+                                    </div>
+                                </div>
+                                <div class="top">
+                                    <img src="${response[2].capa}">
+                                    <div class="dHover">
+                                        <p class="nomeAutor">${response[2].nickname}</p>
+                                        <p class="infoSelect">Likes: ${response[2].likes}</p>
+                                    </div>
+                                </div>
+                                `
+
+                        response.reverse();
+                    })
+                }else {
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+
+    }
+
+
+    function visualizados(){
+
+fetch(`/analytics/visualizados`).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (response) {
+                topPostagem.innerHTML = `<h3>Postagens</h3>`
+
+                topPostagem.innerHTML += `
+                    <div class="top">
+                        <img src="${response[1].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[1].nickname}</p>
+                            <p class="infoSelect">Views: ${response[1].visualizacao}</p>
+                        </div>
+                    </div>
+                    <div class="top primeiro">
+                        <img src="${response[0].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[0].nickname}</p>
+                            <p class="infoSelect">Views: ${response[0].visualizacao}</p>
+                        </div>
+                    </div>
+                    <div class="top">
+                        <img src="${response[2].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[2].nickname}</p>
+                            <p class="infoSelect">Views: ${response[2].visualizacao}</p>
+                        </div>
+                    </div>
+                    `
+
+                response.reverse();
+            })
+        }else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+
+}
+
+function recentes(){
+
+fetch(`/analytics/recentes`).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (response) {
+                topPostagem.innerHTML = `<h3>Postagens</h3>`
+
+                topPostagem.innerHTML += `
+                    <div class="top">
+                        <img src="${response[1].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[1].nickname}</p>
+                            <p class="infoSelect">Data: ${response[1].dia}</p>
+                        </div>
+                    </div>
+                    <div class="top primeiro">
+                        <img src="${response[0].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[0].nickname}</p>
+                            <p class="infoSelect">Data: ${response[0].dia}</p>
+                        </div>
+                    </div>
+                    <div class="top">
+                        <img src="${response[2].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[2].nickname}</p>
+                            <p class="infoSelect">Data: ${response[2].dia}</p>
+                        </div>
+                    </div>
+                    `
+
+                response.reverse();
+            })
+        }else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+
+}
+
+function site(){
+
+fetch(`/analytics/site`).then(function (resposta) {
+        if (resposta.ok) {
+            resposta.json().then(function (response) {
+                topPostagem.innerHTML = `<h3>Postagens</h3>`
+
+                topPostagem.innerHTML += `
+                    <div class="top">
+                        <img src="${response[1].icone}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[1].nickname}</p>
+                            <p class="infoSelect">Seguidores: ${response[1].dia}</p>
+                        </div>
+                    </div>
+                    <div class="top primeiro">
+                        <img src="${response[0].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[0].nickname}</p>
+                            <p class="infoSelect">Seguidores: ${response[0].dia}</p>
+                        </div>
+                    </div>
+                    <div class="top">
+                        <img src="${response[2].capa}">
+                        <div class="dHover">
+                            <p class="nomeAutor">${response[2].nickname}</p>
+                            <p class="infoSelect">Seguidores: ${response[2].dia}</p>
+                        </div>
+                    </div>
+                    `
+
+                response.reverse();
+            })
+        }else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+
+}
+
+
+</script>

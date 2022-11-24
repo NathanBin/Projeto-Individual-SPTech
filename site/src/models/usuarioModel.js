@@ -12,7 +12,7 @@ function pegarIcon(idUsuario) {
 function entrar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucao = `
-        SELECT * FROM usuario WHERE email = '${email}' AND senha = '${senha}';
+        SELECT * FROM usuario WHERE email = '${email}' AND senha = CAST(HASHBYTES('SHA2_256', '${senha}') AS VARCHAR);
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -22,7 +22,7 @@ function cadastrar(nickname, senha, email) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nickname, senha, email);
     
     var instrucao = `
-        INSERT INTO usuario (nickname, senha, email) VALUES ('${nickname}', '${senha}', '${email}');
+        INSERT INTO usuario (nickname, senha, email) VALUES ('${nickname}', CAST(HASHBYTES('SHA2_256', '${senha}') AS VARCHAR), '${email}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

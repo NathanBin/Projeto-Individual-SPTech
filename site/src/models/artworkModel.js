@@ -6,6 +6,7 @@ function postagem(idPostagem) {
     var instrucao = `
     SELECT 
     imagemBase64,
+    fkImagem,
     fkUsuario,
     icone,
     nickname,
@@ -36,8 +37,6 @@ function perfil(idArtista) {
     var instrucao = `
     select distinct idPostagem, backgroundImage, icone, nickname, descricaoAutor, email, capa, titulo 'tituloPost' from usuario left join postagem on idUsuario = fkUsuario where idUsuario = ${idArtista};
     `;
-    /* select titulo 'tituloDese', desenhoBase64, idDesenho, fkUsuario from desenho join usuario on idUsuario = fkUsuario where idUsuario = ${idArtista};  */
-
 
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
@@ -49,8 +48,6 @@ function perfill(idArtista) {
     var instrucao = `
     select titulo 'tituloDese', desenhoBase64, idDesenho, idUsuario from desenho join usuario on idUsuario = fkUsuario where idUsuario = ${idArtista}; 
     `;
-    /* select distinct idPostagem, backgroundImage, icone, nickname, descricaoAutor, email, capa, titulo 'tituloPost' from usuario left join postagem on idUsuario = fkUsuario where idUsuario = ${idArtista}; */
-
 
 console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
@@ -138,6 +135,27 @@ function deletarDesenho(idDesenho) {
     return database.executar(instrucao);
 }
 
+function likes(idArtista, userPostagem, postagemAtual, imagemAtual) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function curtirPostagem():");
+    var instrucao = `
+        insert into postagemCurtida values
+        (${idArtista}, ${postagemAtual}, ${userPostagem}, ${imagemAtual});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function curtiu(idArtista) { 
+    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function seguindo():", idArtista);
+
+    var instrucao = `
+    select fkPostagem from postagemCurtida where fkUsuarioCurtidor = ${idArtista};
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
 module.exports = {
     postagem,
     perfil,
@@ -149,6 +167,8 @@ module.exports = {
     deletarDesenho,
     seguindo,
     users,
-    seusFollows
+    seusFollows,
+    likes,
+    curtiu
 }
 

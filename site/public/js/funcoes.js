@@ -29,21 +29,7 @@ function perfilUsuario(){
     window.location = "/perfil.html";
 }
 
-//Função Modal Login
-
-    /* sessionStorage.removeItem('fecharModal')
-    function iniciarModal(id){
-        if(sessionStorage.fecharModal !== id){
-            const modal = document.getElementById(id);
-            modal.classList.add('mostrar');
-            modal.addEventListener('click', (e) => {
-                if(e.target.id == id){
-                    modal.classList.remove('mostrar')
-                    sessionStorage.fecharModal = id
-                }
-            })
-        }  
-    } */    
+//Função Modal Login  
 
     const botaoLogin = document.querySelector('.liLogin')
     botaoLogin.addEventListener('click', function() {

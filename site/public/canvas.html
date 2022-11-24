@@ -246,12 +246,10 @@
         </div>
         <div id="modalZ">
             <div class="zoom">
-                <button onclick="base64()">Pegar base64</button>
+                <button onclick="base64()">Publicar Desenho!</button>
                 <p>Tamanho da linha</p>
                 <input type="range" min="1" max="10" oninput="mudarTamanho(this)">
-                <button onclick="canvasBase64()">Mandar para BD</button>
-                <button onclick="pegarBase64()">Pegar b64 do BD</button>
-                <button onclick="testando()">Caminho direto</button>
+
             </div>
         </div>
 
@@ -300,13 +298,11 @@
         botaoTools.addEventListener('click', function() {
             iniciarModal('modalT');
         });
-        console.log(botaoTools);
 
         const botaoColors = document.querySelector('.bColors');
         botaoColors.addEventListener('click', function() {
             iniciarModal('modalC');
         });
-        console.log(botaoColors)
         
         const botaoFormas = document.querySelector('.bFormas');
         botaoFormas.addEventListener('click', function() {

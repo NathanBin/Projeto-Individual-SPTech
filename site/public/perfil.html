@@ -192,7 +192,7 @@
             <li><button onclick="exibirPortifolio(3)" class="bLi b13">Likes (<b id="qtdLikes">0</b>)</button></li>
             <li><button onclick="exibirPortifolio(4)" class="bLi b14">Seguindo (<b id="qtdSeguindo">0</b>)</button></li>
             <li><button onclick="exibirPortifolio(5)" class="bLi b15">Seguidores (<b id="qtdSeguidores">0</b>)</button></li>
-            <button class="follow" onclick="plotarSeguindo()"><i class="fa-solid fa-user-plus"></i>Seguir</button>
+            <button class="bFollow" onclick="seguidor()"><i class="fa-solid fa-user-plus"></i>Seguir</button>
             <button class="msg" onclick=""><i class="fa-solid fa-paper-plane"></i>Mensagem</button>
             <span class="slide"></span>
         </ul>
@@ -272,7 +272,7 @@
     window.onload = function() {
         verificarLogin();
         portifolio();
-        plotarSeguindo();
+        seguidor();
     }; 
 
     const liB11 = document.querySelector('.b11');
@@ -543,7 +543,29 @@
         });
     }
 
+    function seguidor(){
+        var idArtista = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var userPostagem = sessionStorage.getItem('IDPERFIL_USUARIO')
+        var bFollow = document.querySelector('.bFollow')
+        
+        fetch(`/artwork/selectSeguindo/${idArtista}`).then(function (resposta){
+                if(resposta.ok){
+                    resposta.json().then(function (response) {
+                        var userSeguindo = JSON.parse((JSON.stringify(response)))
 
+                        for(var i = 0; i < userSeguindo.length; i++){
+                           if(userPostagem == userSeguindo[i].fkUsuarioSeguido){
+                                console.log('Achou!')
+                                bFollow.innerHTML = `<i class="fa-solid fa-check"></i>Seguindo`
+                           }
+                        }
+                        
+                    })
+                }else{
+                    console.error('Nenhum dado encontrado ou erro na API')
+                }
+            })
+    }
 
 </script>
 <script src="js/funcoes.js"></script>

@@ -12,6 +12,7 @@ var indexRouter = require("./src/routes/index");
 var usuarioRouter = require("./src/routes/usuarios");
 var canvasRouter = require("./src/routes/canvas");
 var artworkRouter = require("./src/routes/artwork");
+var analyticsRouter = require("./src/routes/analytics");
 
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({ limit: '50mb' }));
@@ -23,6 +24,7 @@ app.use("/", indexRouter);
 app.use("/usuarios", usuarioRouter);
 app.use("/canvas", canvasRouter);
 app.use("/artwork", artworkRouter);
+app.use("/analytics", analyticsRouter);
 
 app.listen(PORTA, function () {
     console.log(`Servidor do seu site já está rodando! Acesse o caminho a seguir para visualizar: http://localhost:${PORTA} \n

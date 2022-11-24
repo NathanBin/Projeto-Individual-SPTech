@@ -89,6 +89,49 @@ function seguindo(req, res) {
 
 }
 
+function curtiu(req, res) {
+    var idArtista = req.params.idArtista;
+
+        artworkModel.curtiu(idArtista)
+            .then(
+                function (resultado) {
+                    console.log(`\nResultados encontrados: ${resultado.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultado)}`);
+
+                    res.json(resultado);
+
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                        res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+}
+
+function likes(req, res) {
+    var idArtista = req.body.idArtista;
+    var userPostagem = req.body.userPostagem;
+    var postagemAtual = req.body.postagemAtual;
+    var imagemAtual = req.body.imagemAtual;
+
+        artworkModel.likes(idArtista, userPostagem, postagemAtual, imagemAtual)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                        res.status(500).json(erro.sqlMessage);
+                }
+            );
+
+}
+
 function users(req, res) {
     var posicoes = req.params.idArtista;
         
@@ -231,5 +274,7 @@ module.exports = {
     deletarDesenho,
     seguindo,
     users,
-    seusFollows
+    seusFollows,
+    likes,
+    curtiu
 }
