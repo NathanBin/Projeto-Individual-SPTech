@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/avaliacao.css">
+    <link rel="shortcut icon" href="assets/icons/lgo3.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
 </head>
 <body>
@@ -135,6 +136,12 @@
         </div>
     </div>
 
+    <div class="erroLogin">
+        <p>Erro ao entrar!<br>Email ou Senha incorretas.</p>
+        <video src="assets/gif/GifRed.mp4" id="videoLogin" width="50px"></video>
+        <span id="loading3"></span>
+    </div>
+
     <div class="conteudoAvaliacao">
         <div class="gradiente">
             <div class="avaliacao">
@@ -166,7 +173,7 @@
             <span id="loading"></span>
         </div>
         <div id="zero" class="caixaErro vazio">
-            <span id="mensagemErro">Você precisa escolher uma quantidade de estrelas para avaliar o site!</span>
+            <span id="mensagemErro">Você precisa escolher uma quantidade de estrelas!</span>
             <video id="videoErro2" src="assets/gif/GifRed.mp4"></video>
             <span id="loading"></span>
         </div>
@@ -178,14 +185,36 @@
         <div id="duplicidade" class="caixaErro vazio">
             <span id="mensagemErro">Você ja avaliou o site!<br>Deseja apagar sua avaliação?</span>
             <video id="videoErro4" src="assets/gif/GifRed.mp4" height="90px"></video>
-            <button class="apagar" onclick="apagar()">Apagar!</button>
+            <button class="apagar" onclick="confirmar()">Apagar!</button>
+        </div>
+    </div>
+    <div class="confirmarApagar">
+        <div class="caixaApagar">
+            <span>Essa ação não tem volta!<br>Deseja confirmar?</span>
+            <div class="divBotoes">
+                <button onclick="voltar()">Voltar</button>
+                <button onclick="apagar()" class="apagar">Apagar</button>
+            </div>
         </div>
     </div>
     
+    <div id="divResposta" class="imgPublicada">
+        <video id="confirmacao" src="assets/gif/gif2.mp4"></video>
+        <p>BIN<span>STATION</span></p>
+    </div>
     
 </body>
 </html>
 <script>
+    function confirmar(){
+        var caixa = document.querySelector('.confirmarApagar')
+        caixa.style.display = "block"
+    }
+
+    function voltar(){
+        var caixa = document.querySelector('.confirmarApagar')
+        caixa.style.display = "none"
+    }
 
     var estrelas = 0
 
@@ -309,7 +338,12 @@
                 }
             }).then(function (resposta) {
                 if (resposta.ok) {
-                    window.location = "/avaliacao.html";
+                    divResposta.style.display = "flex"
+                    confirmacao.play()
+                    setTimeout(()=>{
+                        window.location = "/avaliacao.html";
+                    },3000)
+
                 }else {
                     throw ("Houve um erro ao tentar apagar a avaliacao! Código da resposta: " + resposta.status);
                 }
@@ -325,6 +359,7 @@
 </script>
 <script>//Função de logar e deslogar
     function entrar() {
+        var erro = document.querySelector('.erroLogin')
 
         var emailVar = inEmail.value;
         var senhaVar = inSenha.value;
@@ -363,6 +398,13 @@
                         window.location = "/perfil.html";
                 })
             } else {
+                erro.style.display = "flex"
+                loading3.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading3.style.display = "none"
+                }, 8000)
 
                 console.log("Houve um erro ao tentar realizar o login!");
 

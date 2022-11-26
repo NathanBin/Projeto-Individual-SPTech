@@ -39,4 +39,12 @@ router.get("/perfilSeguindo/:idUsuario", function (req, res) {
     usuarioController.perfilSeguindo(req, res);
 });
 
+router.get("/perfilSeguidores/:idUsuario", function (req, res) {
+    usuarioController.perfilSeguidores(req, res);
+});
+
+router.post("/newsletter", function (req, res) {
+    usuarioController.newsletter(req, res);
+});
+
 module.exports = router;  

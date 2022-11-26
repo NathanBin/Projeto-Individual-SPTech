@@ -140,6 +140,8 @@ function likes(idArtista, userPostagem, postagemAtual, imagemAtual) {
     var instrucao = `
         insert into postagemCurtida values
         (${idArtista}, ${postagemAtual}, ${userPostagem}, ${imagemAtual});
+
+        update postagem set likes = (likes + 1) where idPostagem = ${postagemAtual};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -167,6 +169,68 @@ console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
 }
 
+function pesquisar() { 
+    var instrucao = `
+    select distinct capa, titulo 'tituloPost', idPostagem, fkUsuario, nickname from usuario join postagem on idUsuario = fkUsuario;
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function filtro(filtro) {
+    if(filtro == 'relevante'){
+        var instrucao = `
+        select distinct capa, titulo 'tituloPost', idPostagem, fkUsuario, nickname, comentarios from usuario join postagem on idUsuario = fkUsuario order by comentarios desc;
+        `;
+    }else if(filtro == 'curtido'){
+        var instrucao = `
+        select distinct capa, titulo 'tituloPost', idPostagem, fkUsuario, nickname, likes from usuario join postagem on idUsuario = fkUsuario order by likes desc;
+        `;
+    }else if(filtro == 'recente'){
+        var instrucao = `
+        select distinct capa, titulo 'tituloPost', idPostagem, fkUsuario, nickname, dataH from usuario join postagem on idUsuario = fkUsuario order by dataH desc;
+        `;
+    }else{
+        var instrucao = `
+        select distinct capa, titulo 'tituloPost', idPostagem, fkUsuario, nickname, visualizacao from usuario join postagem on idUsuario = fkUsuario order by visualizacao desc;
+        `;
+    }
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function imagem(imagem) { 
+    var instrucao = `
+    insert into imagem values ('${imagem}');
+
+    select top 1 idImagem from imagem order by idImagem desc;
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function ultimaPostagem() { 
+    var instrucao = `
+    select top 1 idPostagem from postagem order by idPostagem desc;
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function postar(id, usuario, imagemAtual, titulo, descricao, capa) { 
+    var instrucao = `
+    insert into postagem (idPostagem, fkUsuario, fkImagem, titulo, descricaoPost, likes, comentarios, visualizacao, capa) values
+    (${id}, ${usuario}, ${imagemAtual}, '${titulo}', '${descricao}', 0, 0, 0, '${capa}')
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
 module.exports = {
     postagem,
     perfil,
@@ -181,6 +245,11 @@ module.exports = {
     seusFollows,
     likes,
     curtiu,
-    curtidos
+    curtidos,
+    pesquisar,
+    filtro,
+    imagem,
+    ultimaPostagem,
+    postar
 }
 

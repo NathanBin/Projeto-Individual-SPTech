@@ -1791,3 +1791,25 @@ body{
     top: 300px;
     left: 50px;
 }
+#idNathan{
+    display: none;
+    animation: aparecerNome 1s ease-in-out;
+}
+@keyframes aparecerNome {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
+/* [data-anime]{
+    opacity: 0;
+    transition: .3s;
+}
+[data-anime="left"]{
+    transform: translate3d(-50px,0,0);
+}
+[data-anime="right"]{
+    transform: translate3d(20px,0,0);
+}
+[data-anime].show{
+    opacity: 1;
+    transform: translate3d(0,0,0);
+} */

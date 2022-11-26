@@ -41,7 +41,26 @@ function perfilSeguindo(req, res) {
             }
         );
 }  
- 
+
+function perfilSeguidores(req, res) {
+    var idUsuario = req.params.idUsuario;
+
+    usuarioModel.perfilSeguidores(idUsuario)
+        .then(function (resultado) {
+            if (resultado.length > 0) {
+                res.status(200).json(resultado);
+            } else {
+                res.status(204).send("Nenhum resultado encontrado!")
+            }
+        }).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao realizar a consulta! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+} 
+
 function entrar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
@@ -79,16 +98,13 @@ function entrar(req, res) {
 }
 
 function cadastrar(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
     var nickname = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
-    // Faça as validações dos valores
     if (nickname == undefined || email == undefined || senha == undefined) {
         console.log('Preencha os campos corretamentes')
     } else {     
-        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usuarioModel.cadastrar(nickname, senha, email)
             .then(
                 function (resultado) {
@@ -105,6 +121,27 @@ function cadastrar(req, res) {
                 }
             );
     }
+}
+
+function newsletter(req, res) {
+    var email = req.body.email;
+
+    usuarioModel.newsletter(email)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao cadastrar o email! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    
 }
 
 function avaliacao(req, res) {
@@ -201,5 +238,7 @@ module.exports = {
     seguirUser,
     avaliacao,
     deletarAvaliacao,
-    perfilSeguindo
+    perfilSeguindo,
+    perfilSeguidores,
+    newsletter
 }

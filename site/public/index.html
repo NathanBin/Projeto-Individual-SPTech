@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/gridDesenho.css">
+    <link rel="shortcut icon" href="assets/icons/lgo3.png" type="image/x-icon">
     <script src="js/script.js"></script>
     <script src="js/grid.js"></script>
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
@@ -23,13 +24,13 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
@@ -63,13 +64,13 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
-                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
+                <input type="text" id="inPesquisa2" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
@@ -131,13 +132,19 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="entrar()">Entrar</button>
+            <button id="bEntrar" onclick="entrar()">Entrar</button>
             <div class="lFooter">
                 <div><b><a href="">Esqueceu a senha?</a></b></div>
                 <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
             </div>
         </div>
     </div>
+    <div class="erroLogin">
+        <p>Erro ao entrar!<br>Email ou Senha incorretas.</p>
+        <video src="assets/gif/GifRed.mp4" id="videoLogin" width="50px"></video>
+        <span id="loading"></span>
+    </div>
+
 
    <div  class="estrutura">
 
@@ -305,7 +312,7 @@
             </div>
             <div class="campo" data-anime="right">
                 <input type="email" id="idEmail" class="inEmail" placeholder="EMAIL">
-                <button onclick="rodarVideo()">Registre-se</button>
+                <button onclick="newsletter()">Registre-se</button>
                 <div id="idResposta" class="resposta">
                     <video src="assets/gif/gif2.mp4" class="videoC" id="videoCheck" width="40px"></video>
                     <p>Email cadastrado com sucesso!</p>
@@ -313,6 +320,10 @@
                 <div id="idErro" class="resposta">
                     <video src="assets/gif/GifRed.mp4" class="videoC" id="videoCheckR" width="40px"></video>
                     <p>Insira o email corretamente!</p>
+                </div>
+                <div id="idErro2" class="resposta">
+                    <video src="assets/gif/GifRed.mp4" class="videoC" id="videoCheckRR" width="40px"></video>
+                    <p>Email ja cadastrado!</p>
                 </div>
             </div>
         </div>
@@ -378,23 +389,6 @@
         window.location = "/perfil.html";
     }
 
-</script>
-<script>//Video de confirmação de email
-    function rodarVideo(){
-        var cadEmail = idEmail.value
-        var sptech = cadEmail.toLowerCase().indexOf('@sptech.school') >= 0;
-
-
-        if(sptech){
-            idResposta.style.top = "65px";
-            videoCheck.play()
-            idErro.style.top = "0px"
-        }else{
-            idErro.style.top = "65px";
-            videoCheckR.play()
-            idResposta.style.top = "0px"
-        }  
-    }
 </script>
 <script>//Aparecer Modal Login
     sessionStorage.removeItem('fecharModal')
@@ -600,6 +594,7 @@
 </script>
 <script>//Função de logar e deslogar
     function entrar() {
+        var erro = document.querySelector('.erroLogin')
 
         var emailVar = inEmail.value;
         var senhaVar = inSenha.value;
@@ -638,6 +633,13 @@
                         window.location = "/perfil.html";
                 })
             } else {
+                erro.style.display = "flex"
+                loading.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading.style.display = "none"
+                }, 8000)
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
@@ -754,4 +756,64 @@
         })
     }
 
+</script>
+<script>//Newllester
+    function newsletter(){
+        var cadEmail = idEmail.value.toLowerCase()
+        var sptech = cadEmail.toLowerCase().indexOf('@sptech.school') >= 0;
+
+        if(!sptech){
+            idErro.style.top = "65px";
+            videoCheckR.play()
+            idResposta.style.top = "0px"
+            idErro2.style.top = "0px"
+            return false
+        }else{
+            fetch("/usuarios/newsletter", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email : cadEmail
+                    })
+                }).then(function (resposta){
+                    if(resposta.ok){
+                        idResposta.style.top = "65px";
+                        videoCheck.play()
+                        idErro.style.top = "0px"
+                        idErro2.style.top = "0px"
+                        return false
+                    }else{
+                        idErro2.style.top = "65px";
+                        videoCheckRR.play()
+                        idResposta.style.top = "0px"
+                        idErro.style.top = "0px"
+                        return false
+                    }
+                })
+        }
+    }
+</script>
+<script>
+    function irPesquisar(){
+        var user = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var logado = user != null
+        if(logado){
+            var textoPesquisa = inPesquisa2.value
+    
+            sessionStorage.removeItem('CONTEUDO_PESQUISA')
+            sessionStorage.CONTEUDO_PESQUISA = textoPesquisa
+    
+            window.location = "./pesquisar.html";
+
+        }else{
+            var textoPesquisa = inPesquisa.value
+    
+            sessionStorage.removeItem('CONTEUDO_PESQUISA')
+            sessionStorage.CONTEUDO_PESQUISA = textoPesquisa
+    
+            window.location = "./pesquisar.html";
+        }
+    }
 </script>

@@ -68,7 +68,24 @@ function deletarAvaliacao(idUsuario) {
 function perfilSeguindo(idUsuario) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function perfilSeguindo(): ");
     var instrucao = `
-    select distinct nickname, icone, backgroundImage, descricaoAutor from usuario join follow on idUsuario = fkUsuarioSeguido where fkUsuarioSeguido in (select fkUsuarioSeguido from follow where fkUsuarioSeguidor = ${idUsuario});
+    select distinct idUsuario, nickname, icone, backgroundImage, descricaoAutor from usuario join follow on idUsuario = fkUsuarioSeguido where fkUsuarioSeguido in (select fkUsuarioSeguido from follow where fkUsuarioSeguidor = ${idUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function perfilSeguidores(idUsuario) {
+    console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function perfilSeguindo(): ");
+    var instrucao = `
+    select distinct idUsuario, nickname, icone, backgroundImage, descricaoAutor from usuario join follow on idUsuario = fkUsuarioSeguidor where fkUsuarioSeguidor in (select fkUsuarioSeguidor from follow where fkUsuarioSeguido = ${idUsuario});
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function newsletter(email) {
+    var instrucao = `
+    insert into newsletter values ('${email}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -82,5 +99,7 @@ module.exports = {
     seguirUser,
     avaliacao,
     deletarAvaliacao,
-    perfilSeguindo
+    perfilSeguindo,
+    perfilSeguidores,
+    newsletter
 };

@@ -285,6 +285,94 @@ function deletarDesenho(req, res) {
         );
 }
 
+function pesquisar(req, res) {
+    artworkModel.pesquisar()
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function filtro(req, res) {
+    var filtro = req.params.tipoFiltro;
+
+    artworkModel.filtro(filtro)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao trocar o filtro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function imagem(req, res) {
+    var imagem = req.body.imagemAtual
+
+    artworkModel.imagem(imagem)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function ultimaPostagem(req, res) {
+    artworkModel.ultimaPostagem()
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function postar(req, res) {
+    var id = req.body.id
+    var usuario = req.body.usuario
+    var imagemAtual = req.body.imagemAtual
+    var titulo = req.body.titulo
+    var descricao = req.body.descricao
+    var capa = req.body.capa
+
+    artworkModel.postar(id, usuario, imagemAtual, titulo, descricao, capa)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     postagem,
     perfil,
@@ -299,5 +387,10 @@ module.exports = {
     seusFollows,
     likes,
     curtiu,
-    curtidos
+    curtidos,
+    pesquisar,
+    filtro,
+    imagem,
+    ultimaPostagem,
+    postar
 }

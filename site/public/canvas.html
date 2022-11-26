@@ -7,6 +7,7 @@
     <title>BINSTATION</title>
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/index.css">
+    <link rel="shortcut icon" href="assets/icons/lgo3.png" type="image/x-icon">
     <link rel="stylesheet" href="css/canvas.css">
     <script src="js/script.js"></script>
     <script src="js/canvas.js"></script>
@@ -138,6 +139,11 @@
         </div>
     </div>
 
+    <div class="erroLogin">
+        <p>Erro ao entrar!<br>Email ou Senha incorretas.</p>
+        <video src="assets/gif/GifRed.mp4" id="videoLogin" width="50px"></video>
+        <span id="loading"></span>
+    </div>
 
         <div class="modalUpload">
             <div class="modalContainer">
@@ -393,6 +399,7 @@
 </script>
 <script>//Função de logar e deslogar
     function entrar() {
+        var erro = document.querySelector('.erroLogin')
 
         var emailVar = inEmail.value;
         var senhaVar = inSenha.value;
@@ -428,9 +435,16 @@
                     sessionStorage.ICONE_USUARIO = json.icone;
                     sessionStorage.IDPERFIL_USUARIO = json.idUsuario;
 
-                    window.location = "/perfil.html";
+                        window.location = "/perfil.html";
                 })
             } else {
+                erro.style.display = "flex"
+                loading.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading.style.display = "none"
+                }, 8000)
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
@@ -450,6 +464,8 @@
         sessionStorage.removeItem('EMAIL_USUARIO')
         sessionStorage.removeItem('NICKNAME_USUARIO')
         sessionStorage.removeItem('IDUSUARIO_USUARIO')
+        sessionStorage.removeItem('ICONE_USUARIO')
+        sessionStorage.removeItem('fecharModal')
 
         window.location = "/index.html";
     }

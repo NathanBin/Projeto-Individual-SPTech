@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/hover.css">
     <link rel="stylesheet" href="css/perfil.css">
+    <link rel="shortcut icon" href="assets/icons/lgo3.png" type="image/x-icon">
     <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
     <script src="js/perfil.js"></script>
@@ -74,7 +75,7 @@
             </div>
             <div class="ulHeader">
                 <ul>
-                    <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                    <li><a href="upload.html"><button class="userOption"><i class="fa-solid fa-upload"></i></button></a></li>
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
@@ -138,6 +139,12 @@
         </div>
     </div>
 
+    <div class="erroLogin">
+        <p>Erro ao entrar!<br>Email ou Senha incorretas.</p>
+        <video src="assets/gif/GifRed.mp4" id="videoLogin" width="50px"></video>
+        <span id="loading"></span>
+    </div>
+
     <div class="editar">
         <button class="bAttPerfil"><i class="fa-solid fa-user-pen"></i>Editar Perfil</button>
     </div>
@@ -192,7 +199,7 @@
             <li><button onclick="exibirPortifolio(3)" class="bLi b13">Likes (<b id="qtdLikes">0</b>)</button></li>
             <li><button onclick="exibirPortifolio(4)" class="bLi b14">Seguindo (<b id="qtdSeguindo">0</b>)</button></li>
             <li><button onclick="exibirPortifolio(5)" class="bLi b15">Seguidores (<b id="qtdSeguidores">0</b>)</button></li>
-            <button class="bFollow" onclick="seguidor()"><i class="fa-solid fa-user-plus"></i>Seguir</button>
+            <button class="bFollow" onclick="seguirUser()"><i class="fa-solid fa-user-plus"></i>Seguir</button>
             <button class="msg" onclick=""><i class="fa-solid fa-paper-plane"></i>Mensagem</button>
             <span class="slide"></span>
         </ul>
@@ -217,26 +224,7 @@
 
         </div>
         <div id="idSeguindo" class="seguindo">  
-            <!-- <div class="artista">
-                <div class="capa">
-                    <img src="assets/Artwork/mingchen-shen-dextragenesis16.jpg" alt="">
-                </div>
-                <img class="icone" src="assets/capa/mshen6.jpg" alt="">
-                <h4>Chen</h4>
-                <p>descricao do artista</p>
-                <button onclick="">Seguir</button>
-                <div class="artes">
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen1.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/bochen2.jpg" alt="">
-                    </div>
-                    <div class="imgA1">
-                        <img src="assets/capa/demacia.jpg" alt="">
-                    </div>
-                </div>
-            </div> -->
+
         </div>
         <div id="idSeguidores" class="seguidores">
             
@@ -245,34 +233,16 @@
 </body>
 </html>
 <script>
-    /* function plotarSeguindo(){
-        var idPerfilv = sessionStorage.getItem('IDPERFIL_USUARIO')
-        console.log('pelo menos aqui')
-
-        fetch(`/artwork/seusFollows/${idPerfilv}`).then(function (resposta) {
-            console.log(resposta)
-
-            if (resposta.ok) {
-                resposta.json().then(function (response) {
-                    console.log(response)
-                    sessionStorage.OK = 'ok'
-                })
-            }else{
-                console.error('Nenhum dado encontrado ou erro na API')
-            }
-        }).catch(function (resposta) {
-                console.log(`#ERRO: ${resposta}`);
-            });
-    }
- */
-
-
     var userL = sessionStorage.getItem('IDUSUARIO_USUARIO');
     var perfilAtual = sessionStorage.getItem('IDPERFIL_USUARIO');
     if(userL == perfilAtual){
         var botaoEditar = document.querySelector('.editar')
+        var bFollow = document.querySelector('.bFollow')
+        var msg = document.querySelector('.msg')
 
         botaoEditar.style.display = "block"
+        bFollow.style.display = "none"
+        msg.style.display = "none"
     }
 
     function iniciarModal(id){
@@ -292,8 +262,9 @@
         verificarLogin();
         portifolio();
         seguidor();
-        curtidos();
+        /* curtidos(); */
         perfilSeguindo();
+        perfilSeguidores();
     }; 
 
     const liB11 = document.querySelector('.b11');
@@ -333,6 +304,7 @@
 </script>
 <script>//Função de logar e deslogar
     function entrar() {
+        var erro = document.querySelector('.erroLogin')
 
         var emailVar = inEmail.value;
         var senhaVar = inSenha.value;
@@ -371,6 +343,13 @@
                         window.location = "/perfil.html";
                 })
             } else {
+                erro.style.display = "flex"
+                loading.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading.style.display = "none"
+                }, 8000)
 
                 console.log("Houve um erro ao tentar realizar o login!");
 
@@ -390,6 +369,8 @@
         sessionStorage.removeItem('EMAIL_USUARIO')
         sessionStorage.removeItem('NICKNAME_USUARIO')
         sessionStorage.removeItem('IDUSUARIO_USUARIO')
+        sessionStorage.removeItem('ICONE_USUARIO')
+        sessionStorage.removeItem('fecharModal')
 
         window.location = "/index.html";
     }
@@ -425,7 +406,7 @@
                         sessionStorage.removeItem('ICONE_USUARIO')
                         sessionStorage.ICONE_USUARIO = `${infoPerfil[0].icone}`
                     }
-
+                    curtidos(infoPerfil.length)
                     if(infoPerfil[0].idPostagem != null){
                         for(var i = 0; i < response.length; i++){
                             idEstrutura.innerHTML += `
@@ -588,7 +569,7 @@
             })
     }
 
-    function curtidos(){
+    function curtidos(contador){
         var idArtista = sessionStorage.getItem('IDPERFIL_USUARIO')
         
         fetch(`/artwork/curtidos/${idArtista}`).then(function (resposta){
@@ -598,7 +579,7 @@
 
                         for(var i = 0; i < curtidos.length; i++){
                             idLikes.innerHTML += `
-                            <div onclick="levarArtwork(${i + 1})" class="portifolio">
+                            <div onclick="levarArtwork(${contador + i + 1})" class="portifolio">
                                 <p class="idPost">${curtidos[i].fkPostagem}</p>
                                 <img class="artePortifolio" src="${curtidos[i].capa}">
                                 <div class="destaqueHover">
@@ -633,18 +614,7 @@
                                 <img class="icone" src="${seguindo[i].icone}">
                                 <h4>${seguindo[i].nickname}</h4>
                                 <p>${seguindo[i].descricaoAutor}</p>
-                                <button onclick="">Seguir</button>
-                                <div class="artes">
-                                    <div class="imgA1">
-                                        <img src="assets/capa/bochen1.jpg" alt="">
-                                    </div>
-                                    <div class="imgA1">
-                                        <img src="assets/capa/bochen2.jpg" alt="">
-                                    </div>
-                                    <div class="imgA1">
-                                        <img src="assets/capa/demacia.jpg" alt="">
-                                    </div>
-                                </div>
+                                <button onclick="levarPerfil(${seguindo[i].idUsuario})">Ver Perfil</button>
                             </div>
                             `
                         }
@@ -654,6 +624,69 @@
                     console.error('Nenhum dado encontrado ou erro na API')
                 }
             })
+    }
+
+    function perfilSeguidores(){
+        var idArtista = sessionStorage.getItem('IDPERFIL_USUARIO')
+        
+        fetch(`/usuarios/perfilSeguidores/${idArtista}`).then(function (resposta){
+                if(resposta.ok){
+                    resposta.json().then(function (response) {
+                        var seguindo = JSON.parse((JSON.stringify(response)))
+
+                        for(var i = 0; i < seguindo.length; i++){
+                            idSeguidores.innerHTML += `
+                            <div class="artista">
+                                <div class="capa">
+                                    <img src="${seguindo[i].backgroundImage}">
+                                </div>
+                                <img class="icone" src="${seguindo[i].icone}">
+                                <h4>${seguindo[i].nickname}</h4>
+                                <p>${seguindo[i].descricaoAutor}</p>
+                                <button onclick="levarPerfil(${seguindo[i].idUsuario})">Ver Perfil</button>
+                            </div>
+                            `
+                        }
+                        qtdSeguidores.innerHTML = seguindo.length
+                    })
+                }else{
+                    console.error('Nenhum dado encontrado ou erro na API')
+                }
+            })
+    }
+
+    function levarPerfil(perfil){
+        sessionStorage.removeItem('IDPERFIL_USUARIO')
+        sessionStorage.IDPERFIL_USUARIO = perfil
+        
+        window.location = "/perfil.html";
+    }
+
+
+    function seguirUser(){
+        var userAtual = sessionStorage.getItem('IDUSUARIO_USUARIO');
+        var userTela = sessionStorage.getItem('IDPERFIL_USUARIO');
+        var bFollow = document.querySelector('.bFollow')
+
+        fetch("/usuarios/seguirUser", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                userAtual,
+                userTela
+            })
+        }).then(function (resposta) {
+            if(resposta.ok){
+                console.log('Funcionou!!!')
+            }
+        })
+
+        
+
+        bFollow.innerHTML = `<i class="fa-solid fa-check"></i>Seguindo`
+        
     }
 </script>
 <script src="js/funcoes.js"></script>

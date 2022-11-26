@@ -130,9 +130,91 @@ body{
     font-size: 18px;
     width: 20vw;
     height: 35px;
-    background-color: rgb(231, 75, 75);
+    background-color: rgb(231, 75, 75) !important;
     border: none;
     outline: none;
     border-radius: 5px;
     margin-top: 10px;
+}
+.confirmarApagar{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.432);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.caixaApagar{
+    width: 20vw;
+    height: 20vh;
+    background-color: rgb(34,34,34);
+    border-radius: 10px;
+    position: absolute;
+    top: 40vh;
+    left: 40vw;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+.caixaApagar span{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+.divBotoes{
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+}
+.divBotoes button{
+    background-color: #0053af;
+    color: white;
+    font-size: 18px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    transition: 0.3s ease-in-out;
+}
+.divBotoes button:hover{
+    opacity: 0.8;
+}
+.imgPublicada{
+    width: 400px;
+    height: 100px;
+    background-color: rgb(21,21,21);
+    display: none;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top: 250px;
+    left: 483px;
+    animation: publicado 1s ease-in-out;
+    border-radius: 10px;
+    z-index: 500;
+}
+.imgPublicada p{
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
+}
+.imgPublicada span{
+    color: #757575;
+}
+@keyframes publicado {
+    0%{
+        transform: translate(-50px,0);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(0,0);
+        opacity: 1;
+    }
+}
+.imgPublicada video{
+    border-radius: 10px 10px 10px 10px;
 }

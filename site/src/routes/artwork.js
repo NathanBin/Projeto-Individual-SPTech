@@ -63,4 +63,24 @@ router.post("/curtirPostagem", function (req, res) {
     artworkController.likes(req, res);
 })
 
+router.get("/pesquisar", function (req, res) {
+    artworkController.pesquisar(req, res);
+})
+
+router.get("/filtro/:tipoFiltro", function (req, res) {
+    artworkController.filtro(req, res);
+})
+
+router.post("/guardarImagem", function (req, res) {
+    artworkController.imagem(req, res);
+})
+
+router.get("/ultimaPostagem", function (req, res) {
+    artworkController.ultimaPostagem(req, res);
+})
+
+router.post("/postar", function (req, res) {
+    artworkController.postar(req, res);
+})
+
 module.exports = router; 

@@ -1,12 +1,6 @@
 let pincelColor = "black";
 let pincelWidth = "5"
 
-/* let restore = []
-let indexV = -1 */
-/* function voltar(){
-    incluir aqui a função de Ctrol Z
-} */
-
 document.addEventListener('DOMContentLoaded',() =>{
 
 const pincel ={
