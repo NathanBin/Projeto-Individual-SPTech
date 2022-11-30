@@ -21,13 +21,13 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
@@ -42,12 +42,12 @@
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
@@ -61,19 +61,19 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
-                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
+                <input type="text" id="inPesquisa2" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
             <div class="ulHeader">
                 <ul>
-                    <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                    <li><a href="upload.html"><button class="userOption"><i class="fa-solid fa-upload"></i></button></a></li>
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
@@ -104,12 +104,12 @@
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
@@ -129,16 +129,16 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="entrar()">Entrar</button>
+            <button id="bEntrar" onclick="entrar()">Entrar</button>
             <div class="lFooter">
-                <div><b><a href="">Esqueceu a senha?</a></b></div>
+                <div><b><a href="login.html">Esqueceu a senha?</a></b></div>
                 <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
             </div>
         </div>
     </div>
 
     <div class="erroLogin">
-        <p>Erro ao entrar!<br>Email ou Senha incorretas.</p>
+        <p id="msgSpan">Erro ao entrar!<br>Email ou Senha incorretas.</p>
         <video src="assets/gif/GifRed.mp4" id="videoLogin" width="50px"></video>
         <span id="loading"></span>
     </div>
@@ -165,21 +165,23 @@
                 <h2 id="nomePost"></h2>
                 <p id="descricaoPost"></p>
             </div>
+            <p class="tituloTag">Tags</p>
+            <div class="tags">
+                
+            </div>
             <div class="status">
                 <p><p id="like">0</p> Likes</p>
                 <p><p id="visualizacao">0</p> Views</p>
-                <p><p id="comentario">1</p> Comentarios</p>
+                <p><p id="comentarioV">0</p> Comentarios</p>
             </div>
-            <!-- <div class="comentarios">
-                <p><b id="comentario">1</b> Comentarios</p>
+            <div class="comentarios">
+                <textarea class="comentarPost" id="comentarPost" cols="30" rows="10" placeholder="Comentar a publicação"></textarea>
+                <button onclick="comentar()" class="comentar">Comentar</button>
+                <p><b id="comentario2"></b> Comentarios</p>
                 <div class="campoComentario">
-                    <img src="" class="imgID">
-                    <div class="caixa">
-                        <b id="nomeComentario"></b>
-                        <p id="comentario"></p>
-                    </div>
+                    
                 </div>
-            </div> -->
+            </div>
             
         </div>
     </div>
@@ -259,30 +261,60 @@
         
     }
 
-    function excluirPostagem(){
+    var iPost = sessionStorage.getItem('IDIMAGEM_IMAGEM')
+    var imgsR = []
+
+    fetch(`/artwork/imgPostagem/${iPost}`).then(function(resposta){
+        if(resposta.ok){
+            resposta.json().then(function(response){
+                for(var i = 0; i < response.length; i++){
+                    imgsR.push(response[i].fkImagem)
+                }
+            })
+        }
+    })
+
+    async function excluirPostagem(){
         var postagem = sessionStorage.getItem('IDIMAGEM_IMAGEM')
         var desenhoAtual = sessionStorage.getItem('IDDESENHO_DESENHO')
 
         if(postagem != null){
-            fetch(`/artwork/deletarPostagem/${postagem}`, {
+            await fetch(`/artwork/deletarPostagem/${postagem}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json"
                 }
             }).then(function (resposta) {
                 if (resposta.ok) {
-                    divResposta.style.display = "flex"
-                    confirmacao.play()
-                    setTimeout(()=>{
-                        window.location = "/perfil.html";
-                    },3000)
-                    
+                    console.log('Post deletado!')
                 }else {
                     throw ("Houve um erro ao tentar realizar a postagem! Código da resposta: " + resposta.status);
                 }
             }).catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);
             });
+
+            for(var i = 0; i < imgsR.length; i++){
+                await fetch(`/artwork/deletarImagem/${imgsR[i]}`, {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                }).then(function(resposta){
+                        if(resposta.ok){
+                            console.log('imagem deletada')
+                        }else{
+                            console.log('não deletou')
+                            return false
+                        }
+                    })
+            }
+
+            divResposta.style.display = "flex"
+            confirmacao.play()
+            setTimeout(()=>{
+                window.location = "/perfil.html";
+            },3000)
         }else{
             fetch(`/artwork/deletarDesenho/${desenhoAtual}`, {
                 method: "DELETE",
@@ -320,13 +352,17 @@
                         descricaoPost.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].descricaoPost}`
                         like.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].likes}`
                         visualizacao.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].visualizacao}`
-                        comentario.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].comentarios}`
+                        comentarioV.innerHTML = `${JSON.parse((JSON.stringify(response)))[0].comentarios}`
                         sessionStorage.removeItem('IDPERFIL_USUARIO');
                         sessionStorage.IDPERFIL_USUARIO = `${JSON.parse((JSON.stringify(response)))[0].fkUsuario}`
                         sessionStorage.IDIMAGEM_PRIMEIRA = `${JSON.parse((JSON.stringify(response)))[0].fkImagem}`
                         
                         for(var i = 0; i < response.length; i++){
-                            imagens.innerHTML += `<img src="${JSON.parse((JSON.stringify(response)))[i].imagemBase64}" class="imgWork">`
+                            imagens.innerHTML += `
+                            <div class="caixaImagem">
+                            <img src="${JSON.parse((JSON.stringify(response)))[i].imagemBase64}" class="imgWork">
+                            </div>
+                            `
                         }
 
                         response.reverse();
@@ -365,6 +401,21 @@
         
     }
 
+    function tags(){
+        var post = sessionStorage.getItem('IDIMAGEM_IMAGEM')
+        var tags = document.querySelector('.tags')
+   
+        fetch(`/artwork/tags/${post}`).then(function(resposta){
+            if(resposta.ok){
+                resposta.json().then(function(response){
+                    tags.innerHTML = `
+                    <div class="tag"><p>${response[0].nome}</p></div>
+                    `
+                })
+            }
+        })
+    }
+
     function seguidor(){
         var idArtista = sessionStorage.getItem('IDUSUARIO_USUARIO')
         var userPostagem = sessionStorage.getItem('IDPERFIL_USUARIO')
@@ -394,14 +445,15 @@
         var idPostagem = sessionStorage.getItem('IDIMAGEM_IMAGEM')
         var bLike = document.querySelector('.bLike')
         
+
+        
         fetch(`/artwork/curtiu/${idArtista}`).then(function (resposta){
                 if(resposta.ok){
                     resposta.json().then(function (response) {
                         var curtido = JSON.parse((JSON.stringify(response)))
 
                         for(var i = 0; i < curtido.length; i++){
-                           if(idPostagem == curtido[i].fkPostagem){
-                                console.log('Achou!')
+                           if(idPostagem == curtido[i].fkPostagem){                                                     
                                 bLike.innerHTML = `<i class="fa-solid fa-check"></i>Curtido`
                            }
                         }
@@ -419,6 +471,7 @@
         var postagemAtual = sessionStorage.getItem('IDIMAGEM_IMAGEM')
         var imagemAtual = sessionStorage.getItem('IDIMAGEM_PRIMEIRA')
         var bLike = document.querySelector('.bLike')
+        var qLikes = Number(like.innerHTML)
 
         fetch("/artwork/curtirPostagem", {
             method: "POST",
@@ -434,16 +487,115 @@
         }).then(function (resposta) {
             if(resposta.ok){
                 console.log('Funcionou!!!')
-
+                qLikes = qLikes + 1
+                like.innerHTML = qLikes
             }
         })
 
         bLike.innerHTML = `<i class="fa-solid fa-check"></i>Curtido`
     }
 
+    function comentar(){
+        var usuarioLogado = sessionStorage.getItem('IDUSUARIO_USUARIO')
+        var fkPostagem = sessionStorage.getItem('IDIMAGEM_IMAGEM')
+        var donoPostagem = sessionStorage.getItem('IDPERFIL_USUARIO')
+        var fkImagem = sessionStorage.getItem('IDIMAGEM_PRIMEIRA')
+        var mensagem = comentarPost.value
+        var erro = document.querySelector('.erroLogin')
+
+        if(usuarioLogado == null){
+            msgSpan.innerHTML = `Erro ao comentar!<br>Você não está logado.`
+            erro.style.display = "flex"
+            loading.style.display = "block"
+            videoLogin.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loading.style.display = "none"
+            }, 8000)
+            return false
+        }else if(mensagem == ''){
+            msgSpan.innerHTML = `Erro ao comentar!<br>Você preencher o comentario.`
+            erro.style.display = "flex"
+            loading.style.display = "block"
+            videoLogin.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loading.style.display = "none"
+            }, 8000)
+            return false
+        }else{
+            fetch("/artwork/comentar", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        fkUser : usuarioLogado,
+                        fkPostagem,
+                        fkDono : donoPostagem,
+                        fkImagem,
+                        mensagem
+                    })
+                }).then(function(resposta){
+                    if(resposta.ok){
+                        atualizarComentario(fkPostagem)
+                        comentario()
+                        mensagem.value = ''
+                    }
+                })
+        }
+    }
+
+    function atualizarComentario(id){
+        var numComentario = Number(comentarioV.innerHTML)
+        fetch(`/artwork/atualizarComentario`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                id
+            })
+        }).then(function(resposta){
+            if(resposta.ok){
+                console.log('atualizou')
+                comentarioV.innerHTML = (numComentario + 1)
+            }
+        })
+    }
+
+    function comentario(){
+        var fkPostagem = sessionStorage.getItem('IDIMAGEM_IMAGEM')
+        var campoComentario = document.querySelector('.campoComentario')
+
+        fetch(`/artwork/comentario/${fkPostagem}`).then(function(resposta){
+            if(resposta.ok){
+                resposta.json().then(function(response){
+                    /* comentario2.innerHTML = response.length */
+                    campoComentario.innerHTML = ''
+                    for(var i = 0; i < response.length; i++){
+                        var atual = response[i]
+                        campoComentario.innerHTML += `
+                        <div class="comentarioUser">
+                            <img src="${atual.icone}" class="imgID">
+                            <div class="caixa">
+                                <b id="nomeComentario">${atual.nickname}</b>
+                                <p id="comentario">${atual.mensagem}</p>
+                            </div>
+                        </div>
+                        `
+                    }
+                })
+            }
+        })
+    }
+
+
     window.onload = function() {
         artwork();
         verificarLogin();
+        comentario();
+        tags();
     };
 
     setTimeout(()=>{
@@ -497,6 +649,7 @@
                         window.location = "/perfil.html";
                 })
             } else {
+                msgSpan.innerHTML = `Erro ao entrar!<br>Email ou Senha incorretas.`
                 erro.style.display = "flex"
                 loading.style.display = "block"
                 videoLogin.play()

@@ -97,15 +97,68 @@ function entrar(req, res) {
 
 }
 
+function recuperar(req, res) {
+    var email = req.body.email;
+    var codigo = req.body.codigo;
+
+    usuarioModel.recuperar(email, codigo)
+        .then(
+            function (resultado) {
+                console.log(`\nResultados encontrados: ${resultado.length}`);
+                console.log(`Resultados: ${JSON.stringify(resultado)}`);
+                res.json(resultado);
+
+/*                 if (resultado.length == 1) {
+                    console.log(resultado);
+                    res.json(resultado[0]);
+                } else if (resultado.length == 0) {
+                    res.status(403).send("Email e/ou senha inválido(s)");
+                } else {
+                    res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                } */
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao realizar o login! Erro: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        ); 
+    
+}
+
+function atualizarSenha(req, res) {
+    var senha = req.body.senha1
+    var email = req.body.email
+
+    usuarioModel.atualizarSenha(senha, email)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nHouve um erro ao cadastrar o email! Erro: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+    
+}
+
 function cadastrar(req, res) {
     var nickname = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
+    var codigo = req.body.codigo;
 
     if (nickname == undefined || email == undefined || senha == undefined) {
         console.log('Preencha os campos corretamentes')
     } else {     
-        usuarioModel.cadastrar(nickname, senha, email)
+        usuarioModel.cadastrar(nickname, senha, email, codigo)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -240,5 +293,7 @@ module.exports = {
     deletarAvaliacao,
     perfilSeguindo,
     perfilSeguidores,
-    newsletter
+    newsletter,
+    recuperar,
+    atualizarSenha
 }

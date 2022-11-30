@@ -47,4 +47,12 @@ router.post("/newsletter", function (req, res) {
     usuarioController.newsletter(req, res);
 });
 
+router.post("/recuperar", function (req, res) {
+    usuarioController.recuperar(req, res);
+});
+
+router.put("/atualizarSenha", function (req, res) {
+    usuarioController.atualizarSenha(req, res);
+});
+
 module.exports = router;  

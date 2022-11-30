@@ -122,23 +122,28 @@ button i{
 .portifolio{
     position: relative;
     flex-basis: 20%;
+    height: 41vh;
     display: flex;
+    align-items: flex-start;
+    overflow: hidden;
 }
 .artePortifolio{
     width: 100%;
+    height: 100%;
+    object-fit: cover;  
 }
 .portifolio .destaqueHover{
     transition: 0.5s ease;
     position: absolute;
     opacity: 0;
-    height: 110px;   
+    height: 17vh;
     left: 0;
-    top: 160px;
+    bottom: 0;
     width: 100%;
-   text-align: center;
+    text-align: center;
     color: white;
     border-radius: 0 0 0px 0px;
-    background-image: linear-gradient(to top, #000000, rgba(32, 32, 32, 0.034));
+    background-image: linear-gradient(to top, #000000cb, rgba(32, 32, 32, 0.034));
 
 }
 .portifolio:hover .destaqueHover{
@@ -471,6 +476,7 @@ button:hover{
     display: flex;
     align-items: center;
     flex-direction: column;
+    position: relative;
 }
 .divNick input{
     width: 250px;
@@ -537,4 +543,15 @@ button:hover{
 }
 .idDesen{
     display: none;
+}
+.mostrarCodigo{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    position: absolute;
+    top: 125px;
+    right: 10px;
+    font-size: 20px;
+    width: 30px;
 }

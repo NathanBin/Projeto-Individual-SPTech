@@ -45,7 +45,7 @@
             <div class="subHeader">
                 <div class="container" >
                     <ul >
-                        <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                         <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                         <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                         <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
@@ -55,8 +55,8 @@
                 </div>
             </div>
         </div>
-
-
+    
+    
         <div class="main logado esconder" >
             <div class="header" >
                 <a href="index.html"><div class="logo">
@@ -76,7 +76,7 @@
                 </div>
                 <div class="ulHeader">
                     <ul>
-                        <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                        <li><a href="upload.html"><button class="userOption"><i class="fa-solid fa-upload"></i></button></a></li>
                         <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                         <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                         <div class="divLi" onclick="modalLogin()">
@@ -107,7 +107,7 @@
             <div class="subHeader">
                 <div class="container" >
                     <ul >
-                        <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                        <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                         <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                         <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                         <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
@@ -117,7 +117,7 @@
                 </div>
             </div>
         </div>
-
+    
         <div id="modalL" class="modalLogin">
             <div class="lFormulario">
                 <div class="lHeader">
@@ -134,7 +134,7 @@
                 </div>
                 <button id="bEntrar" onclick="entrar()">Entrar</button>
                 <div class="lFooter">
-                    <div><b><a href="">Esqueceu a senha?</a></b></div>
+                    <div><b><a href="login.html">Esqueceu a senha?</a></b></div>
                     <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
                 </div>
             </div>
@@ -145,7 +145,7 @@
             <span id="loading"></span>
         </div>
 
-        <div class="conteudoUpload">
+        <div id="topo" class="conteudoUpload">
             <h2 id="tituloAtual">Sem Titulo</h2>
             <div class="caixaTitulo">
                 <div class="msgTitulo">
@@ -153,14 +153,14 @@
                 </div>
                 <input onkeyup="atualizarTitulo()" type="text" id="inTitulo" placeholder="Insira o titulo da postagem">
             </div>
-            <div class="upload">
+            <div id="idCapa" class="upload">
                 <label for="inCapa"><i class="fa-solid fa-file-arrow-up"></i><p>Selecione a imagem de capa</p></label>
                 <input onchange="receberCapa()" id="inCapa" type="file">
             </div>
             <div class="verificarCapa">
 
             </div>
-            <div class="upload">
+            <div id="upload" class="upload">
                 <label for="inFiles"><i class="fa-solid fa-file-arrow-up"></i><p>Selecione as imagens da postagem</p></label>
                 <input onchange="receberImagem()" id="inFiles" type="file">
             </div>
@@ -181,24 +181,38 @@
                 <p>Escolha as tags para sua postagem</p>
                 <div class="tags">
                     <div class="opcaoTag">
-                        <input type="checkbox" id="inChk">
+                        <input type="checkbox" id="inChk1">
                         <b>Digital 2D</b>
                     </div>
                     <div class="opcaoTag">
-                        <input type="checkbox" id="inChk">
+                        <input type="checkbox" id="inChk2">
                         <b>Digital 3D</b>
                     </div>
                     <div class="opcaoTag">
-                        <input type="checkbox" id="inChk">
+                        <input type="checkbox" id="inChk3">
                         <b>Tradicional</b>
                     </div>
                 </div>
             </div>
             <button onclick="publicar()" class="publicar">Publicar</button>
         </div>
+
+        <div id="divResposta" class="caixaConfirm">
+            <div class="validacao">
+                <video id="confirmacaoV" src="assets/gif/gif5.mp4"></video>
+                <p>BIN<span>STATION</span></p>
+            </div>
+        </div>
+
+        <div class="erroPostagem">
+            <p id="msgErroPostagem">Titulo incorreto!<br>Preencha corretamente.</p>
+            <video src="assets/gif/GifRed.mp4" id="vErroPostagem" width="50px"></video>
+            <span id="loadingErro"></span>
+        </div>
     </body>
 </html>
 <script>
+
     function atualizarTitulo(){
         var titulo = inTitulo.value
 
@@ -306,39 +320,122 @@
     var vetorFk = []
     var idPostagemAtual = 0
 
-    function publicar(){
+    async function publicar(){
         var titulo = inTitulo.value
         var capa = imagemCapa
         var descricao = inDescricao.value
+        var erro = document.querySelector('.erroPostagem')
+        var d2d = document.querySelector('#inChk1')
+        var d3d = document.querySelector('#inChk2')
+        var tra = document.querySelector('#inChk3')
+        var validarTag = d2d.checked || d3d.checked || tra.checked
+        var qtdTag = (d2d.checked && d3d.checked) || (d2d.checked && tra.checked) || (d3d.checked && tra.checked) || (d2d.checked && d3d.checked && tra.checked)
+        var userAtual = sessionStorage.getItem('IDUSUARIO_USUARIO')
 
-        if(titulo == '' || capa == '' || descricao == ''){
-            alert('Preencha todos os campos corretamente')
+        if(userAtual == null){
+            msgErroPostagem.innerHTML = `Você não está logado!<br>Entre e tente novamente.`
+            erro.style.display = "flex"
+            loadingErro.style.display = "block"
+            vErroPostagem.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loadingErro.style.display = "none"
+            }, 8000)
+            return false
+        }else if(titulo == ''){
+            msgErroPostagem.innerHTML = `Titulo incorreto!<br>Preencha corretamente.`
+            erro.style.display = "flex"
+            loadingErro.style.display = "block"
+            vErroPostagem.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loadingErro.style.display = "none"
+            }, 8000)
+            return false
+        }else if(capa == ''){
+            msgErroPostagem.innerHTML = `Nenhuma capa selecionada!<br>Escolha uma imagem.`
+            erro.style.display = "flex"
+            loadingErro.style.display = "block"
+            vErroPostagem.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loadingErro.style.display = "none"
+            }, 8000)
+            return false
+        }else if(descricao == ''){
+            msgErroPostagem.innerHTML = `Descrição incorreta!<br>Preencha corretamente.`
+            erro.style.display = "flex"
+            loadingErro.style.display = "block"
+            vErroPostagem.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loadingErro.style.display = "none"
+            }, 8000)
             return false
         }else if(imagensVetor.length == 0){
-            alert('nenhuma imagem para postar!')
+            msgErroPostagem.innerHTML = `Nenhuma imagem selecionada!<br>Escolha as imagens.`
+            erro.style.display = "flex"
+            loadingErro.style.display = "block"
+            vErroPostagem.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loadingErro.style.display = "none"
+            }, 8000)
+            return false
+        }else if(!validarTag){
+            msgErroPostagem.innerHTML = `Nenhuma tag selecionada!<br>Escolha uma tag.`
+            erro.style.display = "flex"
+            loadingErro.style.display = "block"
+            vErroPostagem.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loadingErro.style.display = "none"
+            }, 8000)
+            return false
+        }else if(qtdTag){
+            msgErroPostagem.innerHTML = `Mais de uma tag selecionada!<br>Escolha apenas uma tag.`
+            erro.style.display = "flex"
+            loadingErro.style.display = "block"
+            vErroPostagem.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loadingErro.style.display = "none"
+            }, 8000)
+            return false
+        }else{
+            var tagEscolhida = 0
+            if(d2d.checked){
+                tagEscolhida = 1
+            }else if(d3d.checked){
+                tagEscolhida = 2
+            }else{
+                tagEscolhida = 3
+            }
+
+            for(var i = 0; i < imagensVetor.length; i++){
+                await fetch("/artwork/guardarImagem", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        imagemAtual : imagensVetor[i]
+                    })
+                }).then(function(resposta){
+                    if(resposta.ok){
+                        resposta.json().then(function (response){
+                            vetorFk.push(response[0].idImagem)
+                        })
+                    }
+                })
+            }
+            postar(tagEscolhida)
+
             return false
         }
 
-        for(var i = 0; i < imagensVetor.length; i++){
-            fetch("/artwork/guardarImagem", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    imagemAtual : imagensVetor[i]
-                })
-            }).then(function(resposta){
-                if(resposta.ok){
-                    resposta.json().then(function (response){
-                        vetorFk.push(response[0].idImagem)
-                    })
-                }
-            })
-        }
-        setTimeout(()=>postar(), 4000)
     }
- 
+
     fetch("/artwork/ultimaPostagem").then(function(resposta2){
         if(resposta2.ok){
             resposta2.json().then(function (response2){
@@ -348,7 +445,7 @@
     })
 
 
-    function postar(){
+    async function postar(tag){
         var titulo = inTitulo.value
         var capa = imagemCapa
         var descricao = inDescricao.value
@@ -362,26 +459,57 @@
             var id = idPostagemAtual + 1
 
             for(var i = 0; i < vetorFk.length; i++){
-                fetch('/artwork/postar', {
+                await fetch('/artwork/postar', {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json"
                     },
                     body: JSON.stringify({
-                        imagemAtual : (vetorFk[0] + i),
+                        imagemAtual : vetorFk[i],
                         titulo,
                         capa,
                         descricao,
                         usuario,
-                        id
+                        id,
+                        tag
                     })
                 }).then(function (resposta2){
                     if(resposta2.ok){
-                        console.log('Cadastrou o POST!')
+                        sessionStorage.removeItem('IDIMAGEM_IMAGEM')
+                        sessionStorage.IDIMAGEM_IMAGEM = id
+
+                       /*  divResposta.style.display = "flex"
+                        confirmacaoV.play() */
+
+                        /* setTimeout(()=>{
+                            window.location = "./artwork.html";
+                        }, 7000) */
                     }
                 })
             }
-                    
+            for(var j = 0; j < vetorFk.length; j++){
+                await fetch("/artwork/inserirTag", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        imagemAtual : (vetorFk[0] + j),
+                        usuario,
+                        id,
+                        tag
+                    })
+                }).then(function(resposta5){
+                    if(resposta5.ok){
+                        console.log('Postado!')
+                    }
+                })
+            }
+            divResposta.style.display = "flex"
+            confirmacaoV.play() 
+            setTimeout(()=>{
+                window.location = "./artwork.html";
+            }, 7000) 
         }
     }
 

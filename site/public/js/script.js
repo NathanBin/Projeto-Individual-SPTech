@@ -1,10 +1,5 @@
 // Index
-function trocarL(){
-    LogoB.src = "assets/icons/bazul.png"
-}
-function destrocar(){
-    LogoB.src = "assets/icons/lgo1branco.png"
-}
+
 
 // Cadastro
 function verify(){

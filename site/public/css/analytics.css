@@ -127,3 +127,39 @@ body{
     position: relative;
 }
 
+.lFormulario{
+    top: 350px;
+}
+.statusSite{
+    width: 80%;
+    height: 80%;
+    background-color: rgb(53, 53, 53);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.infos{
+    width: 17%;
+    height: 90%;
+    background-color: rgb(34,34,34);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+}
+.infos p{
+    font-size: 22px;
+    color: whitesmoke;
+    text-align: center;
+}
+.infos span{
+    font-size: 40px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+

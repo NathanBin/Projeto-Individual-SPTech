@@ -18,11 +18,11 @@ function entrar(email, senha) {
     return database.executar(instrucao);
 } 
  
-function cadastrar(nickname, senha, email) {
+function cadastrar(nickname, senha, email, codigo) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nickname, senha, email);
     
     var instrucao = `
-        INSERT INTO usuario (nickname, senha, email) VALUES ('${nickname}', CAST(HASHBYTES('SHA2_256', '${senha}') AS VARCHAR), '${email}');
+        INSERT INTO usuario (nickname, senha, email, recuperacao) VALUES ('${nickname}', CAST(HASHBYTES('SHA2_256', '${senha}') AS VARCHAR), '${email}', ${codigo});
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
@@ -91,6 +91,22 @@ function newsletter(email) {
     return database.executar(instrucao);
 }
 
+function recuperar(email, codigo) {
+    var instrucao = `
+    SELECT email, recuperacao FROM usuario WHERE email = '${email}' AND recuperacao = ${codigo};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
+function atualizarSenha(senha, email) {
+    var instrucao = `
+    update usuario set senha = CAST(HASHBYTES('SHA2_256', '${senha}') AS VARCHAR) where email = '${email}';
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 module.exports = {
     entrar,
     cadastrar,
@@ -101,5 +117,7 @@ module.exports = {
     deletarAvaliacao,
     perfilSeguindo,
     perfilSeguidores,
-    newsletter
+    newsletter,
+    recuperar,
+    atualizarSenha
 };

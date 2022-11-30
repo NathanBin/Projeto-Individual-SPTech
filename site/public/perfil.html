@@ -23,13 +23,13 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,12 +44,12 @@
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
@@ -63,13 +63,13 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
-                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
+                <input type="text" id="inPesquisa2" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,12 +106,12 @@
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
@@ -131,9 +131,9 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="entrar()">Entrar</button>
+            <button id="bEntrar" onclick="entrar()">Entrar</button>
             <div class="lFooter">
-                <div><b><a href="">Esqueceu a senha?</a></b></div>
+                <div><b><a href="login.html">Esqueceu a senha?</a></b></div>
                 <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
             </div>
         </div>
@@ -169,6 +169,10 @@
                 <div class="divNick">
                     <span>Mudar nickname</span>
                     <input type="text" id="inNick">
+                    <span>Código de recuperação</span>
+                    <input type="password" id="inCodigo">
+                    <button onclick="mostrarCodigo()" class="mostrarCodigo"><i class="fa-solid fa-eye"></i></button>
+                    <p style="color: white;">*Esse campo não será alterado</p>
                 </div>
                 <div class="divDesc">
                     <span>Mudar descrição de perfil</span>
@@ -262,7 +266,6 @@
         verificarLogin();
         portifolio();
         seguidor();
-        /* curtidos(); */
         perfilSeguindo();
         perfilSeguidores();
     }; 
@@ -400,6 +403,7 @@
                     mudarBanner.src = `${infoPerfil[0].backgroundImage}`
                     descAutorSobre.innerHTML = `${infoPerfil[0].descricaoAutor}`
                     emailAutor.innerHTML = `${infoPerfil[0].email}`
+                    inCodigo.value = `${infoPerfil[0].recuperacao}`
                     iconeAtual = `${infoPerfil[0].icone}`
                     fundoAtual = `${infoPerfil[0].backgroundImage}`
                     if(idArtista == idUsuarioAtual){
@@ -458,6 +462,18 @@
 
 </script>
 <script>//editar perfil
+
+    function mostrarCodigo(){
+        var botao = document.querySelector('.mostrarCodigo')
+
+        if(inCodigo.type == "password"){
+            inCodigo.type = "text"
+            botao.innerHTML = `<i class="fa-solid fa-eye-slash"></i>`
+        }else{
+            inCodigo.type = "password"
+            botao.innerHTML = `<i class="fa-solid fa-eye"></i>`
+        }
+    }
 
     function iniciarModalEditar(id){
         const modal = document.getElementById(id);

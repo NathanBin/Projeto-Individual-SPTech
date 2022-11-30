@@ -217,3 +217,81 @@ button{
 button:hover{
     opacity: 0.8;
 }
+.caixaConfirm{
+    width: 100vw;
+    height: 100vh;
+    z-index: 5000;
+    background-color: rgba(0, 0, 0, 0.568);
+    position: fixed;
+    display: none;
+}
+.validacao{
+    width: 400px;
+    height: 100px;
+    background-color: rgb(21,21,21);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: fixed;
+    top: 250px;
+    left: 483px;
+    animation: validacao 1s ease-in-out;
+    border-radius: 10px;
+    z-index: 500;
+}
+.validacao p{
+    font-size: 50px;
+    color: white;
+    margin-left: 10px;
+}
+.validacao span{
+    color: #757575;
+}
+@keyframes validacao {
+    0%{
+        transform: translate(-50px,0);
+        opacity: 0;
+    }
+    100%{
+        transform: translate(0,0);
+        opacity: 1;
+    }
+}
+.validacao video{
+    border-radius: 10px 10px 10px 10px;
+}
+
+.erroPostagem{
+    width: 300px;
+    height: 140px;
+    background-color: rgb(34,34,34);
+    border-radius: 7px;
+    position: fixed;
+    top: 250px;
+    z-index: 500;
+    left: -300px;
+    color: white;
+    font-size: 22px;
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+    animation: erroLogin 7s ease-in-out;
+}
+.erroPostagem span{
+    height: 10px;
+    width: 100%;
+    animation: loading 5s ease-in-out;
+    background-color: rgb(231, 75, 75);
+    display: none;
+}
+@keyframes loading {
+    0%{width: 0%;}
+    100%{width: 100%;}
+}
+@keyframes erroLogin {
+    0%, 100%{left: -300px;}
+    20%, 80%{left: 50px;}
+}

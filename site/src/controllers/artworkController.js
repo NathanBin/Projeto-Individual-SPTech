@@ -267,6 +267,24 @@ function deletarPostagem(req, res) {
         );
 }
 
+function deletarImagem(req, res) {
+    var idImagem = req.params.idImagem;
+
+    artworkModel.deletarImagem(idImagem)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 function deletarDesenho(req, res) {
     var idDesenho = req.params.idDesenho;
 
@@ -287,6 +305,23 @@ function deletarDesenho(req, res) {
 
 function pesquisar(req, res) {
     artworkModel.pesquisar()
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        )
+        .catch(
+            function (erro) {
+                console.log(erro);
+                console.log("Houve um erro ao deletar o post: ", erro.sqlMessage);
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function atualizarComentario(req, res) {
+    var id = req.body.id
+    artworkModel.atualizarComentario(id)
         .then(
             function (resultado) {
                 res.json(resultado);
@@ -373,6 +408,98 @@ function postar(req, res) {
         );
 }
 
+function inserirTag(req, res) {
+    var id = req.body.id
+    var usuario = req.body.usuario
+    var imagemAtual = req.body.imagemAtual
+    var tag = req.body.tag
+
+    artworkModel.inserirTag(tag, id, usuario, imagemAtual)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function comentario(req, res) {
+    var idPostagem = req.params.idPostagem
+
+    artworkModel.comentario(idPostagem)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function comentar(req, res) {
+    var user = req.body.fkUser;
+    var post = req.body.fkPostagem;
+    var dono = req.body.fkDono;
+    var imagem = req.body.fkImagem;
+    var mensagem = req.body.mensagem
+
+    artworkModel.comentar(user, post, dono, imagem, mensagem)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function imgPostagem(req, res) {
+    var idPostagem = req.params.idPost
+
+    artworkModel.imgPostagem(idPostagem)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
+function tags(req, res) {
+    var idPostagem = req.params.idPost
+
+    artworkModel.tags(idPostagem)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log("\nHouve um erro ao puxar as informações! Erro: ", erro.sqlMessage);
+                    res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     postagem,
     perfil,
@@ -392,5 +519,12 @@ module.exports = {
     filtro,
     imagem,
     ultimaPostagem,
-    postar
+    postar,
+    comentario,
+    comentar,
+    inserirTag,
+    imgPostagem,
+    deletarImagem,
+    tags,
+    atualizarComentario
 }

@@ -10,6 +10,7 @@
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="css/hover.css">
     <link rel="shortcut icon" href="assets/icons/lgo3.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/d8b9cb0dbc.js" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -20,13 +21,13 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
@@ -41,12 +42,12 @@
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
@@ -60,34 +61,34 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
-                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
+                <input type="text" id="inPesquisa2" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
             <div class="ulHeader">
                 <ul>
-                    <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                    <li><a href="upload.html"><button class="userOption"><i class="fa-solid fa-upload"></i></button></a></li>
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
-                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li><img src="" class="userButton" id="iconeUser"></li>
                         <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
                     </div>
                 </ul>
             </div>
             <div class="userModal">
                 <div class="modalHeader">
-                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <img onclick="perfilUsuario()" src="" class="userButton" id="iconeUser2">
                     <div class="userInfo">
-                        <p id="userName">Nathan Rodrigo</p>
+                        <p id="userName"></p>
                         <div class="userPerfil">
-                            <button class="userProfile">Ver Perfil</button>
+                            <button onclick="perfilUsuario()" class="userProfile">Ver Perfil</button>
                             <button class="userProfile">Editar Perfil</button>
                         </div>
                     </div>
@@ -97,25 +98,25 @@
                 <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
                 <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
                 <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
-                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                <button onclick="deslogar()" class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href="sobre.html"><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
     <div class="erroLogin">
-        <p>Erro ao entrar!<br>Email ou Senha incorretas.</p>
+        <p id="msgErroL">Erro ao entrar!<br>Email ou Senha incorretas.</p>
         <video src="assets/gif/GifRed.mp4" id="videoLogin" width="50px"></video>
         <span id="loading"></span>
     </div>
@@ -141,15 +142,55 @@
             </div>
             <button onclick="entrar()">Entrar</button>
             <div class="footer">
-                <div><b><a href="">Esqueceu a senha?</a></b></div>
-                <div><b><a href="">Cadastre-se</a></b></div>
+                <div><b><a class="trocarSenha">Esqueceu a senha?</a></b></div>
+                <div><b><a href="./cadastro.html">Cadastre-se</a></b></div>
             </div>
+        </div>
+    </div>
+
+    <div id="recuperarSenha" class="recuperarSenha">
+        <div class="caixaRecuperar">
+            <h3>Recuperar Senha</h3>
+            <span></span>
+            <p>Insira o seu Email</p>
+            <input type="text" id="inEmailR">
+            <p>Insira o seu código de recuperação</p>
+            <input type="text" id="inCodigoR">
+            <p>Insira sua nova senha</p>
+            <input type="password" id="inSenha1">
+            <p>Confirme sua senha</p>
+            <input type="password" id="inSenha2">
+            <button onclick="recuperar()">Atualizar Senha</button>
+        </div>
+    </div>
+
+    <div class="erro">
+        <div id="confirmado" class="trocouSenha vazio">
+            <span id="mensagemSenha">Senha alterada com sucesso!</span>
+            <video id="videoErro3" src="assets/gif/gif2.mp4"></video>
+            <span id="loading2"></span>
         </div>
     </div>
 
 </body>
 </html>
 <script>//Função de logar e deslogar
+
+    function esqueceuSenha(id){
+        const modal = document.getElementById(id);
+        modal.classList.add('mostrar');
+        modal.addEventListener('click', (e) => {
+            if(e.target.id == id){
+                modal.classList.remove('mostrar')
+            }
+        })       
+    }
+
+    const trocarSenha = document.querySelector('.trocarSenha')
+    trocarSenha.addEventListener('click', function() {
+        esqueceuSenha('recuperarSenha')
+    })
+
     function entrar() {
         var erro = document.querySelector('.erroLogin')
 
@@ -157,8 +198,14 @@
         var senhaVar = inSenha.value;
 
         if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+
+            erro.style.display = "flex"
+            loading.style.display = "block"
+            videoLogin.play()
+            setTimeout(() => {
+                erro.style.display = "none"
+                loading.style.display = "none"
+            }, 8000)            
             return false;
         }
 
@@ -187,9 +234,10 @@
                     sessionStorage.ICONE_USUARIO = json.icone;
                     sessionStorage.IDPERFIL_USUARIO = json.idUsuario;
 
-                        window.location = "/perfil.html";
+                    window.location = "/perfil.html";
                 })
             } else {
+                msgErroL.innerHTML = `Erro ao entrar!<br>Email ou Senha incorretas.`
                 erro.style.display = "flex"
                 loading.style.display = "block"
                 videoLogin.play()
@@ -210,6 +258,113 @@
         })
 
         return false;
+    }
+
+    async function recuperar(){
+        var email = inEmailR.value
+        var codigo = Number(inCodigoR.value)
+        var senha1 = inSenha1.value
+        var senha2 = inSenha2.value
+        var erro = document.querySelector('.erroLogin')
+        var confirm = document.querySelector('.erro')
+
+        if(email == '' || codigo == '' || senha1 == '' || (senha1 != senha2)){
+            if(email == ''){
+                msgErroL.innerHTML = `Você precisa preencher o email!`
+                erro.style.display = "flex"
+                loading.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading.style.display = "none"
+                }, 8000)
+            }else if(codigo == ''){
+                msgErroL.innerHTML = `Você precisa preencher o codigo de recuperação`
+                erro.style.display = "flex"
+                loading.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading.style.display = "none"
+                }, 8000)
+            }else if(senha1 == ''){
+                msgErroL.innerHTML = `Você precisa preencher a nova senha!`
+                erro.style.display = "flex"
+                loading.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading.style.display = "none"
+                }, 8000)
+            }else if(senha2 !== senha1){
+                msgErroL.innerHTML = `As duas senhas devem ser iguais!`
+                erro.style.display = "flex"
+                loading.style.display = "block"
+                videoLogin.play()
+                setTimeout(() => {
+                    erro.style.display = "none"
+                    loading.style.display = "none"
+                }, 8000)
+            }
+            return false
+        }else{
+            await fetch("/usuarios/recuperar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    codigo
+                })
+            }).then(function(resposta){
+                if(resposta.ok){
+                    resposta.json().then(function(response){
+                        var atual = response[0]
+                    })
+                }else{
+                    msgErroL.innerHTML = `Email ou código de recuperação incorretos!`
+                    erro.style.display = "flex"
+                    loading.style.display = "block"
+                    videoLogin.play()
+                    setTimeout(() => {
+                        erro.style.display = "none"
+                        loading.style.display = "none"
+                    }, 8000)
+                    return false
+                }
+            })
+            await fetch(`/usuarios/atualizarSenha`, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    senha1,
+                    email
+                })
+            }).then(function(resposta2){
+                    if(resposta2.ok){
+                        confirm.style.display = "flex"
+                        confirmado.style.display = "flex"
+                        videoErro3.play()
+
+                        setTimeout(() => {
+                            window.location = "./login.html"
+                        }, 5000)
+                    }else{
+                        msgErroL.innerHTML = `Não foi possível alterar a senha!`
+                        erro.style.display = "flex"
+                        loading.style.display = "block"
+                        videoLogin.play()
+                        setTimeout(() => {
+                            erro.style.display = "none"
+                            loading.style.display = "none"
+                        }, 8000)
+                        return false
+                    }
+                })
+        }
     }
 
     function deslogar(){

@@ -43,6 +43,10 @@ router.delete("/deletarDesenho/:idDesenho", function (req, res) {
     artworkController.deletarDesenho(req, res);
 });
 
+router.delete("/deletarImagem/:idImagem", function (req, res) {
+    artworkController.deletarImagem(req, res);
+});
+
 router.get("/seguindo/:idArtista", function (req, res) {
     artworkController.users(req, res);
 })
@@ -81,6 +85,30 @@ router.get("/ultimaPostagem", function (req, res) {
 
 router.post("/postar", function (req, res) {
     artworkController.postar(req, res);
+})
+
+router.post("/inserirTag", function (req, res) {
+    artworkController.inserirTag(req, res);
+})
+
+router.get("/comentario/:idPostagem", function (req, res) {
+    artworkController.comentario(req, res);
+})
+
+router.post("/comentar", function (req, res) {
+    artworkController.comentar(req, res);
+})
+
+router.get("/imgPostagem/:idPost", function (req, res) {
+    artworkController.imgPostagem(req, res);
+})
+
+router.get("/tags/:idPost", function (req, res) {
+    artworkController.tags(req, res);
+})
+
+router.put("/atualizarComentario", function (req, res) {
+    artworkController.atualizarComentario(req, res);
 })
 
 module.exports = router; 

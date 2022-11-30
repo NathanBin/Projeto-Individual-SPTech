@@ -35,7 +35,7 @@ function perfil(idArtista) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function perfil():", idArtista);
 
     var instrucao = `
-    select distinct idPostagem, backgroundImage, icone, nickname, descricaoAutor, email, capa, titulo 'tituloPost' from usuario left join postagem on idUsuario = fkUsuario where idUsuario = ${idArtista};
+    select distinct idPostagem, backgroundImage, icone, nickname, descricaoAutor, email, capa, titulo 'tituloPost', recuperacao from usuario left join postagem on idUsuario = fkUsuario where idUsuario = ${idArtista};
     `;
 
 console.log("Executando a instrução SQL: \n" + instrucao);
@@ -121,11 +121,23 @@ return database.executar(instrucao);
 function deletarPostagem(idPostagem) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarPostagem():", idPostagem);
     var instrucao = `
+        DELETE FROM postagemCurtida WHERE fkPostagem = ${idPostagem};
+        DELETE FROM comentario WHERE fkPostagem = ${idPostagem};
+        DELETE FROM postagem_tag WHERE fkPostagem = ${idPostagem};
         DELETE FROM postagem WHERE idPostagem = ${idPostagem};
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);
 }
+
+function deletarImagem(idImagem) {
+    var instrucao = `
+        DELETE FROM imagem WHERE idImagem = ${idImagem};
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function deletarDesenho(idDesenho) {
     console.log("ACESSEI O AVISO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function deletarDesenho():", idDesenho);
     var instrucao = `
@@ -231,6 +243,62 @@ console.log("Executando a instrução SQL: \n" + instrucao);
 return database.executar(instrucao);
 }
 
+function inserirTag(tag, id, usuario, imagemAtual) { 
+    var instrucao = `
+    insert into postagem_tag (fkTag, fkPostagem, fkUsuario, fkImagem) values
+    (${tag}, ${id}, ${usuario}, ${imagemAtual});
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function comentario(idPostagem) { 
+    var instrucao = `
+    select nickname, icone, idUsuario, mensagem from usuario join comentario on idUsuario = fkUsuario_comentario where fkPostagem = ${idPostagem};
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function comentar(user, post, dono, imagem, mensagem) { 
+    var instrucao = `
+    insert into comentario values
+    (${user}, ${post}, ${dono}, ${imagem}, '${mensagem}');
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function imgPostagem(idPostagem) { 
+    var instrucao = `
+    select fkImagem from postagem where idPostagem = ${idPostagem};
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function tags(idPostagem) { 
+    var instrucao = `
+    select nome from tag join postagem_tag on idTag = fkTag where fkPostagem = ${idPostagem};
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
+function atualizarComentario(idPostagem) { 
+    var instrucao = `
+    update postagem set comentarios = (comentarios + 1) where idPostagem = ${idPostagem};
+    `;
+
+console.log("Executando a instrução SQL: \n" + instrucao);
+return database.executar(instrucao);
+}
+
 module.exports = {
     postagem,
     perfil,
@@ -250,6 +318,13 @@ module.exports = {
     filtro,
     imagem,
     ultimaPostagem,
-    postar
+    postar,
+    inserirTag,
+    comentario,
+    comentar,
+    imgPostagem,
+    deletarImagem,
+    tags,
+    atualizarComentario
 }
 

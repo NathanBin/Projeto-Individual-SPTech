@@ -273,7 +273,7 @@ ul a{
 }
 .container ul {
     display: flex;
-    padding-top: 6px;
+    padding-top: 8px;
     justify-content: space-around;
     list-style: none;
     align-items: center;

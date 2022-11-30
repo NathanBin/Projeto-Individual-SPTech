@@ -23,13 +23,13 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
                 <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,12 +44,12 @@
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
@@ -63,34 +63,34 @@
                 <h1><B class="tBin">BIN</B><B class="tStation">STATION</B></h1>
             </div></a>
             <div class="pesquisa">
-                <img src="assets/lupaCinza.png" width="25px">
-                <input type="text" id="inPesquisa" class="pesquisa" placeholder="Pesquisa">
+                <button class="lupaPesquisar" onclick="irPesquisar()"><img src="assets/lupaCinza.png" width="25px"></button>
+                <input type="text" id="inPesquisa2" class="pesquisa" placeholder="Pesquisa">
                 <div class="barraPesquisa">
                     <ul>
-                        <li><a href="#">Pesquise por Artes</a></li>
-                        <li><a href="#">Pesquise por Artistas</a></li>
-                        <li><a href="#">Pesquise por Estúdios</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artes</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Artistas</a></li>
+                        <li><a href="pesquisar.html">Pesquise por Estúdios</a></li>
                     </ul>
                 </div>
             </div>
             <div class="ulHeader">
                 <ul>
-                    <li><button class="userOption"><i class="fa-solid fa-upload"></i></button></li>
+                    <li><a href="upload.html"><button class="userOption"><i class="fa-solid fa-upload"></i></button></a></li>
                     <li><button class="userOption"><i class="fa-solid fa-bell"></i></button></li>
                     <li><button class="userOption"><i class="fa-solid fa-paper-plane"></i></button></li>
                     <div class="divLi" onclick="modalLogin()">
-                        <li><button class="userButton"><i class="fa-solid fa-user"></i></button></li>
+                        <li><img src="" class="userButton" id="iconeUser"></li>
                         <li class="userSeta"><i class="fa-solid fa-angle-down"></i></li>
                     </div>
                 </ul>
             </div>
             <div class="userModal">
                 <div class="modalHeader">
-                    <button class="userButton"><i class="fa-solid fa-user"></i></button>
+                    <img onclick="perfilUsuario()" src="" class="userButton" id="iconeUser2">
                     <div class="userInfo">
-                        <p id="userName">Nathan Rodrigo</p>
+                        <p id="userName"></p>
                         <div class="userPerfil">
-                            <button class="userProfile">Ver Perfil</button>
+                            <button onclick="perfilUsuario()" class="userProfile">Ver Perfil</button>
                             <button class="userProfile">Editar Perfil</button>
                         </div>
                     </div>
@@ -100,18 +100,18 @@
                 <button class="userModalOption"><i class="fa-solid fa-heart"></i>Meus Likes</button>
                 <button class="userModalOption"><i class="fa-solid fa-scroll"></i>Histórico</button>
                 <button class="userModalOption"><i class="fa-solid fa-gear"></i>Opções</button>
-                <button class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
+                <button onclick="deslogar()" class="userModalOption"><i class="fa-solid fa-right-from-bracket"></i>Sair</button>
             </div>
         </div>
         <div class="subHeader">
             <div class="container" >
                 <ul >
-                    <li onmouseenter="trocarL()" onmouseleave="destrocar()"><a href=""><img src="assets/icons/lgo1branco.png" id="LogoB" class="imgIconSub imgLogoB" onmouseover="trocarL()" width="30px">Sobre nós</a></li>
+                    <li><a href="sobre.html"><i class="fa-solid fa-address-card"></i>Sobre mim</a></li>
                     <li><a href="canvas.html"><i class="fa-solid fa-palette"></i>Desenhe</a> </li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-paintbrush"></i>Artes</a></li>
                     <li><a href="pesquisar.html"><i class="fa-solid fa-graduation-cap"></i>Artistas</a></li>
                     <li><a href="avaliacao.html"><i class="fa-solid fa-clipboard"></i>Avaliar Site</a></li>
-                    <li><a href="#"><i class="fa-solid fa-chart-simple"></i>DashBoard</a></li>
+                    <li><a href="analytics.html"><i class="fa-solid fa-chart-simple"></i>Analytics</a></li>
                 </ul>
             </div>
         </div>
@@ -131,10 +131,10 @@
                 <label for="inSenha">Sua senha</label>
                 <input type="password" id="inSenha" placeholder="********">
             </div>
-            <button onclick="">Entrar</button>
+            <button id="bEntrar" onclick="entrar()">Entrar</button>
             <div class="lFooter">
-                <div><b><a href="">Esqueceu a senha?</a></b></div>
-                <div><b><a href="">Cadastre-se</a></b></div>
+                <div><b><a href="login.html">Esqueceu a senha?</a></b></div>
+                <div><b><a href="cadastro.html">Cadastre-se</a></b></div>
             </div>
         </div>
     </div>
@@ -190,7 +190,7 @@
 
 </body>
 </html>
-<script>
+<script>//Funções Pesquisar
     function naoDisponivel(){
         var msgErro = document.querySelector('.naoDisponivel')
 
@@ -278,8 +278,11 @@
         })
     }
 
-    pegarNomes()
-    pegarDesenhos()
+    window.onload = function(){
+        pegarNomes();
+        pegarDesenhos();
+        verificarLogin();
+    }
 
     function pesquisarTitulo(){
         var nome = abaPesquisa.value.toLowerCase()
@@ -487,6 +490,20 @@
 
 </script>
 <script>//Função de logar e deslogar
+
+    function iniciarModal(id){
+        if(sessionStorage.fecharModal !== id){
+            const modal = document.getElementById(id);
+            modal.classList.add('mostrar');
+            modal.addEventListener('click', (e) => {
+                if(e.target.id == id){
+                    modal.classList.remove('mostrar')
+                    sessionStorage.fecharModal = id
+                }
+            })
+        }
+    }
+
     function entrar() {
         var erro = document.querySelector('.erroLogin')
 
@@ -559,3 +576,4 @@
         window.location = "/index.html";
     }
 </script>
+<script src="js/funcoes.js"></script>

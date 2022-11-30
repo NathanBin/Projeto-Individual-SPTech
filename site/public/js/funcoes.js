@@ -41,3 +41,26 @@ function perfilUsuario(){
         var login1 = document.querySelector('.userModal')
         login1.classList.toggle('mostrarModal1')
     } 
+
+//Pesquisar
+
+function irPesquisar(){
+    var user = sessionStorage.getItem('IDUSUARIO_USUARIO')
+    var logado = user != null
+    if(logado){
+        var textoPesquisa = inPesquisa2.value
+
+        sessionStorage.removeItem('CONTEUDO_PESQUISA')
+        sessionStorage.CONTEUDO_PESQUISA = textoPesquisa
+
+        window.location = "./pesquisar.html";
+
+    }else{
+        var textoPesquisa = inPesquisa.value
+
+        sessionStorage.removeItem('CONTEUDO_PESQUISA')
+        sessionStorage.CONTEUDO_PESQUISA = textoPesquisa
+
+        window.location = "./pesquisar.html";
+    }
+}
