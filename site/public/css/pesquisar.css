@@ -175,16 +175,21 @@ li button{
 .portifolio{
     position: relative;
     flex-basis: 20%;
+    height: 41vh;
     display: flex;
+    align-items: flex-start;
+    overflow: hidden;
 }
 .artePortifolio{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 .portifolio .destaqueHover{
     transition: 0.5s ease;
     position: absolute;
     opacity: 0;
-    height: 110px;   
+    height: 130px;   
     left: 0;
     top: 160px;
     width: 100%;

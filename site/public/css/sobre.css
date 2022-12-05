@@ -1124,7 +1124,9 @@ body{
     position: relative;
     width: 700px;
     height: 350px;
-    background-color: #757575;
+    /* background-color: #757575; */
+    background-image: url(../assets/capasManga/wallpaper-pc1-scaled-1.webp);
+    background-size: cover;
     overflow: hidden;
     z-index: 10;
     opacity: 1;
@@ -1146,31 +1148,41 @@ body{
 }
 
 .pagina71{
-    z-index: 5;
+    z-index: 6;
     top: 27px;
     left: 70px;
+    background-image: url(../assets/capasManga/soloLeveling2.jpg);
+    background-size: cover;
+
 }
 .pagina72{
-    z-index: 4;
+    z-index: 3;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/soloLeveling.jpg);
+    background-size: cover;
 }
 .pagina73{
     z-index: 3;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/soloLeveling3.jpg);
+    background-size: cover;
 }
 .pagina74{
     z-index: 2;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/soloLeveling4.jpg);
+    background-size: cover;
 }
 .pagina71:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 30px;
-    z-index: 15;
+    z-index: 15 ;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .pagina71:hover .pagina72{
     width: 150px;
@@ -1178,6 +1190,7 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     z-index: 15;
 }
 .pagina71:hover .pagina73{
@@ -1186,7 +1199,8 @@ body{
     top: 0px;
     left: 320px;
     animation: pagina73 1.5s ease-in-out;
-    z-index: 15;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina71:hover .pagina74{
     width: 150px;
@@ -1194,6 +1208,7 @@ body{
     top: 0px;
     left: 480px;
     animation: pagina74 2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
     z-index: 15;
 }
 @keyframes pagina72 {
@@ -1254,27 +1269,37 @@ body{
     z-index: 5;
     top: 27px;
     left: 195px;
+    background-image: url(../assets/capasManga/omnisciente2.jpg);
+    background-size: cover;
 }
 .pagina76{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/omnisciente.jpg);
+    background-size: cover;
 }
 .pagina77{
     z-index: 3;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/omnisciente3.jpg);
+    background-size: cover;
 }
 .pagina78{
     z-index: 2;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/omnisciente4.jpg);
+    background-size: cover;
 }
 .pagina75:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 190px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina75:hover .pagina76{
     width: 150px;
@@ -1282,6 +1307,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina75:hover .pagina77{
     width: 150px;
@@ -1289,6 +1316,8 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 14;
 }
 .pagina75:hover .pagina78{
     width: 150px;
@@ -1296,6 +1325,8 @@ body{
     top: 0px;
     left: 320px;
     animation: pagina73 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 13;
 }
 @keyframes pagina76 {
     0%{
@@ -1315,27 +1346,38 @@ body{
     z-index: 5;
     top: 27px;
     left: 320px;
+    background-image: url(../assets/capasManga/tbatf2.jpg);
+    background-size: cover;
 }
 .pagina80{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tbatf3.jpg);
+    background-size: cover;
 }
 .pagina81{
     z-index: 3;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tbatf.jpg);
+    background-size: cover;
+    
 }
 .pagina82{
     z-index: 2;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tbatf4.jpg);
+    background-size: cover;
 }
 .pagina79:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina79:hover .pagina80{
     width: 150px;
@@ -1343,6 +1385,8 @@ body{
     top: 0px;
     left: -320px;
     animation: pagina80 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina79:hover .pagina81{
     width: 150px;
@@ -1350,6 +1394,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina79:hover .pagina82{
     width: 150px;
@@ -1357,6 +1403,8 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 @keyframes pagina80 {
     0%{
@@ -1380,27 +1428,39 @@ body{
     z-index: 5;
     top: 27px;
     left: 448px;
+    background-image: url(../assets/capasManga/nanoMachine2.jpg);
+    background-size: cover;
 }
 .pagina84{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/nanoMachine.jpg);
+    background-size: cover;
 }
 .pagina85{
     z-index: 3;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/nanoMachine3.jpg);
+    background-size: cover;
+    
 }
 .pagina86{
     z-index: 2;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/nanoMachine4.jpg);
+    background-size: cover;
+    
 }
 .pagina83:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina83:hover .pagina84{
     width: 150px;
@@ -1408,6 +1468,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina83:hover .pagina85{
     width: 150px;
@@ -1415,6 +1477,8 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina83:hover .pagina86{
     width: 150px;
@@ -1422,33 +1486,42 @@ body{
     top: 0px;
     left: -320px;
     animation: pagina80 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 
 .pagina87{
     z-index: 5;
     top: 27px;
     left: 574px;
+    
 }
 .pagina88{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/soloNecromancer.png);
+    background-size: cover;
 }
 .pagina89{
     z-index: 3;
     top: 0;
     left: 0;
+    
 }
 .pagina90{
     z-index: 2;
     top: 0;
     left: 0;
+    
 }
 .pagina87:hover{
     width: 150px;
     height: 200px;
     top: 20px;
     left: 510px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina87:hover .pagina88{
     width: 150px;
@@ -1456,6 +1529,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina87:hover .pagina89{
     width: 150px;
@@ -1463,6 +1538,8 @@ body{
     top: 0px;
     left: -320px;
     animation: pagina80 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina87:hover .pagina90{
     width: 150px;
@@ -1470,6 +1547,8 @@ body{
     top: 0px;
     left: -480px;
     animation: pagina90 2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 
 @keyframes pagina90 {
@@ -1498,11 +1577,14 @@ body{
     z-index: 5;
     top: 181px;
     left: 70px;
+    
 }
 .pagina92{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tgmr.jpg);
+    background-size: cover;
 }
 .pagina93{
     z-index: 3;
@@ -1519,6 +1601,8 @@ body{
     height: 200px;
     top: 100px;
     left: 30px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina91:hover .pagina92{
     width: 150px;
@@ -1526,6 +1610,8 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina91:hover .pagina93{
     width: 150px;
@@ -1533,6 +1619,8 @@ body{
     top: 0px;
     left: 320px;
     animation: pagina73 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina91:hover .pagina94{
     width: 150px;
@@ -1540,6 +1628,8 @@ body{
     top: 0px;
     left: 480px;
     animation: pagina74 2s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina95{
     z-index: 5;
@@ -1550,6 +1640,8 @@ body{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/deadbeat.jpg);
+    background-size: cover;
 }
 .pagina97{
     z-index: 3;
@@ -1566,6 +1658,8 @@ body{
     height: 200px;
     top: 100px;
     left: 190px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina95:hover .pagina96{
     width: 150px;
@@ -1573,6 +1667,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina95:hover .pagina97{
     width: 150px;
@@ -1580,6 +1676,8 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina95:hover .pagina98{
     width: 150px;
@@ -1587,26 +1685,37 @@ body{
     top: 0px;
     left: 320px;
     animation: pagina73 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina99{
     z-index: 5;
     top: 181px;
     left: 320px;
+    background-image: url(../assets/capasManga/tptclu4.jpg);
+    background-size: cover;
 }
 .pagina100{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tptclu.jpg);
+    background-size: cover;
 }
 .pagina101{
     z-index: 3;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tptclu3.jpg);
+    background-size: cover;
+    
 }
 .pagina102{
     z-index: 2;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tptclu2.jpg);
+    background-size: cover;
 }
 
 .pagina99:hover{
@@ -1614,6 +1723,8 @@ body{
     height: 200px;
     top: 100px;
     left: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina99:hover .pagina100{
     width: 150px;
@@ -1621,6 +1732,8 @@ body{
     top: 0px;
     left: -320px;
     animation: pagina80 1.5s ease-in-out;
+    z-index: 16;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 .pagina99:hover .pagina101{
     width: 150px;
@@ -1628,6 +1741,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina99:hover .pagina102{
     width: 150px;
@@ -1635,32 +1750,41 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina103{
     z-index: 5;
     top: 181px;
     left: 447px;
+   
 }
 .pagina104{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/twate.jpg);
+    background-size: cover;
 }
 .pagina105{
     z-index: 3;
     top: 0;
     left: 0;
+   
 }
 .pagina106{
     z-index: 2;
     top: 0;
     left: 0;
+    
 }
 .pagina103:hover{
     width: 150px;
     height: 200px;
     top: 100px;
     left: 350px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina103:hover .pagina104{
     width: 150px;
@@ -1668,6 +1792,8 @@ body{
     top: 0px;
     left: -320px;
     animation: pagina80 1.5s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina103:hover .pagina105{
     width: 150px;
@@ -1675,6 +1801,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina103:hover .pagina106{
     width: 150px;
@@ -1682,6 +1810,8 @@ body{
     top: 0px;
     left: 160px;
     animation: pagina72 1s ease-in-out;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina107{
     z-index: 5;
@@ -1692,23 +1822,28 @@ body{
     z-index: 4;
     top: 0;
     left: 0;
+    background-image: url(../assets/capasManga/tsctir.jpg);
+    background-size: cover;
 }
 .pagina109{
     z-index: 3;
     top: 0;
     left: 0;
+    
 }
 .pagina110{
     z-index: 2;
     top: 0;
     left: 0;
+    
 }
 .pagina107:hover{
     width: 150px;
     height: 200px;
     top: 100px;
     left: 510px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina107:hover .pagina108{
     width: 150px;
@@ -1716,7 +1851,8 @@ body{
     top: 0px;
     left: -160px;
     animation: pagina76 1s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 16;
 }
 .pagina107:hover .pagina109{
     width: 150px;
@@ -1724,7 +1860,8 @@ body{
     top: 0px;
     left: -320px;
     animation: pagina80 1.5s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .pagina107:hover .pagina110{
     width: 150px;
@@ -1732,7 +1869,8 @@ body{
     top: 0px;
     left: -480px;
     animation: pagina90 2s ease-in-out;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    z-index: 15;
 }
 .menu{
     position: absolute;
@@ -1772,7 +1910,6 @@ body{
 
 .movimento img{
     border-radius: 50%;
-    /* margin-left: 250px; */
 }
 .movimento{
     position: absolute;
@@ -1781,7 +1918,6 @@ body{
     width: 600px;
     height: 500px;
     position: relative;
-    /* background-color: rgb(21,21,21); */
     margin-left: 100px;
 }
 .pqArte span{
@@ -1799,17 +1935,3 @@ body{
     from{opacity: 0;}
     to{opacity: 1;}
 }
-/* [data-anime]{
-    opacity: 0;
-    transition: .3s;
-}
-[data-anime="left"]{
-    transform: translate3d(-50px,0,0);
-}
-[data-anime="right"]{
-    transform: translate3d(20px,0,0);
-}
-[data-anime].show{
-    opacity: 1;
-    transform: translate3d(0,0,0);
-} */
